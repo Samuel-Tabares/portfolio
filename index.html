@@ -7,7 +7,6 @@
     <meta name="keywords" content="ingeniero de software, desarrollador, Python, Django, React, JavaScript, Bootstrap, SQL, Software">
     <title>Samuel Tabares León - Ingeniero de Software</title>
     <link rel="stylesheet" href="css/style-new.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="dark-theme">
@@ -33,6 +32,15 @@
     
     <header>
         <div class="header-container">
+            <button id="lang-toggle" class="lang-toggle-btn es-active" aria-label="Cambiar idioma">
+                <span class="active-indicator"></span>
+                <span class="lang-option es">
+                   <span class="lang-text">ES</span>
+                </span>
+                <span class="lang-option en">
+                  <span class="lang-text">EN</span>
+                </span>
+            </button>
             <a href="#hero" class="logo">Samuel Tabares León</a>
             <button id="theme-switch" class="theme-toggle-btn" aria-label="Cambiar tema">
                 <i class="fas fa-moon"></i>
@@ -43,11 +51,19 @@
 
     <main>
         <section id="hero">
-            <div class="hero-content">
-                <h1>Hola, soy Samuel Tabares León</h1>
-                <p class="subtitle">Ingeniero de Software <span id="typing-effect"></span></p>
-                <p class="hero-description">En proceso para ser desarrollador Fullstack con capacidad excepcional para <strong>aprender rápidamente</strong> nuevas tecnologías y <strong>perfeccionista</strong> orientado a resultados de calidad. <strong>Domino Python/Django, HTML5/CSS3 y JavaScript/React</strong> para desarrollo integral, combinando pensamiento crítico y autonomía para <strong>resolver problemas complejos</strong>. Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>, pues como persona que interactúa diariamente con tecnología, comprendo la frustración de usar herramientas mal diseñadas. Busco <strong>liderar</strong> soluciones que optimicen procesos empresariales mientras elevan genuinamente la <strong>calidad de vida</strong> de quienes las utilizan.</p>
-                
+            <div class="hero-header">
+                <div class="hero-titles">
+                    <h1 data-translate="greeting">Hola, soy Samuel Tabares León</h1>
+                    <p class="subtitle"><span data-translate="job-title">Ingeniero de software</span> <span id="typing-effect"></span></p>
+                </div>
+                <div class="hero-image">
+                    <img src="images/foto-perfil.png" alt="Foto de Samuel Tabares León">
+                </div>
+            </div>
+            
+            <p class="hero-description" data-translate="hero-description">Tengo capacidad excepcional para <strong>aprender rápidamente</strong> nuevas tecnologías y <strong>perfeccionista</strong> orientado a resultados de calidad. <strong>Domino Python/Django, HTML5/CSS3 y JavaScript/React</strong> para desarrollo integral, combinando pensamiento crítico y autonomía para <strong>resolver problemas complejos</strong>. Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>, pues como persona que interactúa diariamente con tecnología, comprendo la frustración de usar herramientas mal diseñadas. Busco <strong>liderar</strong> soluciones que optimicen procesos empresariales mientras elevan genuinamente la <strong>calidad de vida</strong> de quienes las utilizan.</p>
+            
+            <div class="social-container">
                 <!-- Enlaces sociales -->
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/samuel-tabares-leon-381188344/" target="_blank" class="social-link" data-name="LinkedIn">
@@ -64,47 +80,44 @@
                     </a>
                 </div>
                 
-                <a href="assets/Samuel_Tabares_CV.pdf" target="_blank" class="cta-button">Descargar CV</a>
-            </div>
-            <div class="hero-image">
-                <img src="images/foto-perfil.png" alt="Foto de Samuel Tabares León">
+                <a href="assets/Samuel_Tabares_CV.pdf" target="_blank" class="cta-button" data-translate="download-cv">Descargar CV</a>
             </div>
         </section>
         
         <!--Seccion "sobre mi"-->
         <section id="about">
-            <h2>Sobre Mí</h2>
+            <h2 data-translate="about-heading">Sobre Mí</h2>
             <div class="about-container">
                 <div class="about-text">
-                    <p><strong>Domino Python/Django, HTML5/CSS3 y JavaScript/React</strong> para desarrollo integral, combinando pensamiento crítico y autonomía para <strong>resolver problemas complejos</strong>.</p>
-                    <p>Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>, pues como persona que interactúa diariamente con tecnología, comprendo la frustración de usar herramientas mal diseñadas.</p>
-                    <p>Busco <strong>liderar</strong> soluciones que optimicen procesos empresariales mientras elevan genuinamente la <strong>calidad de vida</strong> de quienes las utilizan.</p>
+                    <p data-translate="about-text-1"><strong>Domino Python/Django, HTML5/CSS3 y JavaScript/React</strong> para desarrollo integral, combinando pensamiento crítico y autonomía para <strong>resolver problemas complejos</strong>.</p>
+                    <p data-translate="about-text-2">Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>, pues como persona que interactúa diariamente con tecnología, comprendo la frustración de usar herramientas mal diseñadas.</p>
+                    <p data-translate="about-text-3">Busco <strong>liderar</strong> soluciones que optimicen procesos empresariales mientras elevan genuinamente la <strong>calidad de vida</strong> de quienes las utilizan.</p>
                 </div>
             </div>
             
             <!-- Competencias personales (soft skills)-->
             <div class="personal-skills">
-                <h3>Competencias Personales</h3>
+                <h3 data-translate="personal-skills">Competencias Personales</h3>
                 <div class="soft-skills-container">
                     <div class="soft-skill">
                         <i class="fas fa-lightbulb"></i>
-                        <span>Resolutivo</span>
+                        <span data-translate="skill-problem-solving">Resolutivo</span>
                     </div>
                     <div class="soft-skill">
                         <i class="fas fa-brain"></i>
-                        <span>Aprendizaje Rápido</span>
+                        <span data-translate="skill-fast-learning">Aprendizaje Rápido</span>
                     </div>
                     <div class="soft-skill">
                         <i class="fas fa-comments"></i>
-                        <span>Pensamiento Crítico</span>
+                        <span data-translate="skill-critical-thinking">Pensamiento Crítico</span>
                     </div>
                     <div class="soft-skill">
                         <i class="fas fa-users"></i>
-                        <span>Liderazgo</span>
+                        <span data-translate="skill-leadership">Liderazgo</span>
                     </div>
                     <div class="soft-skill">
                         <i class="fas fa-hands-helping"></i>
-                        <span>Servicial</span>
+                        <span data-translate="skill-helpful">Servicial</span>
                     </div>
                 </div>
             </div>
@@ -112,10 +125,10 @@
         
         <!--Habilidades tecnicas-->
         <section id="skills">
-            <h2>Habilidades Técnicas</h2>
+            <h2 data-translate="skills-heading">Habilidades Técnicas</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Lenguajes</h3>
+                    <h3 data-translate="languages-heading">Lenguajes</h3>
                     <ul>
                         <li><i class="fab fa-python"></i> Python</li>
                         <li><i class="fab fa-js-square"></i> JavaScript (ES6+)</li>
@@ -124,7 +137,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Frameworks/Librerías</h3>
+                    <h3 data-translate="frameworks-heading">Frameworks/Librerías</h3>
                     <ul>
                         <li><i class="fab fa-react"></i> React.js</li>
                         <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
@@ -133,7 +146,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Bases de Datos</h3>
+                    <h3 data-translate="databases-heading">Bases de Datos</h3>
                     <ul>
                         <li><i class="fa-solid fa-feather-pointed"></i> SQLite</li>
                         <li><i class="fas fa-database"></i> SQL</li>
@@ -142,7 +155,7 @@
                     </ul>
                 </div>
                 <div class="skill-category">
-                    <h3>Herramientas y Plataformas</h3>
+                    <h3 data-translate="tools-heading">Herramientas y Plataformas</h3>
                     <ul>
                         <li><i class="fab fa-git-alt"></i> Git & GitHub</li>
                         <li><i class="fas fa-code"></i> VS Code</li>
@@ -153,7 +166,7 @@
         </section>
 
         <section id="projects">
-            <h2>Proyectos y Experiencia</h2>
+            <h2 data-translate="projects-heading">Proyectos y Experiencia</h2>
             <div class="projects-grid">
                 <!-- Proyecto portfolio -->
                 <div class="project-experience-card">
@@ -162,23 +175,23 @@
                             <img src="images/proyecto-portfolio.png" alt="Vista previa del Portafolio Web" class="project-image">
                         </div>
                         <div class="project-info">
-                            <h3>Portafolio Web Profesional</h3>
-                            <p>Desarrollo de un portafolio web personal completo con diseño responsive, tema claro/oscuro y navegación intuitiva para mostrar proyectos y habilidades.</p>
-                            <p><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Flexbox, Media Queries.</p>
+                            <h3 data-translate="portfolio-title">Portafolio Web Profesional</h3>
+                            <p data-translate="portfolio-desc">Desarrollo de un portafolio web personal completo con diseño responsive, tema claro/oscuro y navegación intuitiva para mostrar proyectos y habilidades.</p>
+                            <p data-translate="portfolio-tech"><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Flexbox, Media Queries.</p>
                             <div class="project-links">
-                                <a href="#" target="_blank" class="project-link">Ver Demo <i class="fas fa-external-link-alt"></i></a>
-                                <a href="https://github.com/Samuel-Tabares/portfolio" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
+                                <a href="#" target="_blank" class="project-link" data-translate="view-demo">Ver Demo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/Samuel-Tabares/portfolio" target="_blank" class="project-link" data-translate="view-code">Ver Código <i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="experience-detail">
-                        <h3>DESARROLLO DE PORTAFOLIO WEB RESPONSIVE</h3>
+                        <h3 data-translate="portfolio-exp-title">DESARROLLO DE PORTAFOLIO WEB RESPONSIVE</h3>
                         <ul>
-                            <li><strong>Diseñé</strong> la arquitectura completa del sitio con enfoque en experiencia de usuario y accesibilidad</li>
-                            <li><strong>Implementé</strong> un sistema de tema claro/oscuro persistente con localStorage para preferencias del usuario</li>
-                            <li><strong>Desarrollé</strong> componentes HTML semánticos y estilizados mediante CSS moderno con variables personalizadas</li>
-                            <li><strong>Programé</strong> interacciones dinámicas con JavaScript puro, incluyendo efectos de typing y navegación suave</li>
-                            <li><strong>Optimicé</strong> la estructura para rendimiento y SEO con metadatos apropiados y carga eficiente de recursos</li>
+                            <li data-translate="portfolio-exp-1"><strong>Diseñé</strong> la arquitectura completa del sitio con enfoque en experiencia de usuario y accesibilidad</li>
+                            <li data-translate="portfolio-exp-2"><strong>Implementé</strong> un sistema de tema claro/oscuro persistente con localStorage para preferencias del usuario</li>
+                            <li data-translate="portfolio-exp-3"><strong>Desarrollé</strong> componentes HTML semánticos y estilizados mediante CSS moderno con variables personalizadas</li>
+                            <li data-translate="portfolio-exp-4"><strong>Programé</strong> interacciones dinámicas con JavaScript puro, incluyendo efectos de typing y navegación suave</li>
+                            <li data-translate="portfolio-exp-5"><strong>Optimicé</strong> la estructura para rendimiento y SEO con metadatos apropiados y carga eficiente de recursos</li>
                         </ul>
                     </div>
                 </div>
@@ -190,22 +203,22 @@
                             <img src="images/importacolombia-1.png" alt="Interfaz principal de Importa Colombia" class="project-image">
                         </div>
                         <div class="project-info">
-                            <h3>Importa Colombia</h3>
-                            <p>Aplicación web para mostrar y evaluar productos importados de China a Colombia, con sistema de likes/dislikes y reseñas con calificaciones de estrellas.</p>
-                            <p><strong>Tecnologías:</strong> React, Django REST Framework, Bootstrap 5, Python.</p>
+                            <h3 data-translate="importa-title">Importa Colombia</h3>
+                            <p data-translate="importa-desc">Aplicación web para mostrar y evaluar productos importados de China a Colombia, con sistema de likes/dislikes y reseñas con calificaciones de estrellas.</p>
+                            <p data-translate="importa-tech"><strong>Tecnologías:</strong> React, Django REST Framework, Bootstrap 5, Python.</p>
                             <div class="project-links">
-                                <a href="https://github.com/Samuel-Tabares/Importadora-Colombia" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
+                                <a href="https://github.com/Samuel-Tabares/Importadora-Colombia" target="_blank" class="project-link" data-translate="view-code">Ver Código <i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="experience-detail">
-                        <h3>DESARROLLO FULLSTACK IMPORTA COLOMBIA</h3>
+                        <h3 data-translate="importa-exp-title">DESARROLLO FULLSTACK IMPORTA COLOMBIA</h3>
                         <ul>
-                            <li><strong>Desarrollé</strong> un backend API REST con Django, implementando modelos para productos, reseñas y sistema de likes</li>
-                            <li><strong>Diseñé</strong> la interfaz frontend con React y Bootstrap 5, con enfoque en experiencia de usuario</li>
-                            <li><strong>Implementé</strong> autenticación básica para usuarios anónimos mediante IP para reseñas y valoraciones</li>
-                            <li><strong>Integré</strong> sistema de calificaciones con estrellas y funcionalidad para likes/dislikes</li>
-                            <li><strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados</li>
+                            <li data-translate="importa-exp-1"><strong>Desarrollé</strong> un backend API REST con Django, implementando modelos para productos, reseñas y sistema de likes</li>
+                            <li data-translate="importa-exp-2"><strong>Diseñé</strong> la interfaz frontend con React y Bootstrap 5, con enfoque en experiencia de usuario</li>
+                            <li data-translate="importa-exp-3"><strong>Implementé</strong> autenticación básica para usuarios anónimos mediante IP para reseñas y valoraciones</li>
+                            <li data-translate="importa-exp-4"><strong>Integré</strong> sistema de calificaciones con estrellas y funcionalidad para likes/dislikes</li>
+                            <li data-translate="importa-exp-5"><strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados</li>
                         </ul>
                     </div>
                 </div>
@@ -214,35 +227,35 @@
         
         <!-- seccion educacion -->
         <section id="education">
-            <h2>Educación</h2>
+            <h2 data-translate="education-heading">Educación</h2>
             <div class="education-timeline">
                 <div class="timeline-item">
                     <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
                     <div class="timeline-content">
-                        <h3>INGENIERÍA DE SOFTWARE</h3>
-                        <p class="company-name">CORPORACIÓN UNIVERSITARIA EMPRESARIAL ALEXANDER VON HUMBOLDT</p>
-                        <p class="date">Ene 2024 - Actualidad</p>
+                        <h3 data-translate="software-eng">INGENIERÍA DE SOFTWARE</h3>
+                        <p class="company-name" data-translate="university">CORPORACIÓN UNIVERSITARIA EMPRESARIAL ALEXANDER VON HUMBOLDT</p>
+                        <p class="date">Ene 2024 - <span data-translate="current">Actualidad</span></p>
                         <p class="location">Armenia, Quindío - Colombia</p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon"><i class="fas fa-language"></i></div>
                     <div class="timeline-content">
-                        <h3>B2 INGLÉS</h3>
+                        <h3 data-translate="english-b2">B2 INGLÉS</h3>
                         <p class="company-name">AMERICAN SCHOOL WAY</p>
                         <p class="date">Ene 2021 - Ago 2022</p>
                         <p class="location">Armenia, Quindío - Colombia</p>
-                        <p class="certificate"><a href="images/english-certificate.heic" target="_blank">Ver certificado →</a></p>
+                        <p class="certificate"><a href="images/english-certificate.heic" target="_blank" data-translate="view-certificate">Ver certificado →</a></p>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-icon"><i class="fas fa-school"></i></div>
                     <div class="timeline-content">
-                        <h3>BACHILLER</h3>
+                        <h3 data-translate="highschool">BACHILLER</h3>
                         <p class="company-name">COLEGIO FRANCISCANO SAN LUIS REY</p>
                         <p class="date">Ene 2016 - Dic 2023</p>
                         <p class="location">Armenia, Quindío - Colombia</p>
-                        <p class="certificate"><a href="images/bachelor-certificate.heic" target="_blank">Ver certificado →</a></p>
+                        <p class="certificate"><a href="images/bachelor-certificate.heic" target="_blank" data-translate="view-certificate">Ver certificado →</a></p>
                     </div>
                 </div>
             </div>
@@ -250,24 +263,24 @@
         
         <!--Seccion de lenguajes-->
         <section id="languages">
-            <h2>Idiomas</h2>
+            <h2 data-translate="languages-title">Idiomas</h2>
             <div class="languages-grid">
                 <div class="language-item">
                     <div class="language-icon"><i class="fa-solid fa-language"></i></div>
-                    <h3>ESPAÑOL</h3>
-                    <p>Nativo</p>
+                    <h3 data-translate="spanish">ESPAÑOL</h3>
+                    <p data-translate="native">Nativo</p>
                 </div>
                 <div class="language-item">
                     <div class="language-icon"><i class="fa-solid fa-language"></i></div>
-                    <h3>INGLÉS</h3>
-                    <p>Nivel B2 | Certificado American School Way</p>
+                    <h3 data-translate="english">INGLÉS</h3>
+                    <p data-translate="english-level">Nivel B2 | Certificado American School Way</p>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Contacto</h2>
-            <p>Estoy disponible para nuevas oportunidades y colaboraciones, mándame un correo explicándome tu situación y en el menor tiempo posible estaremos en contacto.</p>
+            <h2 data-translate="contact-heading">Contacto</h2>
+            <p data-translate="contact-description">Estoy disponible para nuevas oportunidades y colaboraciones, mándame un correo explicándome tu situación y en el menor tiempo posible estaremos en contacto.</p>
             <div class="contact-methods">
                 <a href="mailto:stabares_26@cue.edu.co" class="contact-method">
                     <i class="fas fa-envelope"></i> stabares_26@cue.edu.co
@@ -276,7 +289,7 @@
         </section>
 
         <section id="references">
-            <h2>Referencias</h2>
+            <h2 data-translate="references-heading">Referencias</h2>
             <div class="references-grid">
                 <div class="reference-item">
                     <div class="reference-icon"><i class="fas fa-user-tie"></i></div>
@@ -293,10 +306,11 @@
     </main>
 
     <footer>
-        <p>&copy; <span id="currentYear"></span> Samuel Tabares León. Todos los derechos reservados.</p>
+        <p>&copy; <span id="currentYear"></span> Samuel Tabares León. <span data-translate="copyright">Todos los derechos reservados.</span></p>
     </footer>
 
     <script src="js/triangles.js"></script>
     <script src="js/script-new.js"></script>
+    <script src="js/language-toggle.js"></script>
 </body>
 </html>

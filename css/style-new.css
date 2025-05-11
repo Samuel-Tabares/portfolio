@@ -105,11 +105,10 @@ section {
 }
 
 section:hover {
-    border-left: 3px solid var(--primary-color);
-    border-right: 3px solid var(--primary-color);
-    transform: scale(1.01);
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-left: 4px solid var(--section-bg);
+    border-right: 4px solid var(--section-bg);
+    transform: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 section:last-of-type {
@@ -384,10 +383,10 @@ header {
     background: var(--gradient-mono);
     min-height: 90vh;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Cambio de column a row */
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between; /* Distribuir espacio entre elementos */
+    text-align: left; /* Alinear texto a la izquierda */
     padding: 40px 20px;
 }
 
@@ -398,12 +397,12 @@ header {
 }
 
 #hero .hero-content {
-    max-width: 700px;
-    margin: 0 auto 2rem auto;
+    max-width: 550px; /* Reducir ancho para que quepa al lado de la imagen */
+    margin: 0; /* Quitar márgenes automáticos */
 }
 
 #hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem; /* Tamaño más pequeño */
     margin-bottom: 0.5rem;
 }
 
@@ -495,7 +494,8 @@ header {
 }
 
 #hero .hero-image {
-    margin-top: 2rem;
+    margin-top: 0; /* Quitar margen superior */
+    margin-left: 20px; /* Añadir margen a la izquierda */
 }
 
 #hero .hero-image img {
@@ -1175,6 +1175,16 @@ footer p {
         padding-top: 80px;
     }
     
+    #hero .hero-content {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    
+    #hero .hero-image {
+        margin-left: 0;
+        margin-top: 2rem;
+    }
+    
     #hero h1 {
         font-size: 2.5rem;
     }
@@ -1183,11 +1193,6 @@ footer p {
         font-size: 1.5rem;
     }
     
-    #hero .hero-image img {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto 2rem;
-    }
     
     .social-links {
         justify-content: center;
@@ -1270,3 +1275,214 @@ footer p {
         height: 30px;
     }
 }
+
+
+
+
+
+
+
+/* Estilos mejorados para la sección hero */
+#hero {
+    background: var(--gradient-mono);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column; /* Volvemos a columna para el diseño */
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* Contenedor para el encabezado y la foto */
+.hero-header {
+    display: flex;
+    width: 100%;
+    max-width: 850px;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilo para el texto del encabezado */
+.hero-titles {
+    text-align: left;
+}
+
+/* Reducir tamaño del título y centrarlo a la izquierda */
+#hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+/* Mantener la animación de typing como está */
+#hero .subtitle {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    min-height: 2.2rem;
+    text-align: left;
+}
+
+/* Centrar el texto descriptivo */
+#hero .hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--subtext-color);
+    text-align: justify;
+    max-width: 850px;
+}
+
+/* Ajustar contenedor de redes sociales y botón de CV */
+.social-container {
+    display: flex;
+    width: 100%;
+    max-width: 850px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Ajustar enlaces sociales */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0; /* Quitar margen inferior */
+}
+
+/* Responsive para dispositivos más pequeños */
+@media (max-width: 768px) {
+    .hero-header {
+        flex-direction: column;
+    }
+    
+    .hero-titles {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    #hero h1, #hero .subtitle {
+        text-align: center;
+    }
+    
+    .social-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .social-links {
+        margin-bottom: 0;
+    }
+}
+
+/* Estilos para el botón de cambio de idioma */
+.lang-toggle-btn {
+    position: absolute;
+    left: 20px;
+    background-color: rgba(52, 152, 219, 0.1);
+    border: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 30px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all var(--transition-speed) ease;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100px;
+}
+
+.lang-toggle-btn:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.lang-toggle-btn .lang-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.lang-toggle-btn .flag-icon {
+    font-size: 1.2rem;
+    margin-right: 4px;
+}
+
+.lang-toggle-btn .active-indicator {
+    position: absolute;
+    width: 44px;
+    height: 28px;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    top: 5px;
+    left: 5px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 1;
+}
+
+.lang-toggle-btn.es-active .active-indicator {
+    left: 5px;
+}
+
+.lang-toggle-btn.en-active .active-indicator {
+    left: 51px;
+}
+
+.lang-toggle-btn .lang-text {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle-btn.es-active .es .lang-text {
+    color: white;
+    font-weight: 700;
+}
+
+.lang-toggle-btn.en-active .en .lang-text {
+    color: white;
+    font-weight: 700;
+}
+
+.lang-toggle-btn .es .lang-text,
+.lang-toggle-btn .en .lang-text {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .lang-toggle-btn {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 70px;
+        width: 90px;
+        font-size: 0.8rem;
+        height: 34px;
+        z-index: 900;
+    }
+    
+    .lang-toggle-btn .active-indicator {
+        width: 38px;
+        height: 24px;
+    }
+    
+    .lang-toggle-btn.en-active .active-indicator {
+        left: 47px;
+    }
+    
+    .lang-toggle-btn:hover {
+        transform: translateX(-50%) translateY(-3px);
+    }
+}
+
