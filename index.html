@@ -4,25 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio profesional de Samuel Tabares León, Ingeniero de Software en proceso, especializado en desarrollo web Full-stack.">
-    <meta name="keywords" content="ingeniero de software, desarrollador, portafolio, Python, Django, React, JavaScript, Samuel Tabares León">
+    <meta name="keywords" content="ingeniero de software, desarrollador, Python, Django, React, JavaScript, Bootstrap, SQL, Software">
     <title>Samuel Tabares León - Ingeniero de Software</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-new.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="dark-theme">
-    <!-- Contenedor de triángulos (desactivado inicialmente) -->
+    <!-- Contenedor de triángulos -->
     <div class="triangles-container" id="triangles-container"></div>
     
+    <!-- Overlay de gradiente -->
+    <div class="gradient-overlay"></div>
+    
+    <!-- Palabras clave ocultas para ATS -->
+    <div class="keywords">
+        Desarrollo Web, Frontend, Backend, React, JavaScript, Python, Django, REST API, Fullstack, Desarrollo de Software, API Integration, HTML5, CSS3, Bootstrap, Tailwind CSS, SQL, Redux, Git, GitHub, Responsive Design, Web Applications, UX/UI
+    </div>
 
-<!-- Menú lateral flotante simplificado -->
-<nav class="side-menu">
-    <ul>
-        <li><a href="#about" data-section="Sobre Mí"><i class="fas fa-user"></i></a></li>
-        <li><a href="#projects" data-section="Proyectos"><i class="fas fa-laptop-code"></i></a></li>
-        <li><a href="#education" data-section="Educación"><i class="fas fa-graduation-cap"></i></a></li>
-    </ul>
-</nav>   
+    <!-- Menú lateral flotante simplificado -->
+    <nav class="side-menu">
+        <ul>
+            <li><a href="#about" data-section="Sobre Mí"><i class="fas fa-user"></i></a></li>
+            <li><a href="#projects" data-section="Proyectos"><i class="fas fa-laptop-code"></i></a></li>
+            <li><a href="#education" data-section="Educación"><i class="fas fa-graduation-cap"></i></a></li>
+        </ul>
+    </nav>   
+    
     <header>
         <div class="header-container">
             <a href="#hero" class="logo">Samuel Tabares León</a>
@@ -38,20 +46,20 @@
             <div class="hero-content">
                 <h1>Hola, soy Samuel Tabares León</h1>
                 <p class="subtitle">Ingeniero de Software <span id="typing-effect"></span></p>
-                <p class="hero-description">En proceso para ser desarrollador Fullstack con capacidad excepcional para <strong>aprender rápidamente</strong> nuevas tecnologías y <strong>perfeccionista</strong> orientado a resultados de calidad. Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>.</p>
+                <p class="hero-description">En proceso para ser desarrollador Fullstack con capacidad excepcional para <strong>aprender rápidamente</strong> nuevas tecnologías y <strong>perfeccionista</strong> orientado a resultados de calidad. <strong>Domino Python/Django, HTML5/CSS3 y JavaScript/React</strong> para desarrollo integral, combinando pensamiento crítico y autonomía para <strong>resolver problemas complejos</strong>. Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>, pues como persona que interactúa diariamente con tecnología, comprendo la frustración de usar herramientas mal diseñadas. Busco <strong>liderar</strong> soluciones que optimicen procesos empresariales mientras elevan genuinamente la <strong>calidad de vida</strong> de quienes las utilizan.</p>
                 
-    <!-- Enlaces sociales -->
+                <!-- Enlaces sociales -->
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/samuel-tabares-leon-381188344/" target="_blank" class="social-link" data-name= "LinkedIn">
+                    <a href="https://www.linkedin.com/in/samuel-tabares-leon-381188344/" target="_blank" class="social-link" data-name="LinkedIn">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/Samuel-Tabares" target="_blank" class="social-link" data-name= "GitHub">
+                    <a href="https://github.com/Samuel-Tabares" target="_blank" class="social-link" data-name="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://platzi.com/p/Tabaresss/" target="_blank" class="social-link" data-name= "Platzi">
+                    <a href="https://platzi.com/p/Tabaresss/" target="_blank" class="social-link" data-name="Platzi">
                         <i class="fas fa-graduation-cap"></i>
                     </a>
-                    <a href="https://orcid.org/0009-0006-7643-1335" target="_blank" class="social-link" data-name= "ORCID">
+                    <a href="https://orcid.org/0009-0006-7643-1335" target="_blank" class="social-link" data-name="ORCID">
                         <i class="fas fa-id-card"></i>
                     </a>
                 </div>
@@ -62,7 +70,8 @@
                 <img src="images/foto-perfil.png" alt="Foto de Samuel Tabares León">
             </div>
         </section>
-    <!--Seccion "sobre mi"-->
+        
+        <!--Seccion "sobre mi"-->
         <section id="about">
             <h2>Sobre Mí</h2>
             <div class="about-container">
@@ -73,7 +82,7 @@
                 </div>
             </div>
             
-        <!-- Competencias personales (soft skills)-->
+            <!-- Competencias personales (soft skills)-->
             <div class="personal-skills">
                 <h3>Competencias Personales</h3>
                 <div class="soft-skills-container">
@@ -94,17 +103,14 @@
                         <span>Liderazgo</span>
                     </div>
                     <div class="soft-skill">
-                        <i class="fas fa-tasks"></i>
-                        <span>Autonomía</span>
-                    </div>
-                    <div class="soft-skill">
                         <i class="fas fa-hands-helping"></i>
                         <span>Servicial</span>
                     </div>
                 </div>
             </div>
         </section>
-    <!--Habilidades tecnicas-->
+        
+        <!--Habilidades tecnicas-->
         <section id="skills">
             <h2>Habilidades Técnicas</h2>
             <div class="skills-grid">
@@ -149,17 +155,19 @@
         <section id="projects">
             <h2>Proyectos y Experiencia</h2>
             <div class="projects-grid">
-    <!-- Proyecto portfolio -->
+                <!-- Proyecto portfolio -->
                 <div class="project-experience-card">
                     <div class="project-card">
-                    <img src="images/proyecto-portfolio.png" alt="Vista previa del Portafolio Web">
+                        <div class="project-image-container">
+                            <img src="images/proyecto-portfolio.png" alt="Vista previa del Portafolio Web" class="project-image">
+                        </div>
                         <div class="project-info">
                             <h3>Portafolio Web Profesional</h3>
                             <p>Desarrollo de un portafolio web personal completo con diseño responsive, tema claro/oscuro y navegación intuitiva para mostrar proyectos y habilidades.</p>
                             <p><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Flexbox, Media Queries.</p>
                             <div class="project-links">
-                            <a href="#" target="_blank" class="project-link">Ver Demo <i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/Samuel-Tabares/portfolio" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
+                                <a href="#" target="_blank" class="project-link">Ver Demo <i class="fas fa-external-link-alt"></i></a>
+                                <a href="https://github.com/Samuel-Tabares/portfolio" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
                             </div>
                         </div>
                     </div>
@@ -174,7 +182,8 @@
                         </ul>
                     </div>
                 </div>
-    <!-- Proyecto Importa Colombia -->
+                
+                <!-- Proyecto Importa Colombia -->
                 <div class="project-experience-card">
                     <div class="project-card">
                         <div class="project-image-container">
@@ -202,7 +211,8 @@
                 </div>
             </div>
         </section>
-    <!-- seccion educacion -->
+        
+        <!-- seccion educacion -->
         <section id="education">
             <h2>Educación</h2>
             <div class="education-timeline">
@@ -237,7 +247,8 @@
                 </div>
             </div>
         </section>
-    <!--Seccion de lenguajes-->
+        
+        <!--Seccion de lenguajes-->
         <section id="languages">
             <h2>Idiomas</h2>
             <div class="languages-grid">
@@ -285,6 +296,7 @@
         <p>&copy; <span id="currentYear"></span> Samuel Tabares León. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="js/triangles.js"></script>
+    <script src="js/script-new.js"></script>
 </body>
 </html>

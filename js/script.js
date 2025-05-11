@@ -28,38 +28,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typingElement) type(); // Inicia el efecto solo si el elemento existe
 
     // --- Navegación Activa al Hacer Scroll ---
-    // Definición extremadamente simplificada para setActiveLink
     function setActiveLink() {
         // Obtener posición actual de scroll
         const scrollPos = window.scrollY;
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.side-menu a');
         
-        // Detectar de manera forzada qué rango de scroll corresponde a cada sección
-        // IMPORTANTE: Estos valores deben ajustarse según la altura real de tus secciones
-        if (scrollPos < 450) {
-            setActiveLinkById();
-        } else if (scrollPos < 2000) {
-            setActiveLinkById('about');
-        } else if (scrollPos < 3690) {
-            setActiveLinkById('projects');
-        } else if (scrollPos < 4560){
-            setActiveLinkById('education');
-        }else{
-            setActiveLinkById();
-        }
-    }
-    
-    // Función auxiliar para activar un enlace específico por ID
-    function setActiveLinkById(id) {
-        // Quitar la clase active de todos los enlaces
-        document.querySelectorAll('.side-menu a').forEach(link => {
-            link.classList.remove('active');
+        // Encontrar la sección actual
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                // Remover active de todos los enlaces
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Agregar active al enlace correspondiente
+                const activeLink = document.querySelector(`.side-menu a[href="#${sectionId}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
         });
-        
-        // Añadir la clase active al enlace correspondiente
-        const activeLink = document.querySelector(`.side-menu a[href="#${id}"]`);
-        if (activeLink) {
-            activeLink.classList.add('active');
-        }
     }
 
     // Aplicar smooth scroll a los enlaces del menú
@@ -93,7 +86,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
     window.addEventListener('scroll', setActiveLink);
     window.addEventListener('load', setActiveLink);
 
@@ -240,40 +232,23 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+    
+    // Ajustar imágenes de proyectos
+    function ajustarImagenesProyectos() {
+        const imagenes = document.querySelectorAll('.project-image');
+        imagenes.forEach(img => {
+            // Aseguramos que la imagen tiene los estilos adecuados
+            img.style.width = '100%';
+            img.style.height = 'auto';
+            
+            // Cuando la imagen carga, ajustamos el contenedor si es necesario
+            img.onload = function() {
+                console.log('Imagen cargada correctamente: ' + img.alt);
+            };
+        });
+    }
+    
     ajustarImagenesProyectos();
     applySmoothScroll();
     setActiveLink(); // Ejecutar una vez para inicializar
-    activateTriangles(); //ejecutar los triangulos
-});
-
-// Función para ajustar imágenes de proyectos
-function ajustarImagenesProyectos() {
-    const imagenes = document.querySelectorAll('.project-image');
-    imagenes.forEach(img => {
-        // Aseguramos que la imagen tiene los estilos adecuados
-        img.style.width = '100%';
-        img.style.height = 'auto';
-        
-        // Cuando la imagen carga, ajustamos el contenedor si es necesario
-        img.onload = function() {
-            // El contenedor ya tiene los estilos CSS necesarios para ajustarse automáticamente
-            // así que aquí solo podemos añadir lógica adicional si fuera necesario
-            console.log('Imagen cargada correctamente: ' + img.alt);
-        };
-    });
-}
-
-function activateTriangles() {
-    // Asegurarse de que el contenedor existe
-    const trianglesContainer = document.getElementById('triangles-container');
-    if (!trianglesContainer) return;
-    
-    // Hacer visible el contenedor
-    trianglesContainer.style.opacity = '1';
-    trianglesContainer.style.zIndex = '0';
-    
-    // Cargar el script de triángulos dinámicamente
-    const trianglesScript = document.createElement('script');
-    trianglesScript.src = 'js/triangles.js'; // Asegúrate de crear este archivo con el código de triángulos
-    document.body.appendChild(trianglesScript);
-}
+})

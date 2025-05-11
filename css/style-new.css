@@ -1,6 +1,6 @@
 /* --- Variables CSS - Tema Oscuro (Default) --- */
 :root {
-    /* Paleta de colores (basada en el CV original) */
+    /* Paleta de colores (basada en el CV) */
     --primary-color: #3498db;
     --secondary-color: #2ecc71;
     --dark-bg: #000000;
@@ -64,6 +64,8 @@ body {
     margin-left: 0 !important;
     padding-left: 0 !important;
     width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 h1, h2, h3 {
@@ -72,9 +74,15 @@ h1, h2, h3 {
     transition: color var(--transition-speed) ease;
 }
 
+h1 {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: -1px;
+}
+
 h2 {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
     padding-top: 2rem;
 }
@@ -88,12 +96,26 @@ section {
     position: relative;
     overflow: hidden;
     scroll-margin-top: 70px;
+    max-width: 950px;
+    margin: 0 auto 2px auto;
+    border-left: 4px solid var(--section-bg);
+    border-right: 4px solid var(--section-bg);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+section:hover {
+    border-left: 3px solid var(--primary-color);
+    border-right: 3px solid var(--primary-color);
+    transform: scale(1.01);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
 section:last-of-type {
     border-bottom: none;
 }
-/* Aseguramos que el contenido se muestre correctamente */
+
 .container,
 .header-container,
 .projects-grid,
@@ -103,7 +125,7 @@ section:last-of-type {
 .languages-grid,
 .references-grid {
     width: 100%;
-    max-width: 1200px;
+    max-width: 850px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -134,17 +156,17 @@ img {
 /* Nuevo estilo para el menú lateral flotante */
 .side-menu {
     position: fixed;
-    left: 20px; /* Más hacia la izquierda, no tan pegado al borde */
-    top: 50%; /* Centrado verticalmente */
-    transform: translateY(-50%); /* Para centrar perfectamente */
-    background-color: rgba(23, 23, 23, 0.85); /* Fondo semi-transparente */
-    backdrop-filter: blur(5px); /* Efecto de vidrio esmerilado */
-    border-radius: 50px; /* Bordes más redondeados */
-    padding: 15px 10px; /* Padding vertical y horizontal */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada */
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(23, 23, 23, 0.85);
+    backdrop-filter: blur(5px);
+    border-radius: 50px;
+    padding: 15px 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
     transition: all 0.3s ease;
-    width: auto; /* Ancho automático basado en el contenido */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    width: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 2000;
 }
 
@@ -152,14 +174,14 @@ img {
 .side-menu ul {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Más espacio entre iconos */
+    gap: 15px;
     padding: 5px;
     margin: 0;
 }
 
 /* Estilo para cada elemento del menú */
 .side-menu li {
-    width: 40px; /* Iconos más grandes */
+    width: 40px;
     height: 40px;
     border-radius: 50%;
     display: flex;
@@ -178,25 +200,25 @@ img {
     height: 100%;
     color: var(--text-color);
     border-bottom: none;
-    opacity: 0.7; /* Iconos semi-transparentes por defecto */
+    opacity: 0.7;
     transition: all 0.3s ease;
 }
 
 /* Estilo para los iconos */
 .side-menu li a i {
-    font-size: 1.2rem; /* Iconos un poco más grandes */
+    font-size: 1.2rem;
     transition: all 0.3s ease;
 }
 
 /* Estilo al pasar el mouse */
 .side-menu li:hover {
-    background-color: var(--primary-color); /* Fondo del icono al hacer hover */
-    transform: scale(1.1); /* Efecto de escala al hacer hover */
+    background-color: var(--primary-color);
+    transform: scale(1.1);
 }
 
 .side-menu li:hover a {
-    color: white; /* Color del icono al hacer hover */
-    opacity: 1; /* Opacidad completa al hacer hover */
+    color: white;
+    opacity: 1;
 }
 
 /* Mejora para resaltar el ícono activo en el menú */
@@ -216,9 +238,17 @@ img {
 
 /* Tooltips para los enlaces del menú */
 .side-menu li a::after {
+    content: attr(data-section);
+    position: absolute;
     left: 55px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
     padding: 8px 12px;
+    border-radius: var(--border-radius);
+    font-size: 0.8rem;
     font-weight: 500;
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
@@ -241,10 +271,12 @@ header {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: background-color var(--transition-speed) ease, 
                 color var(--transition-speed) ease;
+    max-width: 950px;
+    margin: 0 auto;
 }
 
 .header-container {
-    max-width: 1100px;
+    max-width: 850px;
     margin: 0 auto;
     height: 100%;
     display: flex;
@@ -255,7 +287,7 @@ header {
 }
 
 .logo {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: var(--primary-color);
     text-align: center;
@@ -267,7 +299,7 @@ header {
     color: var(--primary-color);
     opacity: 0.8;
     transform: translateY(-2px);
-    border-bottom: none; /* Evitar que aparezca el subrayado */
+    border-bottom: none;
 }
 
 /* Botón de cambio de tema */
@@ -321,6 +353,7 @@ header {
     opacity: 1;
     transform: translateY(0);
 }
+
 /* Mejora visual para modo oscuro */
 .dark-theme .side-menu {
     background-color: rgba(30, 30, 30, 0.85);
@@ -335,6 +368,7 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
+
 .light-theme .side-menu li a {
     color: var(--light-text);
 }
@@ -350,19 +384,26 @@ header {
     background: var(--gradient-mono);
     min-height: 90vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: left;
+    text-align: center;
     padding: 40px 20px;
 }
 
+.estudiante {
+    font-size: 1.2rem;
+    color: var(--subtext-color);
+    margin-bottom: 15px;
+}
+
 #hero .hero-content {
-    max-width: 600px;
-    margin-right: 2rem;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
 }
 
 #hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 0.5rem;
 }
 
@@ -377,6 +418,7 @@ header {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     color: var(--subtext-color);
+    text-align: justify;
 }
 
 /* Enlaces sociales */
@@ -384,6 +426,7 @@ header {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    justify-content: center;
 }
 
 .social-link {
@@ -451,14 +494,19 @@ header {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
+#hero .hero-image {
+    margin-top: 2rem;
+}
+
 #hero .hero-image img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     object-fit:cover;
     border: 4px solid var(--primary-color);
     box-shadow: var(--box-shadow);
     transition: all var(--transition-speed) ease;
+    margin: 0 auto;
 }
 
 #hero .hero-image img:hover {
@@ -469,14 +517,15 @@ header {
 /* --- Sección Sobre Mí --- */
 .about-container {
     display: flex;
+    flex-direction: column;
     gap: 2rem;
-    align-items: flex-start;
-    max-width: 900px;
+    align-items: center;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .about-text {
-    flex: 2;
+    width: 100%;
 }
 
 .about-text p {
@@ -492,7 +541,7 @@ header {
 
 /* Competencias personales (soft skills) */
 .personal-skills {
-    max-width: 900px;
+    max-width: 800px;
     margin: 2rem auto 0;
     padding: 1.5rem;
     background-color: var(--card-bg);
@@ -569,7 +618,7 @@ header {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
-    max-width: 1100px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
@@ -625,7 +674,7 @@ header {
 .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 3rem;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -636,9 +685,15 @@ header {
     box-shadow: var(--box-shadow);
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow: hidden;
     margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-card {
@@ -699,7 +754,7 @@ header {
     flex: 1;
     padding: 1.5rem;
     background-color: var(--card-bg);
-    border-left: 2px solid var(--primary-color);
+    border-top: 2px solid var(--primary-color);
 }
 
 .experience-detail h3 {
@@ -741,7 +796,7 @@ header {
 
 /* --- Sección Educación --- */
 .education-timeline {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     position: relative;
 }
@@ -840,7 +895,7 @@ header {
     display: flex;
     justify-content: center;
     gap: 4rem;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -920,12 +975,13 @@ header {
     font-size: 1.2rem;
 }
 
+
 /* --- Sección Referencias --- */
 .references-grid {
     display: flex;
     justify-content: center;
     gap: 3rem;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -977,8 +1033,8 @@ footer {
     padding: 15px;
     background-color: var(--dark-section-bg);
     color: var(--subtext-color);
-    margin-left: 0 !important;
-    padding-left: 0 !important;
+    margin: 0 auto;
+    max-width: 950px;
     width: 100%;
 }
 
@@ -986,7 +1042,7 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* --- Triangles Container (desactivado por defecto) --- */
+/* --- Triángulos Container --- */
 .triangles-container {
     position: fixed;
     top: 0;
@@ -994,16 +1050,51 @@ footer p {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: -1;
-    opacity: 0; /* Desactivado inicialmente */
+    z-index: 0;
+    overflow: hidden;
 }
 
 .triangle {
     position: absolute;
     opacity: 0;
-    transition: opacity 1s ease-in-out, transform 0.5s ease-out;
+    transform-origin: center;
     pointer-events: none;
+    z-index: 1;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
     will-change: transform, opacity;
+}
+
+/* Fondo en gradiente para el cuerpo */
+.gradient-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(23, 23, 23, 0.95) 0%,
+        rgba(23, 23, 23, 0) 30%,
+        rgba(23, 23, 23, 0) 70%,
+        rgba(23, 23, 23, 0.95) 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+}
+
+.light-theme .gradient-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(245, 245, 245, 0.95) 0%,
+        rgba(245, 245, 245, 0) 30%,
+        rgba(245, 245, 245, 0) 70%,
+        rgba(245, 245, 245, 0.95) 100%
+    );
+}
+
+/* Ocultar palabras clave para ATS */
+.keywords {
+    display: none;
 }
 
 /* --- Media Queries para Responsividad --- */
@@ -1030,34 +1121,34 @@ footer p {
         left: 10px;
     }
     
-    body, main, section {
-        padding-left: 0;
+    section, header, footer {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border-left: none;
+        border-right: none;
+    }
+    
+    section:hover {
+        transform: none;
+        border-left: none;
+        border-right: none;
     }
     
     .side-menu ul {
-        gap: 10px; /* Menos espacio entre iconos */
+        gap: 10px;
     }
     
     .side-menu li {
-        width: 35px; /* Iconos más pequeños en móviles */
+        width: 35px;
         height: 35px;
     }
     
     .side-menu li a i {
-        font-size: 1rem; /* Iconos más pequeños */
+        font-size: 1rem;
     }
     
-    /* Asegurarnos de que el menú no bloquee contenido importante */
-    body {
-        margin-left: 0; /* Quitamos el margen que había antes */
-        padding-left: 55px; /* Añadimos padding para dejar espacio al menú */
-    }
-    
-    footer {
-        margin-left: 0;
-        padding-left: 0;
-    }
-    header .header-container {
+    .header-container {
         justify-content: space-between;
         padding: 0 20px;
     }
@@ -1079,14 +1170,9 @@ footer p {
     }
     
     #hero {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
         padding-top: 80px;
-    }
-    
-    #hero .hero-content {
-        margin-right: 0;
-        margin-bottom: 2rem;
     }
     
     #hero h1 {
@@ -1127,14 +1213,10 @@ footer p {
         max-height: none;
     }
     
-    .experience-detail {
-        border-left: none;
-        border-top: 2px solid var(--primary-color);
-        width: 100%;
-        padding: 1.5rem;
-        opacity: 1;
-        height: auto;
-        margin-top: 0;
+    /* Ocultar triángulos en dispositivos móviles */
+    .triangles-container,
+    .gradient-overlay {
+        display: none;
     }
 }
 
@@ -1177,6 +1259,7 @@ footer p {
     .soft-skill i {
         font-size: 1.5rem;
     }
+    
     .side-menu {
         left: 5px;
         padding: 8px 4px;
@@ -1185,9 +1268,5 @@ footer p {
     .side-menu li {
         width: 30px;
         height: 30px;
-    }
-    
-    body {
-        padding-left: 40px;
     }
 }
