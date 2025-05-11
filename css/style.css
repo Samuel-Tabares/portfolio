@@ -34,14 +34,9 @@
     --gradient-mono: linear-gradient(120deg, #171717 0%, #333333 100%);
     --side-menu-width: 60px;
 }
-.dark-theme {
-    --dark-bg: rgba(0, 0, 0, 0.92); /* Ligeramente transparente para ver mejor los triángulos */
-    --dark-section-bg: rgba(23, 23, 23, 0.95);
-}
+
 /* Tema claro */
 .light-theme {
-    --light-bg: rgba(245, 245, 245, 0.92);
-    --light-section-bg: rgba(255, 255, 255, 0.95);
     --bg-color: var(--light-bg);
     --section-bg: var(--light-section-bg);
     --text-color: var(--light-text);
@@ -83,14 +78,7 @@ h2 {
     margin-bottom: 2rem;
     padding-top: 2rem;
 }
-.skill-category, 
-.project-experience-card, 
-.personal-skills,
-.timeline-content,
-.language-item,
-.reference-item {
-    border: 1px solid rgba(120, 120, 120, 0.1);
-}
+
 section {
     padding: 60px 20px;
     background-color: var(--section-bg);
@@ -99,9 +87,7 @@ section {
                 border-color var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
-    z-index: 1;
     scroll-margin-top: 70px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 section:last-of-type {
@@ -117,11 +103,10 @@ section:last-of-type {
 .languages-grid,
 .references-grid {
     width: 100%;
-    max-width: 950px; /* Reducido de 1200px para dar espacio a los triángulos */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 
 a {
     text-decoration: none;
@@ -160,7 +145,7 @@ img {
     transition: all 0.3s ease;
     width: auto; /* Ancho automático basado en el contenido */
     border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
-    z-index: 10;
+    z-index: 2000;
 }
 
 /* Estilo para los elementos de la lista */
@@ -248,7 +233,6 @@ img {
 /* --- Header --- */
 header {
     height: 70px;
-    z-index: 10;
     background-color: var(--section-bg);
     color: var(--text-color);
     position: sticky;
@@ -1009,10 +993,9 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Permite clic a través de los triángulos */
-    z-index: 0; /* Debajo del contenido */
-    opacity: 1; /* Activado por defecto */
-    perspective: 1000px; /* Efecto 3D para los triángulos */
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0; /* Desactivado inicialmente */
 }
 
 .triangle {
@@ -1022,6 +1005,7 @@ footer p {
     pointer-events: none;
     will-change: transform, opacity;
 }
+
 /* --- Media Queries para Responsividad --- */
 @media (max-width: 960px) {
     .languages-grid,
