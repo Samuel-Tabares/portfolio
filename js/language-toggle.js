@@ -163,6 +163,66 @@ function setupLanguageToggle() {
     });
 }
 
+function translateDates() {
+    // Meses en español e inglés
+    const months = {
+        'es': ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+        'en': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    };
+    
+    // Términos actuales en español e inglés
+    const currentTerms = {
+        'es': 'Actualidad',
+        'en': 'Present'
+    };
+    
+    // Obtener el idioma actual
+    const currentLang = document.documentElement.getAttribute('lang') || 'es';
+    
+    // Buscar todos los elementos con fechas (como p.date)
+    const dateElements = document.querySelectorAll('.date');
+    
+    dateElements.forEach(dateElement => {
+        let dateText = dateElement.innerText;
+        
+        // Manejar la traducción de "Actualidad" a "Present" y viceversa
+        if (currentLang === 'en' && dateText.includes(currentTerms.es)) {
+            dateText = dateText.replace(currentTerms.es, currentTerms.en);
+        } else if (currentLang === 'es' && dateText.includes(currentTerms.en)) {
+            dateText = dateText.replace(currentTerms.en, currentTerms.es);
+        }
+        
+        // Reemplazar meses en el texto
+        months.es.forEach((month, index) => {
+            if (dateText.includes(month)) {
+                if (currentLang === 'en') {
+                    dateText = dateText.replace(month, months.en[index]);
+                }
+            }
+        });
+        
+        months.en.forEach((month, index) => {
+            if (dateText.includes(month)) {
+                if (currentLang === 'es') {
+                    dateText = dateText.replace(month, months.es[index]);
+                }
+            }
+        });
+        
+        // Actualizar el texto
+        dateElement.innerText = dateText;
+    });
+    
+    // También traducir específicamente el elemento con data-translate="current"
+    const currentElements = document.querySelectorAll('[data-translate="current"]');
+    currentElements.forEach(element => {
+        if (currentLang === 'es') {
+            element.innerText = currentTerms.es;
+        } else {
+            element.innerText = currentTerms.en;
+        }
+    });
+}
 // Función para traducir el contenido de la página
 function translatePage(lang) {
     // Obtener todos los elementos con atributos de traducción
@@ -203,6 +263,8 @@ function translatePage(lang) {
             link.setAttribute('data-section', translations[key][lang]);
         }
     });
+    translateDates();
+
 }
 
 // Almacén de traducciones
@@ -289,6 +351,54 @@ const translations = {
         'en': 'Tools and Platforms'
     },
     
+'ui-ux-heading': {
+    'es': 'Diseño UI/UX',
+    'en': 'UI/UX Design'
+},
+'devops-heading': {
+    'es': 'DevOps & Infraestructura',
+    'en': 'DevOps & Infrastructure'
+},
+'responsive-design': {
+    'es': 'Diseño Responsive',
+    'en': 'Responsive Design'
+},
+'web-accessibility': {
+    'es': 'Accesibilidad Web',
+    'en': 'Web Accessibility'
+},
+'wireframing': {
+    'es': 'Wireframing',
+    'en': 'Wireframing'
+},
+'user-experience': {
+    'es': 'Experiencia de Usuario (UX)',
+    'en': 'User Experience (UX)'
+},
+'vercel-deployment': {
+    'es': 'Despliegue en Vercel',
+    'en': 'Vercel Deployment'
+},
+'basic-docker': {
+    'es': 'Docker Básico',
+    'en': 'Basic Docker'
+},
+'basic-aws': {
+    'es': 'AWS/Azure Básico',
+    'en': 'Basic AWS/Azure'
+},
+'server-management': {
+    'es': 'Gestión de Servidores',
+    'en': 'Server Management'
+},
+'api-integration': {
+    'es': 'Integración de APIs',
+    'en': 'API Integration'
+},
+'automation': {
+    'es': 'Automatización',
+    'en': 'Automation'
+},
     // Projects section
     'projects-heading': {
         'es': 'Proyectos y Experiencia',
@@ -326,31 +436,44 @@ const translations = {
         'es': 'Ver Código <i class="fab fa-github"></i>',
         'en': 'View Code <i class="fab fa-github"></i>'
     },
-    'portfolio-exp-title': {
-        'es': 'DESARROLLO DE PORTAFOLIO WEB RESPONSIVE',
-        'en': 'RESPONSIVE WEB PORTFOLIO DEVELOPMENT'
-    },
-    'portfolio-exp-1': {
-        'es': '<strong>Diseñé</strong> la arquitectura completa del sitio con enfoque en experiencia de usuario y accesibilidad',
-        'en': '<strong>Designed</strong> the complete site architecture with a focus on user experience and accessibility'
-    },
-    'portfolio-exp-2': {
-        'es': '<strong>Implementé</strong> un sistema de tema claro/oscuro persistente con localStorage para preferencias del usuario',
-        'en': '<strong>Implemented</strong> a persistent light/dark theme system with localStorage for user preferences'
-    },
-    'portfolio-exp-3': {
-        'es': '<strong>Desarrollé</strong> componentes HTML semánticos y estilizados mediante CSS moderno con variables personalizadas',
-        'en': '<strong>Developed</strong> semantic HTML components styled with modern CSS using custom variables'
-    },
-    'portfolio-exp-4': {
-        'es': '<strong>Programé</strong> interacciones dinámicas con JavaScript puro, incluyendo efectos de typing y navegación suave',
-        'en': '<strong>Programmed</strong> dynamic interactions with vanilla JavaScript, including typing effects and smooth navigation'
-    },
-    'portfolio-exp-5': {
-        'es': '<strong>Optimicé</strong> la estructura para rendimiento y SEO con metadatos apropiados y carga eficiente de recursos',
-        'en': '<strong>Optimized</strong> the structure for performance and SEO with appropriate metadata and efficient resource loading'
-    },
-    'importa-exp-title': {
+// ACTUALIZA ESTAS TRADUCCIONES EN EL OBJETO translations DE language-toggle.js
+
+'portfolio-title': {
+    'es': 'Portafolio Web Profesional Optimizado',
+    'en': 'Optimized Professional Web Portfolio'
+},
+'portfolio-desc': {
+    'es': 'Desarrollo de un portafolio web personal con diseño responsive, cambio de tema claro/oscuro, sistema de cambio de idioma y animaciones dinámicas. Implementación de arquitectura modular y optimización de código para rendimiento.',
+    'en': 'Development of a personal web portfolio with responsive design, light/dark theme switching, language change system, and dynamic animations. Implementation of modular architecture and code optimization for performance.'
+},
+'portfolio-tech': {
+    'es': '<strong>Tecnologías:</strong> HTML5, CSS3, JavaScript ES6, CSS Variables, CSS Grid, Flexbox, Manipulación del DOM, LocalStorage, CSS Transitions y Transformaciones.',
+    'en': '<strong>Technologies:</strong> HTML5, CSS3, JavaScript ES6, CSS Variables, CSS Grid, Flexbox, DOM Manipulation, LocalStorage, CSS Transitions and Transformations.'
+},
+'portfolio-exp-title': {
+    'es': 'OPTIMIZACIÓN Y DESARROLLO DE PORTAFOLIO WEB',
+    'en': 'WEB PORTFOLIO OPTIMIZATION AND DEVELOPMENT'
+},
+'portfolio-exp-1': {
+    'es': '<strong>Refactorizado</strong> el código CSS de múltiples archivos en una solución unificada y optimizada, reduciendo el tamaño en un 40%',
+    'en': '<strong>Refactored</strong> CSS code from multiple files into a unified and optimized solution, reducing size by 40%'
+},
+'portfolio-exp-2': {
+    'es': '<strong>Implementado</strong> un sistema de cambio de idioma (español/inglés) utilizando JavaScript y almacenamiento local para persistencia',
+    'en': '<strong>Implemented</strong> a language switching system (Spanish/English) using JavaScript and local storage for persistence'
+},
+'portfolio-exp-3': {
+    'es': '<strong>Optimizado</strong> el rendimiento visual mediante ajustes en los colores y contrastes para mejorar la accesibilidad en ambos temas',
+    'en': '<strong>Optimized</strong> visual performance by adjusting colors and contrasts to improve accessibility in both themes'
+},
+'portfolio-exp-4': {
+    'es': '<strong>Mejorado</strong> la experiencia de usuario con animaciones y micro-interacciones suavizadas para ambos temas',
+    'en': '<strong>Enhanced</strong> user experience with smoothed animations and micro-interactions for both themes'
+},
+'portfolio-exp-5': {
+    'es': '<strong>Aplicado</strong> técnicas de optimización para dispositivos móviles, asegurando compatibilidad cross-browser y tiempos de carga reducidos',
+    'en': '<strong>Applied</strong> mobile optimization techniques, ensuring cross-browser compatibility and reduced loading times'
+},    'importa-exp-title': {
         'es': 'DESARROLLO FULLSTACK IMPORTA COLOMBIA',
         'en': 'FULLSTACK DEVELOPMENT IMPORTA COLOMBIA'
     },
@@ -388,10 +511,10 @@ const translations = {
         'es': 'CORPORACIÓN UNIVERSITARIA EMPRESARIAL ALEXANDER VON HUMBOLDT',
         'en': 'ALEXANDER VON HUMBOLDT BUSINESS UNIVERSITY CORPORATION'
     },
-    'current': {
-        'es': 'Actualidad',
-        'en': 'Present'
-    },
+'current': {
+    'es': 'Actualidad',
+    'en': 'Present'
+},
     'english-b2': {
         'es': 'B2 INGLÉS',
         'en': 'ENGLISH B2'

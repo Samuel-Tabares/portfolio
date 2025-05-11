@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scrollPos > 480 && scrollPos < 1930) {
             // Sección Sobre Mí (primer icono)
             document.querySelector('.side-menu a[href="#about"]')?.classList.add('active');
-        } else if (scrollPos > 1930 && scrollPos < 3700) {
+        } else if (scrollPos > 1930 && scrollPos < 3300) {
             // Sección Proyectos (segundo icono)
             document.querySelector('.side-menu a[href="#projects"]')?.classList.add('active');
-        } else if (scrollPos > 3700 && scrollPos < 4600){
+        } else if (scrollPos > 3300 && scrollPos < 4200){
             // Sección Educación (tercer icono)
             document.querySelector('.side-menu a[href="#education"]')?.classList.add('active');
         }
