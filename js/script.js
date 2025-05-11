@@ -27,37 +27,75 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (typingElement) type(); // Inicia el efecto solo si el elemento existe
 
-
     // --- Navegación Activa al Hacer Scroll ---
-    const sections = document.querySelectorAll('section');
-    const sideLinks = document.querySelectorAll('.side-menu a');
-
+    // Definición extremadamente simplificada para setActiveLink
     function setActiveLink() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                current = section.getAttribute('id');
-            }
+        // Obtener posición actual de scroll
+        const scrollPos = window.scrollY;
+        
+        // Detectar de manera forzada qué rango de scroll corresponde a cada sección
+        // IMPORTANTE: Estos valores deben ajustarse según la altura real de tus secciones
+        if (scrollPos < 450) {
+            setActiveLinkById();
+        } else if (scrollPos < 2000) {
+            setActiveLinkById('about');
+        } else if (scrollPos < 3690) {
+            setActiveLinkById('projects');
+        } else if (scrollPos < 4560){
+            setActiveLinkById('education');
+        }else{
+            setActiveLinkById();
+        }
+    }
+    
+    // Función auxiliar para activar un enlace específico por ID
+    function setActiveLinkById(id) {
+        // Quitar la clase active de todos los enlaces
+        document.querySelectorAll('.side-menu a').forEach(link => {
+            link.classList.remove('active');
         });
-
-        if (current) {
-            // Quitar la clase active de todos los enlaces
-            sideLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            // Añadir la clase active al enlace correspondiente
-            const activeLink = document.querySelector(`.side-menu a[href="#${current}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
+        
+        // Añadir la clase active al enlace correspondiente
+        const activeLink = document.querySelector(`.side-menu a[href="#${id}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
         }
     }
 
+    // Aplicar smooth scroll a los enlaces del menú
+    function applySmoothScroll() {
+        const sideLinks = document.querySelectorAll('.side-menu a');
+        
+        sideLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const headerOffset = 70;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Actualizar enlaces activos después del scroll
+                    setTimeout(() => {
+                        sideLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                        history.pushState(null, null, targetId);
+                    }, 800);
+                }
+            });
+        });
+    }
+
     window.addEventListener('scroll', setActiveLink);
-    window.addEventListener('load', setActiveLink); // Inicializar al cargar la página
+    window.addEventListener('load', setActiveLink);
 
     // --- Menú Lateral para Móviles ---
     const menuToggle = document.querySelector('.menu-toggle');
@@ -90,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Cerrar el menú al hacer clic en un enlace (en móviles)
+    const sideLinks = document.querySelectorAll('.side-menu a');
     sideLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
@@ -202,15 +241,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     ajustarImagenesProyectos();
-
-
-    // --- Preparado para incorporar efectos de triángulos (desactivados por ahora) ---
-    // El código para los triángulos se incorporará cuando se reciban instrucciones específicas
+    applySmoothScroll();
+    setActiveLink(); // Ejecutar una vez para inicializar
+    activateTriangles(); //ejecutar los triangulos
 });
 
-// Función para inicializar los carruseles de imágenes
-   // Añadimos una función para asegurar que las imágenes de los proyectos se muestren correctamente
-   function ajustarImagenesProyectos() {
+// Función para ajustar imágenes de proyectos
+function ajustarImagenesProyectos() {
     const imagenes = document.querySelectorAll('.project-image');
     imagenes.forEach(img => {
         // Aseguramos que la imagen tiene los estilos adecuados
@@ -226,18 +263,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 }
 
-
-
-// Función placeholder para futuras animaciones de triángulos
 function activateTriangles() {
-    // Esta función se implementará según instrucciones posteriores
-    console.log("Función de triángulos lista para implementarse");
-    
+    // Asegurarse de que el contenedor existe
     const trianglesContainer = document.getElementById('triangles-container');
-    if (trianglesContainer) {
-        trianglesContainer.style.opacity = '1';
-        trianglesContainer.style.zIndex = '0';
-        
-        // Aquí iría la lógica para crear y animar los triángulos
-    }
+    if (!trianglesContainer) return;
+    
+    // Hacer visible el contenedor
+    trianglesContainer.style.opacity = '1';
+    trianglesContainer.style.zIndex = '0';
+    
+    // Cargar el script de triángulos dinámicamente
+    const trianglesScript = document.createElement('script');
+    trianglesScript.src = 'js/triangles.js'; // Asegúrate de crear este archivo con el código de triángulos
+    document.body.appendChild(trianglesScript);
 }

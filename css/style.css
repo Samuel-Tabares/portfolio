@@ -1,8 +1,8 @@
 /* --- Variables CSS - Tema Oscuro (Default) --- */
 :root {
     /* Paleta de colores (basada en el CV original) */
-    --primary-color: #3498db; /* Azul vibrante */
-    --secondary-color: #2ecc71; /* Verde complementario (para acentos) */
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
     --dark-bg: #000000;
     --dark-section-bg: #171717;
     --dark-text: #ffffff;
@@ -24,24 +24,24 @@
     --border-radius: 8px;
     --transition-speed: 0.3s;
     
-    /* Colores actuales (se actualizarán según el tema) */
+    /* Colores actuales */
     --bg-color: var(--dark-bg);
     --section-bg: var(--dark-section-bg);
     --text-color: var(--dark-text);
     --subtext-color: var(--dark-subtext);
     --card-bg: var(--dark-card-bg);
     --border-color: var(--dark-border);
-    
-    /* Gradiente monocromático (tema oscuro por defecto) */
     --gradient-mono: linear-gradient(120deg, #171717 0%, #333333 100%);
-    
-    /* Variables para el menú lateral */
     --side-menu-width: 60px;
-    --side-menu-expanded-width: 180px;
 }
-
+.dark-theme {
+    --dark-bg: rgba(0, 0, 0, 0.92); /* Ligeramente transparente para ver mejor los triángulos */
+    --dark-section-bg: rgba(23, 23, 23, 0.95);
+}
 /* Tema claro */
 .light-theme {
+    --light-bg: rgba(245, 245, 245, 0.92);
+    --light-section-bg: rgba(255, 255, 255, 0.95);
     --bg-color: var(--light-bg);
     --section-bg: var(--light-section-bg);
     --text-color: var(--light-text);
@@ -66,7 +66,9 @@ body {
     background-color: var(--bg-color);
     transition: background-color var(--transition-speed) ease, 
                 color var(--transition-speed) ease;
-    margin-left: var(--side-menu-width); /* Espacio para el menú lateral */
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100%;
 }
 
 h1, h2, h3 {
@@ -79,9 +81,16 @@ h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 2rem;
-    padding-top: 2rem; /* Para que el ancla no quede pegada al header */
+    padding-top: 2rem;
 }
-
+.skill-category, 
+.project-experience-card, 
+.personal-skills,
+.timeline-content,
+.language-item,
+.reference-item {
+    border: 1px solid rgba(120, 120, 120, 0.1);
+}
 section {
     padding: 60px 20px;
     background-color: var(--section-bg);
@@ -90,26 +99,29 @@ section {
                 border-color var(--transition-speed) ease;
     position: relative;
     overflow: hidden;
-    scroll-margin-top: 70px; /* Para el scroll ajustado al header */
+    z-index: 1;
+    scroll-margin-top: 70px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 section:last-of-type {
     border-bottom: none;
 }
-
-section:hover {
-    transform: scale(1.005);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transition: transform var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
+/* Aseguramos que el contenido se muestre correctamente */
+.container,
+.header-container,
+.projects-grid,
+.skills-grid,
+.about-container,
+.education-timeline,
+.languages-grid,
+.references-grid {
+    width: 100%;
+    max-width: 950px; /* Reducido de 1200px para dar espacio a los triángulos */
+    margin: 0 auto;
     padding: 0 20px;
 }
+
 
 a {
     text-decoration: none;
@@ -134,61 +146,109 @@ img {
     display: block;
 }
 
-/* --- Menú Lateral --- */
+/* Nuevo estilo para el menú lateral flotante */
 .side-menu {
     position: fixed;
-    bottom: 40%;
-    left: 10px;
-    height: auto;
-    width: auto;
-    background-color: var(--dark-section-bg);
-    z-index: 2000;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    left: 20px; /* Más hacia la izquierda, no tan pegado al borde */
+    top: 50%; /* Centrado verticalmente */
+    transform: translateY(-50%); /* Para centrar perfectamente */
+    background-color: rgba(23, 23, 23, 0.85); /* Fondo semi-transparente */
+    backdrop-filter: blur(5px); /* Efecto de vidrio esmerilado */
+    border-radius: 50px; /* Bordes más redondeados */
+    padding: 15px 10px; /* Padding vertical y horizontal */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada */
+    transition: all 0.3s ease;
+    width: auto; /* Ancho automático basado en el contenido */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde sutil */
+    z-index: 10;
 }
 
+/* Estilo para los elementos de la lista */
 .side-menu ul {
     display: flex;
     flex-direction: column;
-    padding: 8px;
-    gap: 8px;
-    align-items: center;
+    gap: 15px; /* Más espacio entre iconos */
+    padding: 5px;
+    margin: 0;
 }
 
+/* Estilo para cada elemento del menú */
 .side-menu li {
-    width: 30px;
-    height: 30px;
-    transition: all var(--transition-speed) ease;
+    width: 40px; /* Iconos más grandes */
+    height: 40px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s ease;
+    background-color: transparent;
 }
 
+/* Estilo para los enlaces dentro del menú */
 .side-menu li a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px;
-    color: var(--text-color);
-    border-bottom: none;
-    position: relative;
     width: 100%;
     height: 100%;
+    color: var(--text-color);
+    border-bottom: none;
+    opacity: 0.7; /* Iconos semi-transparentes por defecto */
+    transition: all 0.3s ease;
 }
 
+/* Estilo para los iconos */
 .side-menu li a i {
-    font-size: 1rem;
-    text-align: center;
+    font-size: 1.2rem; /* Iconos un poco más grandes */
+    transition: all 0.3s ease;
 }
 
-.side-menu li a span {
-    display: none;
+/* Estilo al pasar el mouse */
+.side-menu li:hover {
+    background-color: var(--primary-color); /* Fondo del icono al hacer hover */
+    transform: scale(1.1); /* Efecto de escala al hacer hover */
 }
+
+.side-menu li:hover a {
+    color: white; /* Color del icono al hacer hover */
+    opacity: 1; /* Opacidad completa al hacer hover */
+}
+
+/* Mejora para resaltar el ícono activo en el menú */
+.side-menu li a.active {
+    opacity: 1;
+    color: white;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.6);
+}
+
+.side-menu li a.active i {
+    transform: scale(1.1);
+    color: white;
+}
+
+/* Tooltips para los enlaces del menú */
+.side-menu li a::after {
+    left: 55px;
+    padding: 8px 12px;
+    font-weight: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.side-menu li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(5px);
+}
+
 /* --- Header --- */
 header {
     height: 70px;
+    z-index: 10;
     background-color: var(--section-bg);
     color: var(--text-color);
     position: sticky;
@@ -204,7 +264,7 @@ header {
     margin: 0 auto;
     height: 100%;
     display: flex;
-    justify-content: center; /* Centrar el nombre */
+    justify-content: center;
     align-items: center;
     position: relative;
     padding: 0 20px;
@@ -215,9 +275,18 @@ header {
     font-weight: bold;
     color: var(--primary-color);
     text-align: center;
+    text-decoration: none;
+    transition: all var(--transition-speed) ease;
 }
 
-/* Botón de cambio de tema (sol/luna) */
+.logo:hover {
+    color: var(--primary-color);
+    opacity: 0.8;
+    transform: translateY(-2px);
+    border-bottom: none; /* Evitar que aparezca el subrayado */
+}
+
+/* Botón de cambio de tema */
 .theme-toggle-btn {
     position: absolute;
     right: 20px;
@@ -233,10 +302,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color var(--transition-speed) ease,
-                color var(--transition-speed) ease,
-                transform var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -271,6 +337,29 @@ header {
     opacity: 1;
     transform: translateY(0);
 }
+/* Mejora visual para modo oscuro */
+.dark-theme .side-menu {
+    background-color: rgba(30, 30, 30, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Mejora visual para modo claro */
+.light-theme .side-menu {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+.light-theme .side-menu li a {
+    color: var(--light-text);
+}
+
+.light-theme .side-menu li a::after {
+    background-color: var(--light-card-bg);
+    color: var(--light-text);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
 
 /* --- Sección Hero --- */
 #hero {
@@ -280,25 +369,24 @@ header {
     align-items: center;
     justify-content: center;
     text-align: left;
-    padding: 40px 20px; /* Ajustar padding */
+    padding: 40px 20px;
 }
 
 #hero .hero-content {
     max-width: 600px;
-    margin-right: 2rem; /* Espacio entre texto e imagen */
+    margin-right: 2rem;
 }
 
 #hero h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    color: var(--text-color);
 }
 
 #hero .subtitle {
     font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
-    min-height: 2.2rem; /* Para evitar salto por el typing effect */
+    min-height: 2.2rem;
 }
 
 #hero .hero-description {
@@ -363,32 +451,30 @@ header {
 .cta-button {
     display: inline-block;
     background-color: var(--primary-color);
-    color: #ffffff !important; /* Asegura texto blanco en los botones */
+    color: #ffffff !important;
     padding: 12px 25px;
     border-radius: var(--border-radius);
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: background-color var(--transition-speed) ease, 
-                transform var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
     border-bottom: none !important;
 }
 
 .cta-button:hover {
-    background-color: #2980b9; /* Un tono más oscuro de azul */
+    background-color: #2980b9;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 #hero .hero-image img {
-    width: 300px; /* Tamaño de la imagen de perfil */
+    width: 300px;
     height: 300px;
-    border-radius: 50%; /* Imagen redonda */
-    object-fit: cover; /* Asegura que la imagen cubra bien el espacio */
-    border: 5px solid var(--primary-color);
+    border-radius: 50%;
+    object-fit:cover;
+    border: 4px solid var(--primary-color);
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 #hero .hero-image img:hover {
@@ -397,10 +483,6 @@ header {
 }
 
 /* --- Sección Sobre Mí --- */
-#about {
-    background: var(--section-bg);
-}
-
 .about-container {
     display: flex;
     gap: 2rem;
@@ -419,12 +501,12 @@ header {
     color: var(--subtext-color);
 }
 
-.about-text strong {
+.about-text strong, .project-info p strong {
     color: var(--text-color);
     font-weight: bold;
 }
 
-/* Competencias personales (soft skills) - Formato horizontal */
+/* Competencias personales (soft skills) */
 .personal-skills {
     max-width: 900px;
     margin: 2rem auto 0;
@@ -432,8 +514,7 @@ header {
     background-color: var(--card-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .personal-skills:hover {
@@ -475,8 +556,7 @@ header {
     width: 120px;
     padding: 1rem 0.5rem;
     border-radius: var(--border-radius);
-    transition: transform var(--transition-speed) ease,
-                background-color var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .soft-skill:hover {
@@ -488,8 +568,7 @@ header {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 0.8rem;
-    transition: transform var(--transition-speed) ease,
-                color var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .soft-skill:hover i {
@@ -502,10 +581,6 @@ header {
 }
 
 /* --- Sección Habilidades --- */
-#skills {
-    background-color: var(--section-bg);
-}
-
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -519,9 +594,7 @@ header {
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease,
-                background-color var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
     border-bottom: 3px solid transparent;
 }
 
@@ -544,8 +617,7 @@ header {
     display: flex;
     align-items: center;
     color: var(--subtext-color);
-    transition: transform var(--transition-speed) ease,
-                color var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .skill-category ul li:hover {
@@ -556,9 +628,9 @@ header {
 .skill-category ul li i {
     margin-right: 0.75rem;
     color: var(--primary-color);
-    width: 20px; /* Para alinear iconos */
+    width: 20px;
     text-align: center;
-    transition: transform var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .skill-category ul li:hover i {
@@ -566,10 +638,6 @@ header {
 }
 
 /* --- Sección Proyectos y Experiencia --- */
-#projects {
-    background-color: var(--section-bg);
-}
-
 .projects-grid {
     display: flex;
     flex-direction: column;
@@ -595,12 +663,21 @@ header {
     flex-direction: column;
 }
 
-.project-card img {
+.project-image-container {
     width: 100%;
     height: auto;
-    object-fit: contain;
+    overflow: hidden;
     border-top-left-radius: var(--border-radius);
     border-top-right-radius: var(--border-radius);
+    background-color: var(--section-bg);
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: none;
 }
 
 .project-info {
@@ -616,10 +693,6 @@ header {
     margin-bottom: 0.75rem;
     font-size: 0.95rem;
     color: var(--subtext-color);
-}
-
-.project-info p strong {
-    color: var(--text-color);
 }
 
 .project-links {
@@ -662,11 +735,6 @@ header {
     background-color: var(--primary-color);
 }
 
-.experience-detail ul {
-    list-style: none;
-    padding: 0;
-}
-
 .experience-detail ul li {
     padding: 0.5rem 0 0.5rem 1.5rem;
     position: relative;
@@ -686,45 +754,14 @@ header {
     color: var(--text-color);
     font-weight: bold;
 }
-/* Estilos para carrusel de imágenes de proyecto */
-.project-image-container {
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-    background-color: var(--section-bg);
-}
-
-.project-image {
-    width: 100%; /* La imagen ocupará el 100% del ancho del contenedor */
-    height: auto; /* La altura se ajustará automáticamente manteniendo la proporción */
-    display: block;
-    object-fit: contain; /* Muestra la imagen completa dentro del contenedor */
-    max-height: none; /* Eliminamos cualquier restricción de altura máxima */
-}
-
-.indicator:hover {
-    transform: scale(1.2);
-}
-
-.indicator.active {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-}
 
 /* --- Sección Educación --- */
-#education {
-    background-color: var(--section-bg);
-}
-
 .education-timeline {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
 }
 
-/* Línea vertical central de la timeline */
 .education-timeline::before {
     content: '';
     position: absolute;
@@ -744,10 +781,9 @@ header {
 
 .timeline-icon {
     position: absolute;
-    left: 0;
+    left: 21.5px;
     top: 0;
     transform: translateX(-50%);
-    left: 21.5px;
     background-color: var(--primary-color);
     color: #ffffff;
     width: 40px;
@@ -758,8 +794,7 @@ header {
     justify-content: center;
     z-index: 1;
     box-shadow: 0 0 0 4px var(--section-bg);
-    transition: transform var(--transition-speed) ease,
-                background-color var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .timeline-item:hover .timeline-icon {
@@ -776,8 +811,7 @@ header {
     padding: 1.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed) ease,
-                background-color var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
 }
 
 .timeline-item:hover .timeline-content {
@@ -818,10 +852,6 @@ header {
 }
 
 /* --- Sección Idiomas --- */
-#languages {
-    background-color: var(--section-bg);
-}
-
 .languages-grid {
     display: flex;
     justify-content: center;
@@ -836,8 +866,7 @@ header {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center;
-    transition: transform var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
     flex: 1;
     max-width: 300px;
 }
@@ -864,7 +893,6 @@ header {
 
 /* --- Sección Contacto --- */
 #contact {
-    background-color: var(--section-bg);
     text-align: center;
 }
 
@@ -909,10 +937,6 @@ header {
 }
 
 /* --- Sección Referencias --- */
-#references {
-    background-color: var(--section-bg);
-}
-
 .references-grid {
     display: flex;
     justify-content: center;
@@ -927,8 +951,7 @@ header {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center;
-    transition: transform var(--transition-speed) ease,
-                box-shadow var(--transition-speed) ease;
+    transition: all var(--transition-speed) ease;
     flex: 1;
     max-width: 300px;
 }
@@ -967,10 +990,12 @@ header {
 /* --- Footer --- */
 footer {
     text-align: center;
-    padding: 2rem;
+    padding: 15px;
     background-color: var(--dark-section-bg);
     color: var(--subtext-color);
-    margin-left: var(--side-menu-width);
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100%;
 }
 
 footer p {
@@ -984,9 +1009,10 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0; /* Desactivado inicialmente */
+    pointer-events: none; /* Permite clic a través de los triángulos */
+    z-index: 0; /* Debajo del contenido */
+    opacity: 1; /* Activado por defecto */
+    perspective: 1000px; /* Efecto 3D para los triángulos */
 }
 
 .triangle {
@@ -996,7 +1022,6 @@ footer p {
     pointer-events: none;
     will-change: transform, opacity;
 }
-
 /* --- Media Queries para Responsividad --- */
 @media (max-width: 960px) {
     .languages-grid,
@@ -1013,27 +1038,41 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    body {
-        margin-left: 0;
-    }
-    
-    footer {
+    body, footer {
         margin-left: 0;
     }
     
     .side-menu {
-        width: 0;
-        background-color: rgba(23, 23, 23, 0.95);
+        left: 10px;
     }
     
-    .side-menu:hover {
-        width: 200px;
+    body, main, section {
+        padding-left: 0;
     }
     
-    .side-menu.active {
-        width: 200px;
+    .side-menu ul {
+        gap: 10px; /* Menos espacio entre iconos */
     }
     
+    .side-menu li {
+        width: 35px; /* Iconos más pequeños en móviles */
+        height: 35px;
+    }
+    
+    .side-menu li a i {
+        font-size: 1rem; /* Iconos más pequeños */
+    }
+    
+    /* Asegurarnos de que el menú no bloquee contenido importante */
+    body {
+        margin-left: 0; /* Quitamos el margen que había antes */
+        padding-left: 55px; /* Añadimos padding para dejar espacio al menú */
+    }
+    
+    footer {
+        margin-left: 0;
+        padding-left: 0;
+    }
     header .header-container {
         justify-content: space-between;
         padding: 0 20px;
@@ -1096,53 +1135,25 @@ footer p {
 
     /* Ajuste de la tarjeta proyecto-experiencia en móviles */
     .project-experience-card {
-        perspective: none;
         flex-direction: column;
     }
     
-    .project-experience-card:hover .project-card {
-        transform: none;
-    }
-    .project-image-container {
-        max-height: none; /* Sin restricción de altura en móviles */
+    .project-image-container,
+    .project-image {
+        max-height: none;
     }
     
-    .project-image {
-        max-height: none; /* Permitimos que la imagen tome el alto necesario */
-    }
     .experience-detail {
-        position: relative;
-        width: 100%;
-        transform: translateX(0);
-        opacity: 0;
-        height: 0;
-        padding: 0 1.5rem;
-        overflow: hidden;
-        margin-top: -10px;
-        transition: opacity 0.3s ease, height 0.3s ease, padding 0.3s ease;
         border-left: none;
         border-top: 2px solid var(--primary-color);
-
-    }
-    
-    .project-experience-card:hover .experience-detail {
-        height: auto;
-        opacity: 1;
+        width: 100%;
         padding: 1.5rem;
+        opacity: 1;
+        height: auto;
         margin-top: 0;
     }
 }
-@media screen and (max-width: 1200px) {
-    .project-experience-card:hover .experience-detail {
-        right: -90%; /* Ajustar para pantallas medianas */
-    }
-}
 
-@media screen and (max-width: 992px) {
-    .project-experience-card:hover .experience-detail {
-        right: -80%; /* Ajustar para pantallas más pequeñas */
-    }
-}
 @media (max-width: 480px) {
     h2 {
         font-size: 2rem;
@@ -1181,5 +1192,18 @@ footer p {
     
     .soft-skill i {
         font-size: 1.5rem;
+    }
+    .side-menu {
+        left: 5px;
+        padding: 8px 4px;
+    }
+    
+    .side-menu li {
+        width: 30px;
+        height: 30px;
+    }
+    
+    body {
+        padding-left: 40px;
     }
 }

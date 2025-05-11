@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio profesional de Samuel Tabares León, Ingeniero de Software en proceso, especializado en desarrollo web full-stack.">
+    <meta name="description" content="Portafolio profesional de Samuel Tabares León, Ingeniero de Software en proceso, especializado en desarrollo web Full-stack.">
     <meta name="keywords" content="ingeniero de software, desarrollador, portafolio, Python, Django, React, JavaScript, Samuel Tabares León">
     <title>Samuel Tabares León - Ingeniero de Software</title>
     <link rel="stylesheet" href="css/style.css">
@@ -14,23 +14,18 @@
     <!-- Contenedor de triángulos (desactivado inicialmente) -->
     <div class="triangles-container" id="triangles-container"></div>
     
-    <!-- Menú lateral con iconos -->
-    <nav class="side-menu">
-        <ul>
-            <li><a href="#hero" data-section="Inicio"><i class="fas fa-home"></i><span>Inicio</span></a></li>
-            <li><a href="#about" data-section="Sobre Mí"><i class="fas fa-user"></i><span>Sobre Mí</span></a></li>
-            <li><a href="#skills" data-section="Habilidades"><i class="fas fa-code"></i><span>Habilidades</span></a></li>
-            <li><a href="#projects" data-section="Proyectos"><i class="fas fa-laptop-code"></i><span>Proyectos</span></a></li>
-            <li><a href="#education" data-section="Educación"><i class="fas fa-graduation-cap"></i><span>Educación</span></a></li>
-            <li><a href="#languages" data-section="Idiomas"><i class="fas fa-language"></i><span>Idiomas</span></a></li>
-            <li><a href="#contact" data-section="Contacto"><i class="fas fa-envelope"></i><span>Contacto</span></a></li>
-            <li><a href="#references" data-section="Referencias"><i class="fas fa-user-tie"></i><span>Referencias</span></a></li>
-        </ul>
-    </nav>
-    
+
+<!-- Menú lateral flotante simplificado -->
+<nav class="side-menu">
+    <ul>
+        <li><a href="#about" data-section="Sobre Mí"><i class="fas fa-user"></i></a></li>
+        <li><a href="#projects" data-section="Proyectos"><i class="fas fa-laptop-code"></i></a></li>
+        <li><a href="#education" data-section="Educación"><i class="fas fa-graduation-cap"></i></a></li>
+    </ul>
+</nav>   
     <header>
         <div class="header-container">
-            <div class="logo">Samuel Tabares León</div>
+            <a href="#hero" class="logo">Samuel Tabares León</a>
             <button id="theme-switch" class="theme-toggle-btn" aria-label="Cambiar tema">
                 <i class="fas fa-moon"></i>
                 <i class="fas fa-sun"></i>
@@ -45,7 +40,7 @@
                 <p class="subtitle">Ingeniero de Software <span id="typing-effect"></span></p>
                 <p class="hero-description">En proceso para ser desarrollador Fullstack con capacidad excepcional para <strong>aprender rápidamente</strong> nuevas tecnologías y <strong>perfeccionista</strong> orientado a resultados de calidad. Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>.</p>
                 
-                <!-- Enlaces sociales -->
+    <!-- Enlaces sociales -->
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/samuel-tabares-leon-381188344/" target="_blank" class="social-link" data-name= "LinkedIn">
                         <i class="fab fa-linkedin"></i>
@@ -67,7 +62,7 @@
                 <img src="images/foto-perfil.png" alt="Foto de Samuel Tabares León">
             </div>
         </section>
-
+    <!--Seccion "sobre mi"-->
         <section id="about">
             <h2>Sobre Mí</h2>
             <div class="about-container">
@@ -78,7 +73,7 @@
                 </div>
             </div>
             
-            <!-- Competencias personales (soft skills) en formato horizontal -->
+        <!-- Competencias personales (soft skills)-->
             <div class="personal-skills">
                 <h3>Competencias Personales</h3>
                 <div class="soft-skills-container">
@@ -109,7 +104,7 @@
                 </div>
             </div>
         </section>
-
+    <!--Habilidades tecnicas-->
         <section id="skills">
             <h2>Habilidades Técnicas</h2>
             <div class="skills-grid">
@@ -127,14 +122,17 @@
                     <ul>
                         <li><i class="fab fa-react"></i> React.js</li>
                         <li><i class="fab fa-bootstrap"></i> Bootstrap</li>
-                        <li><i class="fab fa-django"></i> Django</li>
-                        <li><i class="fas fa-palette"></i> Tailwind CSS</li>
+                        <li><i class="fa-solid fa-gear"></i> Django</li>
+                        <li><i class="fa-solid fa-wind"></i> Tailwind CSS</li>
                     </ul>
                 </div>
                 <div class="skill-category">
                     <h3>Bases de Datos</h3>
                     <ul>
-                        <li><i class="fas fa-database"></i> SQLite</li>
+                        <li><i class="fa-solid fa-feather-pointed"></i> SQLite</li>
+                        <li><i class="fas fa-database"></i> SQL</li>
+                        <li><i class="fa-solid fa-sailboat"></i> phpMyAdmin</li>
+                        <li><i class="fa-solid fa-bars-progress"></i> XAMPP</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -151,59 +149,60 @@
         <section id="projects">
             <h2>Proyectos y Experiencia</h2>
             <div class="projects-grid">
-                <!-- Proyecto 1 con Experiencia -->
-<div class="project-experience-card">
-    <div class="project-card">
-        <img src="images/proyecto-portfolio.png" alt="Vista previa del Portafolio Web">
-        <div class="project-info">
-            <h3>Portafolio Web Profesional</h3>
-            <p>Desarrollo de un portafolio web personal completo con diseño responsive, tema claro/oscuro y navegación intuitiva para mostrar proyectos y habilidades.</p>
-            <p><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Flexbox, Media Queries.</p>
-            <div class="project-links">
-                <a href="#" target="_blank" class="project-link">Ver Demo <i class="fas fa-external-link-alt"></i></a>
-                <a href="https://github.com/Samuel-Tabares/portfolio" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
+    <!-- Proyecto portfolio -->
+                <div class="project-experience-card">
+                    <div class="project-card">
+                    <img src="images/proyecto-portfolio.png" alt="Vista previa del Portafolio Web">
+                        <div class="project-info">
+                            <h3>Portafolio Web Profesional</h3>
+                            <p>Desarrollo de un portafolio web personal completo con diseño responsive, tema claro/oscuro y navegación intuitiva para mostrar proyectos y habilidades.</p>
+                            <p><strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Flexbox, Media Queries.</p>
+                            <div class="project-links">
+                            <a href="#" target="_blank" class="project-link">Ver Demo <i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/Samuel-Tabares/portfolio" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-detail">
+                        <h3>DESARROLLO DE PORTAFOLIO WEB RESPONSIVE</h3>
+                        <ul>
+                            <li><strong>Diseñé</strong> la arquitectura completa del sitio con enfoque en experiencia de usuario y accesibilidad</li>
+                            <li><strong>Implementé</strong> un sistema de tema claro/oscuro persistente con localStorage para preferencias del usuario</li>
+                            <li><strong>Desarrollé</strong> componentes HTML semánticos y estilizados mediante CSS moderno con variables personalizadas</li>
+                            <li><strong>Programé</strong> interacciones dinámicas con JavaScript puro, incluyendo efectos de typing y navegación suave</li>
+                            <li><strong>Optimicé</strong> la estructura para rendimiento y SEO con metadatos apropiados y carga eficiente de recursos</li>
+                        </ul>
+                    </div>
+                </div>
+    <!-- Proyecto Importa Colombia -->
+                <div class="project-experience-card">
+                    <div class="project-card">
+                        <div class="project-image-container">
+                            <img src="images/importacolombia-1.png" alt="Interfaz principal de Importa Colombia" class="project-image">
+                        </div>
+                        <div class="project-info">
+                            <h3>Importa Colombia</h3>
+                            <p>Aplicación web para mostrar y evaluar productos importados de China a Colombia, con sistema de likes/dislikes y reseñas con calificaciones de estrellas.</p>
+                            <p><strong>Tecnologías:</strong> React, Django REST Framework, Bootstrap 5, Python.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/Samuel-Tabares/Importadora-Colombia" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-detail">
+                        <h3>DESARROLLO FULLSTACK IMPORTA COLOMBIA</h3>
+                        <ul>
+                            <li><strong>Desarrollé</strong> un backend API REST con Django, implementando modelos para productos, reseñas y sistema de likes</li>
+                            <li><strong>Diseñé</strong> la interfaz frontend con React y Bootstrap 5, con enfoque en experiencia de usuario</li>
+                            <li><strong>Implementé</strong> autenticación básica para usuarios anónimos mediante IP para reseñas y valoraciones</li>
+                            <li><strong>Integré</strong> sistema de calificaciones con estrellas y funcionalidad para likes/dislikes</li>
+                            <li><strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="experience-detail">
-        <h3>DESARROLLO DE PORTAFOLIO WEB RESPONSIVE</h3>
-        <ul>
-            <li><strong>Diseñé</strong> la arquitectura completa del sitio con enfoque en experiencia de usuario y accesibilidad</li>
-            <li><strong>Implementé</strong> un sistema de tema claro/oscuro persistente con localStorage para preferencias del usuario</li>
-            <li><strong>Desarrollé</strong> componentes HTML semánticos y estilizados mediante CSS moderno con variables personalizadas</li>
-            <li><strong>Programé</strong> interacciones dinámicas con JavaScript puro, incluyendo efectos de typing y navegación suave</li>
-            <li><strong>Optimicé</strong> la estructura para rendimiento y SEO con metadatos apropiados y carga eficiente de recursos</li>
-        </ul>
-    </div>
-</div>
-<!-- Proyecto Importa Colombia con una sola imagen ajustada -->
-<div class="project-experience-card">
-    <div class="project-card">
-        <div class="project-image-container">
-            <img src="images/importacolombia-1.png" alt="Interfaz principal de Importa Colombia" class="project-image">
-        </div>
-        <div class="project-info">
-            <h3>Importa Colombia</h3>
-            <p>Aplicación web para mostrar y evaluar productos importados de China a Colombia, con sistema de likes/dislikes y reseñas con calificaciones de estrellas.</p>
-            <p><strong>Tecnologías:</strong> React, Django REST Framework, Bootstrap 5, Python.</p>
-            <div class="project-links">
-                <a href="https://github.com/Samuel-Tabares/Importadora-Colombia" target="_blank" class="project-link">Ver Código <i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="experience-detail">
-        <h3>DESARROLLO FULLSTACK IMPORTA COLOMBIA</h3>
-        <ul>
-            <li><strong>Desarrollé</strong> un backend API REST con Django, implementando modelos para productos, reseñas y sistema de likes</li>
-            <li><strong>Diseñé</strong> la interfaz frontend con React y Bootstrap 5, con enfoque en experiencia de usuario</li>
-            <li><strong>Implementé</strong> autenticación básica para usuarios anónimos mediante IP para reseñas y valoraciones</li>
-            <li><strong>Integré</strong> sistema de calificaciones con estrellas y funcionalidad para likes/dislikes</li>
-            <li><strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados</li>
-        </ul>
-    </div>
-</div>
-<!-- seccion educacion -->
-
+        </section>
+    <!-- seccion educacion -->
         <section id="education">
             <h2>Educación</h2>
             <div class="education-timeline">
@@ -223,7 +222,7 @@
                         <p class="company-name">AMERICAN SCHOOL WAY</p>
                         <p class="date">Ene 2021 - Ago 2022</p>
                         <p class="location">Armenia, Quindío - Colombia</p>
-                        <p class="certificate"><a href="english-certificate.png" target="_blank">Ver certificado →</a></p>
+                        <p class="certificate"><a href="images/english-certificate.heic" target="_blank">Ver certificado →</a></p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -233,37 +232,34 @@
                         <p class="company-name">COLEGIO FRANCISCANO SAN LUIS REY</p>
                         <p class="date">Ene 2016 - Dic 2023</p>
                         <p class="location">Armenia, Quindío - Colombia</p>
-                        <p class="certificate"><a href="bachiller-certificado.jpeg" target="_blank">Ver certificado →</a></p>
+                        <p class="certificate"><a href="images/bachelor-certificate.heic" target="_blank">Ver certificado →</a></p>
                     </div>
                 </div>
             </div>
         </section>
-
+    <!--Seccion de lenguajes-->
         <section id="languages">
             <h2>Idiomas</h2>
             <div class="languages-grid">
                 <div class="language-item">
-                    <div class="language-icon"><i class="fas fa-globe-americas"></i></div>
+                    <div class="language-icon"><i class="fa-solid fa-language"></i></div>
                     <h3>ESPAÑOL</h3>
                     <p>Nativo</p>
                 </div>
                 <div class="language-item">
-                    <div class="language-icon"><i class="fas fa-globe-europe"></i></div>
+                    <div class="language-icon"><i class="fa-solid fa-language"></i></div>
                     <h3>INGLÉS</h3>
-                    <p>Nivel B2 | Certificado B2 American School Way</p>
+                    <p>Nivel B2 | Certificado American School Way</p>
                 </div>
             </div>
         </section>
 
         <section id="contact">
-            <h2>Hablemos</h2>
-            <p>Estoy disponible para nuevas oportunidades y colaboraciones. ¡No dudes en contactarme!</p>
+            <h2>Contacto</h2>
+            <p>Estoy disponible para nuevas oportunidades y colaboraciones, mándame un correo explicándome tu situación y en el menor tiempo posible estaremos en contacto.</p>
             <div class="contact-methods">
                 <a href="mailto:stabares_26@cue.edu.co" class="contact-method">
                     <i class="fas fa-envelope"></i> stabares_26@cue.edu.co
-                </a>
-                <a href="https://wa.me/573103034775" target="_blank" class="contact-method">
-                    <i class="fab fa-whatsapp"></i> +57 310 303 4775
                 </a>
             </div>
         </section>
@@ -274,12 +270,12 @@
                 <div class="reference-item">
                     <div class="reference-icon"><i class="fas fa-user-tie"></i></div>
                     <h3>Arle Morales Ortiz</h3>
-                    <p><a href="https://wa.me/573137082781" target="_blank"><i class="fab fa-whatsapp"></i> +57 313 708 2781</a></p>
+                    <p><a href="mailto:amorales18@cue.edu.co" target="_blank"> amorales18@cue.edu.co</a></p>
                 </div>
                 <div class="reference-item">
                     <div class="reference-icon"><i class="fas fa-user-tie"></i></div>
-                    <h3>Susana Equis Muñoz</h3>
-                    <p><a href="https://wa.me/573206973056" target="_blank"><i class="fab fa-whatsapp"></i> +57 320 697 3056</a></p>
+                    <h3>Susana Eguis Muñoz</h3>
+                    <p><a href="mailto:seguis_212@cue.edu.co" target="_blank">seguis_212@cue.edu.co</a></p>
                 </div>
             </div>
         </section>
