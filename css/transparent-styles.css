@@ -1,0 +1,1015 @@
+/* Estilos modernos para transformar el diseño en un sitio web fluido con menú inferior centrado */
+
+/* ===== Resets Generales ===== */
+body {
+    overflow-x: hidden;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* ===== Estructura de Secciones ===== */
+/* Eliminar el aspecto de "papel" */
+section {
+    background-color: rgba(23, 23, 23, 0.5); /* Fondo con transparencia */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: none !important; /* Eliminar todos los bordes */
+    border-radius: 0 !important; /* Sin bordes redondeados */
+    box-shadow: none !important; /* Sin sombras */
+    max-width: 100% !important; /* Ancho completo */
+    margin: 0 !important; /* Sin márgenes entre secciones */
+    padding: 60px 5% !important; /* Padding vertical reducido, horizontal responsivo */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Variación en anchos de contenido por sección */
+.container,
+.header-container,
+.projects-grid,
+.skills-grid,
+.about-container,
+.education-timeline,
+.languages-grid,
+.references-grid {
+    width: 90%;
+    max-width: none; /* Eliminar límite máximo fijo */
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Alternas anchuras por sección */
+#hero .container {
+    max-width: 1200px; /* Hero más ancho */
+}
+
+#about .container,
+#about .about-container {
+    max-width: 900px; /* About más estrecho para mejor lectura */
+}
+
+#skills .container,
+#skills .skills-grid {
+    max-width: 1100px; /* Skills más ancho para mostrar mejor las categorías */
+}
+
+#projects .container,
+#projects .projects-grid {
+    max-width: 1200px; /* Proyectos más anchos */
+}
+
+#education .container,
+#education .education-timeline {
+    max-width: 800px; /* Educación más estrecho */
+}
+
+#languages .container,
+#languages .languages-grid,
+#references .container,
+#references .references-grid {
+    max-width: 900px; /* Idiomas y referencias centrados */
+}
+
+#contact .container {
+    max-width: 700px; /* Contacto más estrecho */
+}
+
+/* ===== Header Modernizado ===== */
+header {
+    background-color: rgba(23, 23, 23, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15) !important;
+    max-width: 100% !important;
+    height: 70px;
+}
+
+.header-container {
+    max-width: 1400px !important;
+    padding: 0 30px !important;
+}
+
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Sección Hero Expandida ===== */
+#hero {
+    background: none;
+    min-height: 90vh;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero-header {
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.7rem;
+    background: linear-gradient(90deg, var(--primary-color), #2980b9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+#hero .subtitle {
+    font-size: 2rem;
+}
+
+#hero .hero-description {
+    background-color: rgba(23, 23, 23, 0.4);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    width: 90%;
+    max-width: 1100px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.social-container {
+    width: 90%;
+    max-width: 1100px;
+}
+
+/* ===== Centrar títulos de secciones ===== */
+h2 {
+    position: relative;
+    display: block;
+    margin-bottom: 2.5rem !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), transparent);
+    border-radius: 3px;
+}
+
+/* ===== Tarjetas y Elementos de Contenido ===== */
+/* Estilo moderno para las tarjetas (no para las de habilidades) */
+.project-experience-card, 
+.timeline-content, 
+.personal-skills,
+.language-item,
+.reference-item {
+    background-color: rgba(34, 34, 34, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: none !important;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+}
+
+.project-experience-card:hover, 
+.language-item:hover,
+.reference-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
+    background-color: rgba(34, 34, 34, 0.6);
+}
+
+/* Separación entre secciones con pseudo-elementos */
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(52, 152, 219, 0.3), transparent);
+}
+
+section:first-of-type::before {
+    display: none;
+}
+
+/* Diseño alternante para secciones */
+section:nth-child(odd) {
+    background-color: rgba(23, 23, 23, 0.6);
+}
+
+/* ===== Timeline Mejorado ===== */
+.education-timeline::before {
+    background-color: rgba(52, 152, 219, 0.4);
+    width: 2px;
+}
+
+.timeline-icon {
+    box-shadow: 0 0 0 5px rgba(23, 23, 23, 0.75);
+}
+
+.timeline-content {
+    padding: 1.5rem;
+}
+
+.timeline-item {
+    margin-bottom: 25px;
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: rgba(23, 23, 23, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    max-width: 100% !important;
+    padding: 20px 0;
+}
+
+/* ===== Tema Claro ===== */
+.light-theme section {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.light-theme section:nth-child(odd) {
+    background-color: rgba(245, 245, 245, 0.6);
+}
+
+.light-theme header {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.light-theme #hero h1 {
+    background: linear-gradient(90deg, var(--primary-color), #2980b9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+.light-theme #hero .hero-description {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.light-theme .project-experience-card, 
+.light-theme .timeline-content, 
+.light-theme .personal-skills,
+.light-theme .language-item,
+.light-theme .reference-item {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.light-theme .project-experience-card:hover, 
+.light-theme .language-item:hover,
+.light-theme .reference-item:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.light-theme .timeline-icon {
+    box-shadow: 0 0 0 5px rgba(245, 245, 245, 0.75);
+}
+
+.light-theme footer {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* ===== Ajustar distribución de triángulos ===== */
+.triangles-container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+/* Ajuste al overlay de gradiente para hacerlo más sutil */
+.gradient-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(23, 23, 23, 0.4) 0%,
+        rgba(23, 23, 23, 0) 15%,
+        rgba(23, 23, 23, 0) 85%,
+        rgba(23, 23, 23, 0.4) 100%
+    ) !important;
+}
+
+.light-theme .gradient-overlay {
+    background: linear-gradient(
+        to right,
+        rgba(245, 245, 245, 0.4) 0%,
+        rgba(245, 245, 245, 0) 15%,
+        rgba(245, 245, 245, 0) 85%,
+        rgba(245, 245, 245, 0.4) 100%
+    ) !important;
+}
+
+/* ===== Menú Fijo en la Parte Inferior Central ===== */
+.side-menu {
+    left: auto !important; 
+    top: auto !important;
+    transform: none !important;
+    position: fixed !important;
+    bottom: 15px !important;
+    width: auto !important;
+    background-color: rgba(23, 23, 23, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-radius: 30px !important;
+    padding: 6px 15px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35) !important;
+    border: 1px solid rgba(52, 152, 219, 0.2) !important;
+    z-index: 2000 !important;
+    /* Centrar en la parte inferior */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+}
+
+/* Cambiar la orientación del menú a horizontal */
+.side-menu ul {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px !important;
+    padding: 3px !important;
+    margin: 0 !important;
+}
+
+/* Elementos del menú */
+.side-menu li {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: all 0.3s ease !important;
+    background-color: transparent !important;
+}
+
+/* Estilo para los enlaces dentro del menú */
+.side-menu li a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    height: 100% !important;
+    color: var(--text-color) !important;
+    border-bottom: none !important;
+    opacity: 0.8 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Estilo para los iconos */
+.side-menu li a i {
+    font-size: 1.1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Estilo al pasar el mouse */
+.side-menu li:hover {
+    background-color: var(--primary-color) !important;
+    transform: scale(1.1) !important;
+}
+
+.side-menu li:hover a {
+    color: white !important;
+    opacity: 1 !important;
+}
+
+/* Mejora para resaltar el ícono activo en el menú */
+.side-menu li a.active {
+    opacity: 1 !important;
+    color: white !important;
+    background-color: var(--primary-color) !important;
+    border-radius: 50% !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.6) !important;
+}
+
+.side-menu li a.active i {
+    transform: scale(1.1) !important;
+    color: white !important;
+}
+
+/* Tooltips para los enlaces del menú */
+.side-menu li a::after {
+    content: attr(data-section) !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: -35px !important;
+    transform: translateX(-50%) !important;
+    background-color: var(--card-bg) !important;
+    color: var(--text-color) !important;
+    padding: 5px 10px !important;
+    border-radius: var(--border-radius) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.2s ease !important;
+}
+
+.side-menu li a:hover::after {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateX(-50%) !important;
+}
+
+/* Tema claro para el menú */
+.light-theme .side-menu {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    border: 1px solid rgba(52, 152, 219, 0.3) !important;
+}
+
+.light-theme .side-menu li a {
+    color: var(--light-text) !important;
+}
+
+.light-theme .side-menu li a::after {
+    background-color: var(--light-card-bg) !important;
+    color: var(--light-text) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    #hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    #hero .subtitle {
+        font-size: 1.6rem;
+    }
+    
+    section {
+        padding: 50px 20px !important;
+    }
+    
+    .hero-header {
+        flex-direction: column;
+    }
+    
+    .project-experience-card, 
+    .timeline-content, 
+    .personal-skills,
+    .language-item,
+    .reference-item {
+        transform: none !important;
+    }
+    
+    .social-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .header-container {
+        padding: 0 15px !important;
+    }
+    
+    /* Ajustes del menú para móviles */
+    .side-menu {
+        padding: 5px 12px !important;
+        bottom: 10px !important;
+    }
+    
+    .side-menu ul {
+        gap: 8px !important;
+    }
+    
+    .side-menu li {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    .side-menu li a i {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ===== Mejoras Generales ===== */
+.cta-button {
+    padding: 12px 30px !important;
+    border-radius: 50px !important;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3) !important;
+}
+
+/* ===== PROYECTOS - SIN ANIMACIÓN EN IMÁGENES ===== */
+/* Configuración del grid de proyectos en dos columnas */
+.projects-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Dos columnas */
+    gap: 30px !important;
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* Estilo para las tarjetas de proyectos */
+.project-experience-card {
+    background-color: var(--card-bg) !important;
+    border-radius: var(--border-radius) !important;
+    width: 100% !important;
+    height: auto !important; /* Altura basada en contenido */
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+/* Contenedor de imágenes sin altura fija */
+.project-image-container {
+    width: 100% !important;
+    height: auto !important; /* Sin altura fija */
+    overflow: hidden !important;
+    border-top-left-radius: var(--border-radius) !important;
+    border-top-right-radius: var(--border-radius) !important;
+    background-color: var(--section-bg) !important;
+    display: block !important;
+}
+
+/* Imágenes sin animación */
+.project-image {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important; /* Ver imagen completa sin recortes */
+    max-height: none !important;
+    transition: none !important; /* Sin transición */
+}
+
+/* Eliminar efecto hover de la imagen */
+.project-experience-card:hover .project-image {
+    transform: none !important; /* Sin transformación al hacer hover */
+}
+
+/* Información del proyecto */
+.project-info {
+    padding: 1.5rem !important;
+    flex: 1 !important; /* Para que ocupe el espacio disponible */
+}
+
+.project-info h3 {
+    color: var(--primary-color) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.project-info p {
+    margin-bottom: 0.75rem !important;
+    font-size: 0.95rem !important;
+    color: var(--subtext-color) !important;
+}
+
+/* Sección de detalle de experiencia */
+.experience-detail {
+    padding: 1.5rem !important;
+    background-color: var(--card-bg) !important;
+    border-top: 2px solid var(--primary-color) !important;
+}
+
+.experience-detail h3 {
+    color: var(--primary-color) !important;
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+    position: relative !important;
+}
+
+.experience-detail h3::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -8px !important;
+    left: 0 !important;
+    width: 50px !important;
+    height: 2px !important;
+    background-color: var(--primary-color) !important;
+}
+
+.experience-detail ul li {
+    padding: 0.5rem 0 0.5rem 1.5rem !important;
+    position: relative !important;
+    color: var(--subtext-color) !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.experience-detail ul li::before {
+    content: "•" !important;
+    position: absolute !important;
+    left: 0 !important;
+    color: var(--primary-color) !important;
+    font-weight: bold !important;
+}
+
+/* ===== HABILIDADES - ESTILO DE LA IMAGEN ===== */
+/* Configuración del grid de habilidades */
+.skills-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important; /* Dos columnas de igual tamaño */
+    gap: 25px !important; /* Espacio entre cards */
+    width: 90% !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+}
+
+/* Estilo para categorías de habilidades - estilo limpio como en la imagen */
+.skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important; /* Fondo blanco casi opaco */
+    border-radius: 8px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important; /* Sombra sutil */
+    padding: 1.5rem !important;
+    width: 100% !important;
+    height: auto !important;
+    transition: none !important; /* Sin transiciones */
+}
+
+/* Mantener fondo blanco en modo oscuro */
+body.dark-theme .skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Estilo para el título de la categoría */
+.skill-category h3 {
+    color: #3498db !important; /* Color azul para títulos */
+    font-size: 1.1rem !important;
+    margin-bottom: 0.8rem !important;
+    border-bottom: 2px solid #f0f0f0 !important; /* Línea inferior sutil */
+    padding-bottom: 0.4rem !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+}
+
+/* Estilo para los elementos de la lista */
+.skill-category ul {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.skill-category ul li {
+    color: #555555 !important; /* Color de texto oscuro */
+    font-size: 0.95rem !important;
+    padding: 0.4rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Iconos en la lista */
+.skill-category ul li i {
+    color: #3498db !important; /* Color azul para iconos */
+    margin-right: 0.7rem !important;
+    font-size: 1rem !important;
+    width: 20px !important;
+    text-align: center !important;
+}
+
+/* Eliminar efectos hover */
+.skill-category:hover {
+    transform: none !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important; /* Mantener la misma sombra */
+}
+
+.skill-category ul li:hover {
+    transform: none !important;
+    color: #555555 !important;
+}
+
+.skill-category ul li:hover i {
+    transform: none !important;
+}
+
+/* Responsive para proyectos y habilidades */
+@media (max-width: 900px) {
+    .projects-grid, .skills-grid {
+        grid-template-columns: 1fr !important; /* Una sola columna */
+    }
+    
+    .skill-category {
+        margin-bottom: 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-info {
+        padding: 1.2rem !important;
+    }
+    
+    .project-info h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    .experience-detail {
+        padding: 1.2rem !important;
+    }
+    
+    .skill-category {
+        padding: 1.2rem !important;
+    }
+    
+    .skill-category h3 {
+        font-size: 1rem !important;
+    }
+    
+    .skill-category ul li {
+        font-size: 0.9rem !important;
+    }
+}
+
+
+/* ===== HABILIDADES - ESTILO DE LA IMAGEN ===== */
+/* Configuración del grid de habilidades */
+.skills-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, auto) !important; /* Cambiado de 1fr a auto */
+    gap: 25px !important; /* Espacio entre cards */
+    width: 90% !important;
+    max-width: 1100px !important;
+    margin: 0 auto !important;
+    justify-content: center !important; /* Centrar las tarjetas */
+}
+
+/* Estilo para categorías de habilidades - estilo limpio como en la imagen */
+.skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important; /* Fondo blanco casi opaco */
+    border-radius: 8px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important; /* Sombra sutil */
+    padding: 1.5rem !important;
+    width: auto !important; /* Cambio crucial: ancho automático en lugar de 100% */
+    min-width: 200px !important; /* Ancho mínimo para que no se vean demasiado estrechas */
+    height: auto !important;
+    transition: none !important; /* Sin transiciones */
+    display: inline-block !important; /* Para que se ajuste al contenido */
+}
+
+/* Mantener fondo blanco en modo oscuro */
+body.dark-theme .skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Estilo para el título de la categoría */
+.skill-category h3 {
+    color: #3498db !important; /* Color azul para títulos */
+    font-size: 1.1rem !important;
+    margin-bottom: 0.8rem !important;
+    border-bottom: 2px solid #f0f0f0 !important; /* Línea inferior sutil */
+    padding-bottom: 0.4rem !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+    white-space: nowrap !important; /* Evitar que el título se rompa */
+}
+
+/* Asegurar que el contenido ocupe el espacio adecuado */
+.skill-category ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+/* Responsive para habilidades */
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, auto)) !important; /* Responsive con auto-fit */
+        justify-content: center !important;
+    }
+    
+    .skill-category {
+        margin-bottom: 20px !important;
+        width: 100% !important; /* En móvil, ocupar todo el ancho */
+    }
+}
+
+/* ===== HABILIDADES - ESTILO MEJORADO CON ANIMACIONES ===== */
+/* Configuración del grid de habilidades - 3 por fila */
+.skills-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 columnas de igual tamaño */
+    gap: 20px !important; /* Espacio entre cards */
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* Estilo para categorías de habilidades con animaciones restauradas */
+.skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important; /* Fondo blanco casi opaco */
+    border-radius: 8px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08) !important; /* Sombra sutil */
+    padding: 1.5rem !important;
+    width: 100% !important; /* Usar el 100% del espacio de columna */
+    height: 100% !important; /* Todas las tarjetas con la misma altura */
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important; /* Restaurar transición */
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Mantener fondo blanco en modo oscuro */
+body.dark-theme .skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Restaurar efecto hover en las tarjetas */
+.skill-category:hover {
+    transform: translateY(-5px) !important; /* Efecto hover suave */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important; /* Sombra más pronunciada al hacer hover */
+}
+
+/* Estilo para el título de la categoría */
+.skill-category h3 {
+    color: #3498db !important; /* Color azul para títulos */
+    font-size: 1.1rem !important;
+    margin-bottom: 0.8rem !important;
+    border-bottom: 2px solid #f0f0f0 !important; /* Línea inferior sutil */
+    padding-bottom: 0.4rem !important;
+    font-weight: 600 !important;
+    display: inline-block !important;
+}
+
+/* Asegurar que el contenido ocupe el espacio adecuado */
+.skill-category ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 1 !important; /* Para que la lista ocupe todo el espacio disponible */
+}
+
+.skill-category ul li {
+    color: #555555 !important; /* Color de texto oscuro */
+    font-size: 0.95rem !important;
+    padding: 0.4rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: transform 0.2s ease, color 0.2s ease !important; /* Restaurar transición */
+}
+
+/* Restaurar animación para los items de la lista */
+.skill-category ul li:hover {
+    transform: translateX(5px) !important; /* Movimiento al hover */
+    color: #333333 !important; /* Color más oscuro al hover */
+}
+
+/* Iconos en la lista con animación */
+.skill-category ul li i {
+    color: #3498db !important; /* Color azul para iconos */
+    margin-right: 0.7rem !important;
+    font-size: 1rem !important;
+    width: 20px !important;
+    text-align: center !important;
+    transition: transform 0.2s ease, color 0.2s ease !important; /* Restaurar transición */
+}
+
+/* Restaurar animación para iconos */
+.skill-category ul li:hover i {
+    transform: scale(1.2) !important; /* Escala al hover */
+    color: #2980b9 !important; /* Color más oscuro al hover */
+}
+
+/* Añadir barra de progreso para cada habilidad (opcional) */
+.skill-category .skill-progress {
+    height: 4px !important;
+    background-color: #f0f0f0 !important;
+    border-radius: 2px !important;
+    margin-top: 2px !important;
+    margin-bottom: 8px !important;
+    overflow: hidden !important;
+    width: calc(100% - 30px) !important; /* Considerando el icono */
+    margin-left: 30px !important;
+}
+
+.skill-category .skill-progress-bar {
+    height: 100% !important;
+    background: linear-gradient(90deg, #3498db, #2ecc71) !important;
+    border-radius: 2px !important;
+    width: 0 !important; /* Se configura con data-progress */
+    transition: width 1s ease-in-out !important;
+}
+
+/* Nivel de habilidad (opcional) */
+.skill-category .skill-level {
+    font-size: 0.75rem !important;
+    color: #666 !important;
+    margin-left: auto !important;
+    font-style: italic !important;
+}
+
+/* Añadir footer para cada categoría de habilidad (opcional) */
+.skill-category .category-footer {
+    margin-top: auto !important; /* Empujar al fondo */
+    padding-top: 0.8rem !important;
+    font-size: 0.8rem !important;
+    color: #888 !important;
+    border-top: 1px solid #f0f0f0 !important;
+    margin-top: 1rem !important;
+}
+
+/* Responsive para habilidades */
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .skills-grid {
+        grid-template-columns: 1fr !important; /* 1 columna en móviles */
+    }
+    
+    .skill-category {
+        margin-bottom: 15px !important;
+    }
+}
+
+/* Corrección para los contenedores de habilidades en diferentes temas
+   Agregar al final del archivo transparent-styles.css */
+
+/* ===== CORRECCIÓN DE TEMAS PARA HABILIDADES ===== */
+/* Tema oscuro para habilidades */
+.dark-theme .skill-category {
+    background-color: rgba(34, 34, 34, 0.75) !important; /* Fondo oscuro semi-transparente */
+    border: 1px solid rgba(55, 55, 55, 0.6) !important; /* Borde sutil */
+    color: #cccccc !important; /* Texto claro */
+}
+
+.dark-theme .skill-category h3 {
+    color: #5dade2 !important; /* Azul más claro para tema oscuro */
+    border-bottom: 2px solid rgba(80, 80, 80, 0.8) !important;
+}
+
+.dark-theme .skill-category ul li {
+    color: #cccccc !important; /* Color claro para tema oscuro */
+}
+
+.dark-theme .skill-category ul li i {
+    color: #5dade2 !important; /* Azul más claro para iconos en tema oscuro */
+}
+
+/* Tema claro para habilidades */
+.light-theme .skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(240, 240, 240, 0.8) !important;
+    color: #333333 !important; /* Texto oscuro */
+}
+
+.light-theme .skill-category h3 {
+    color: #3498db !important; /* Azul más intenso para tema claro */
+    border-bottom: 2px solid rgba(240, 240, 240, 0.8) !important;
+}
+
+.light-theme .skill-category ul li {
+    color: #555555 !important; /* Color oscuro para tema claro */
+}
+
+.light-theme .skill-category ul li i {
+    color: #3498db !important; /* Azul más intenso para iconos en tema claro */
+}
+
+/* Hover en ambos temas */
+.dark-theme .skill-category:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    background-color: rgba(40, 40, 40, 0.85) !important; /* Ligeramente más oscuro al hacer hover */
+}
+
+.light-theme .skill-category:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+    background-color: rgba(255, 255, 255, 0.95) !important; /* Ligeramente más claro al hacer hover */
+}
+
+/* Efectos hover para elementos de lista */
+.dark-theme .skill-category ul li:hover {
+    transform: translateX(5px) !important;
+    color: #ffffff !important; /* Más brillante al hacer hover */
+}
+
+.light-theme .skill-category ul li:hover {
+    transform: translateX(5px) !important;
+    color: #333333 !important; /* Más oscuro al hacer hover */
+}
+
+/* Override para asegurar que el modo oscuro no use fondo blanco */
+body.dark-theme .skill-category {
+    background-color: rgba(34, 34, 34, 0.75) !important;
+}
+
+/* Asegurarnos que las propiedades importantes tienen la máxima especificidad */
+html body.dark-theme .skill-category {
+    background-color: rgba(34, 34, 34, 0.75) !important;
+}
+
+html body.light-theme .skill-category {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+}
+

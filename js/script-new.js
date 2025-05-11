@@ -1,68 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Efecto de Escritura (Typing Effect) ---
-    const typingText = "en proceso de desarrollo, encaminado al Full-Stack"; // Texto personalizado
-    const typingElement = document.getElementById('typing-effect');
-    let index = 0;
-    let isDeleting = false;
-    const typingSpeed = 100; // Velocidad de escritura
-    const deletingSpeed = 50; // Velocidad de borrado
-    const delayAfterTyping = 2000; // Pausa antes de borrar
-
-    function type() {
-        if (typingElement) { // Verifica que el elemento exista
-            const currentText = typingText.substring(0, index);
-            typingElement.textContent = currentText;
-
-            if (!isDeleting && index === typingText.length) {
-                setTimeout(() => isDeleting = true, delayAfterTyping);
-            } else if (isDeleting && index === 0) {
-                isDeleting = false;
-                // Podrías cambiar el texto aquí si quieres un ciclo de varios textos
-            }
-
-            index += isDeleting ? -1 : 1;
-            const speed = isDeleting ? deletingSpeed : typingSpeed;
-            setTimeout(type, speed);
-        }
-    }
-    if (typingElement) type(); // Inicia el efecto solo si el elemento existe
+    // IMPORTANTE: Eliminamos el efecto de typing de aquí ya que ahora está en language-toggle.js
+    // La implementación del efecto typing ahora está completamente en language-toggle.js
 
     // --- Navegación Activa al Hacer Scroll ---
-// Función para activar iconos del menú según el desplazamiento
-function setActiveLink() {
-    // Obtener posición actual de scroll
-    const scrollPos = window.scrollY;
-    
-    // Limpiar todos los enlaces activos primero
-    document.querySelectorAll('.side-menu a').forEach(link => {
-        link.classList.remove('active');
+    function setActiveLink() {
+        // Obtener posición actual de scroll
+        const scrollPos = window.scrollY;
+        
+        // Limpiar todos los enlaces activos primero
+        document.querySelectorAll('.side-menu a').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Activar enlace según posición de scroll (ajustado para 3 iconos)
+        // Estos valores son estimados y deben ajustarse según tu contenido específico
+        if (scrollPos > 480 && scrollPos < 1930) {
+            // Sección Sobre Mí (primer icono)
+            document.querySelector('.side-menu a[href="#about"]')?.classList.add('active');
+        } else if (scrollPos > 1930 && scrollPos < 3700) {
+            // Sección Proyectos (segundo icono)
+            document.querySelector('.side-menu a[href="#projects"]')?.classList.add('active');
+        } else if (scrollPos > 3700 && scrollPos < 4600){
+            // Sección Educación (tercer icono)
+            document.querySelector('.side-menu a[href="#education"]')?.classList.add('active');
+        }
+        
+        // Descomentar esta línea para ver la posición de scroll actual en la consola
+        // console.log("Posición de scroll:", scrollPos);
+    }
+
+    // Activar función cuando se hace scroll
+    window.addEventListener('scroll', setActiveLink);
+
+    // También activar al cargar la página
+    window.addEventListener('load', () => {
+        // Pequeño retraso para asegurar que todo esté cargado
+        setTimeout(setActiveLink, 100);
     });
     
-    // Activar enlace según posición de scroll (ajustado para 3 iconos)
-    // Estos valores son estimados y deben ajustarse según tu contenido específico
-    if (scrollPos > 480 && scrollPos < 1930) {
-        // Sección Sobre Mí (primer icono)
-        document.querySelector('.side-menu a[href="#about"]')?.classList.add('active');
-    } else if (scrollPos > 1930 && scrollPos < 5000) {
-        // Sección Proyectos (segundo icono)
-        document.querySelector('.side-menu a[href="#projects"]')?.classList.add('active');
-    } else if (scrollPos > 5000 && scrollPos < 6000){
-        // Sección Educación (tercer icono)
-        document.querySelector('.side-menu a[href="#education"]')?.classList.add('active');
-    }
-    
-    // Descomentar esta línea para ver la posición de scroll actual en la consola
-    // console.log("Posición de scroll:", scrollPos);
-}
-
-// Activar función cuando se hace scroll
-window.addEventListener('scroll', setActiveLink);
-
-// También activar al cargar la página
-window.addEventListener('load', () => {
-    // Pequeño retraso para asegurar que todo esté cargado
-    setTimeout(setActiveLink, 100);
-});
     // Aplicar smooth scroll a los enlaces del menú
     function applySmoothScroll() {
         const sideLinks = document.querySelectorAll('.side-menu a');
@@ -94,9 +69,7 @@ window.addEventListener('load', () => {
             });
         });
     }
-    window.addEventListener('scroll', setActiveLink);
-    window.addEventListener('load', setActiveLink);
-
+    
     // --- Menú Lateral para Móviles ---
     const menuToggle = document.querySelector('.menu-toggle');
     const sideMenu = document.querySelector('.side-menu');
@@ -143,35 +116,28 @@ window.addEventListener('load', () => {
         });
     });
 
-// Versión simplificada para el cambio de tema
-const themeSwitch = document.getElementById('theme-switch');
-const body = document.body;
+    // Versión simplificada para el cambio de tema
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
 
-if (themeSwitch) {
-    console.log("Botón de tema encontrado");
-    
-    themeSwitch.addEventListener('click', () => {
-        console.log("Botón de tema clickeado");
+    if (themeSwitch) {
+        themeSwitch.addEventListener('click', () => {
+            // Simplemente alternar la clase
+            body.classList.toggle('light-theme');
+            body.classList.toggle('dark-theme');
+            
+            // Guardar el nuevo tema
+            const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
+            localStorage.setItem('theme', currentTheme);
+        });
         
-        // Simplemente alternar la clase
-        body.classList.toggle('light-theme');
-        body.classList.toggle('dark-theme');
-        
-        // Guardar el nuevo tema
-        const currentTheme = body.classList.contains('light-theme') ? 'light' : 'dark';
-        localStorage.setItem('theme', currentTheme);
-        
-        console.log("Tema cambiado a:", currentTheme);
-    });
-    
-    // Verificar tema guardado en localStorage
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light' && body.classList.contains('dark-theme')) {
-        body.classList.remove('dark-theme');
-        body.classList.add('light-theme');
-        console.log("Tema inicializado a 'light' desde localStorage");
+        // Verificar tema guardado en localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light' && body.classList.contains('dark-theme')) {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+        }
     }
-}
 
     // --- Actualizar Año en Footer ---
     const currentYearElement = document.getElementById('currentYear');
@@ -224,4 +190,4 @@ if (themeSwitch) {
     ajustarImagenesProyectos();
     applySmoothScroll();
     setActiveLink(); // Ejecutar una vez para inicializar
-})
+});

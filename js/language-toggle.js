@@ -1,58 +1,126 @@
-// Corrección para la animación de typing
-function setupTypingAnimation() {
-    const typingElement = document.getElementById('typing-effect');
-    if (!typingElement) return;
+// Objeto global para el efecto typing
+const TypingEffect = {
+  // Configuración
+  texts: {
+    'es': "en proceso, enfocado en full-stack",
+    'en': "full-stack developer in training"
+  },
+  typingSpeed: 100,      // Velocidad de escritura (ms)
+  deletingSpeed: 50,     // Velocidad de borrado (ms)
+  pauseDelay: 2000,      // Pausa después de escribir (ms)
+  
+  // Estado interno
+  element: null,         // Elemento DOM
+  currentText: "",       // Texto actual que se está escribiendo
+  currentIndex: 0,       // Posición actual en el texto
+  isDeleting: false,     // Si está borrando o escribiendo
+  timeout: null,         // Referencia al setTimeout
+  currentLang: null,     // Idioma actual
+  
+  // Inicializar efecto
+  init: function() {
+    // Obtener elemento
+    this.element = document.getElementById('typing-effect');
+    if (!this.element) return false;
     
-    // Detener cualquier animación previa
-    if (window.typingInterval) {
-        clearInterval(window.typingInterval);
-        window.typingInterval = null;
-    }
-    
-    // Obtener el idioma actual
-    const currentLang = document.documentElement.getAttribute('lang') || 'es';
-    
-    // Textos según el idioma
-    const texts = {
-        es: "En proceso de desarrollo full-stack",
-        en: "Full-stack developer in training"
-    };
-    
-    const typingText = texts[currentLang];
-    
-    // Inicializar variables
-    let index = 0;
-    let isDeleting = false;
-    const typingSpeed = 100; // Velocidad de escritura
-    const deletingSpeed = 50; // Velocidad de borrado
-    const delayAfterTyping = 2000; // Pausa antes de borrar
-    
-    // Función para el efecto de typing
-    function type() {
-        // Comprobar si el elemento existe y si no ha cambiado el idioma
-        if (!typingElement || currentLang !== (document.documentElement.getAttribute('lang') || 'es')) {
-            clearInterval(window.typingInterval);
-            window.typingInterval = null;
-            return;
-        }
-        
-        const currentText = typingText.substring(0, index);
-        typingElement.textContent = currentText;
-        
-        if (!isDeleting && index === typingText.length) {
-            setTimeout(() => isDeleting = true, delayAfterTyping);
-        } else if (isDeleting && index === 0) {
-            isDeleting = false;
-        }
-        
-        index += isDeleting ? -1 : 1;
-        const speed = isDeleting ? deletingSpeed : typingSpeed;
-        setTimeout(type, speed);
-    }
+    // Obtener idioma inicial
+    this.currentLang = document.documentElement.getAttribute('lang') || 'es';
     
     // Iniciar la animación
-    type();
-    window.typingInterval = setInterval(() => {}, 100); // Mantener una referencia para poder detenerla
+    this.start();
+    
+    return true;
+  },
+  
+  // Iniciar la animación
+  start: function() {
+    // Limpiar timeout existente
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
+    
+    // Resetear estado
+    this.currentIndex = 0;
+    this.isDeleting = false;
+    
+    // Actualizar idioma actual
+    this.currentLang = document.documentElement.getAttribute('lang') || 'es';
+    
+    // Obtener texto para el idioma actual
+    this.currentText = this.texts[this.currentLang] || "";
+    
+    // Iniciar ciclo de animación
+    this.tick();
+  },
+  
+  // Ciclo principal de la animación
+  tick: function() {
+    // Verificar si el idioma ha cambiado
+    const newLang = document.documentElement.getAttribute('lang') || 'es';
+    if (newLang !== this.currentLang) {
+      // Si cambió el idioma, reiniciar con el nuevo
+      this.start();
+      return;
+    }
+    
+    // Calcular el texto que se muestra actualmente
+    const displayText = this.currentText.substring(0, this.currentIndex);
+    
+    // Actualizar el DOM
+    if (this.element) {
+      this.element.textContent = displayText;
+    }
+    
+    // Lógica para escribir/borrar
+    if (!this.isDeleting && this.currentIndex === this.currentText.length) {
+      // Completó la escritura, esperar antes de empezar a borrar
+      const self = this;
+      this.timeout = setTimeout(function() {
+        self.isDeleting = true;
+        self.tick();
+      }, this.pauseDelay);
+    } 
+    else if (this.isDeleting && this.currentIndex === 0) {
+      // Completó el borrado, reiniciar escritura
+      this.isDeleting = false;
+      
+      // Opcionalmente cambiar texto si hay varios
+      // Para este caso específico no es necesario ya que depende del idioma
+      
+      this.tick();
+    }
+    else {
+      // Continuar escribiendo o borrando
+      this.currentIndex += this.isDeleting ? -1 : 1;
+      
+      // Programar próximo ciclo
+      const speed = this.isDeleting ? this.deletingSpeed : this.typingSpeed;
+      const self = this;
+      this.timeout = setTimeout(function() {
+        self.tick();
+      }, speed);
+    }
+  },
+  
+  // Detener la animación
+  stop: function() {
+    if (this.timeout) {
+      clearTimeout(this.timeout);
+      this.timeout = null;
+    }
+  }
+};
+
+// Función de utilidad para reemplazar la implementación actual
+function setupTypingAnimation() {
+  // Detener la animación existente si hay alguna
+  if (TypingEffect.timeout) {
+    TypingEffect.stop();
+  }
+  
+  // Inicializar la animación
+  TypingEffect.init();
 }
 
 // Función para manejar el cambio de idioma
@@ -117,6 +185,23 @@ function translatePage(lang) {
                 element.setAttribute(attr, translations[key][lang]);
             }
         });
+    });
+    
+    // Traducir tooltips del menú lateral
+    const sideMenuLinks = document.querySelectorAll('.side-menu a');
+    sideMenuLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        let key = '';
+        
+        // Determinar qué clave de traducción usar según el href
+        if (href === '#about') key = 'menu-about';
+        else if (href === '#projects') key = 'menu-projects';
+        else if (href === '#education') key = 'menu-education';
+        
+        // Aplicar traducción si existe
+        if (key && translations[key] && translations[key][lang]) {
+            link.setAttribute('data-section', translations[key][lang]);
+        }
     });
 }
 
@@ -362,7 +447,33 @@ const translations = {
     'copyright': {
         'es': 'Todos los derechos reservados.',
         'en': 'All rights reserved.'
-    }
+    },
+    
+    // Tooltips del menú lateral
+    'menu-about': {
+        'es': 'Sobre Mí',
+        'en': 'About Me'
+    },
+    'menu-projects': {
+        'es': 'Proyectos',
+        'en': 'Projects'
+    },
+    'menu-education': {
+        'es': 'Educación',
+        'en': 'Education'
+    },
+    // Nuevas traducciones para agregar a tu objeto translations en language-toggle.js
+// Añade estas traducciones al final del objeto translations existente
+
+// Nuevas categorías de habilidades
+'ui-ux-heading': {
+    'es': 'Diseño UI/UX',
+    'en': 'UI/UX Design'
+},
+'devops-heading': {
+    'es': 'DevOps & Infraestructura',
+    'en': 'DevOps & Infrastructure'
+},
 };
 
 // Inicializar al cargar la página

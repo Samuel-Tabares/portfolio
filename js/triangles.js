@@ -1,4 +1,4 @@
-// Script optimizado para animaciones de triángulos
+// Script optimizado para animaciones de triángulos con distribución por toda la pantalla
 document.addEventListener('DOMContentLoaded', function() {
     // Verificar si estamos en un dispositivo móvil
     if (window.innerWidth <= 768) {
@@ -21,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function() {
         currentScrollOffsetY: 0,
         lastScrollTriangleTime: 0,
         lastGlobalTriangleTime: 0,
-        minTriangleCount: 150,
-        maxTriangleCount: 180,
+        minTriangleCount: 180, // Aumentado de 150 a 180 para tener más triángulos
+        maxTriangleCount: 220, // Aumentado de 180 a 220 para tener más triángulos
         pageHeight: 0,
-        minSidePadding: 70 // Garantizar 70px mínimo a cada lado
+        minSidePadding: 0 // Reducido a 0 para permitir triángulos en todo el ancho
     };
     
     // Obtener dimensiones de la página
@@ -67,38 +67,21 @@ document.addEventListener('DOMContentLoaded', function() {
         triangle.style.borderRight = `${size/2}px solid transparent`;
         triangle.style.borderBottom = `${size}px solid ${isWhite ? `rgba(255,255,255,${opacity})` : `rgba(0,0,0,${opacity})`}`;
         
-        // Distribución horizontal con garantía de 70px mínimo a cada lado
+        // Distribución horizontal por toda la pantalla pero con mayor concentración en los costados
         let posX;
         const rand = Math.random();
-        
-        // Determinamos la posición del contenido en la pantalla
-        const contentWidth = 950;
         const windowWidth = window.innerWidth;
-        const minSidePadding = globalState.minSidePadding; // 70px a cada lado
         
-        const contentLeft = Math.max(minSidePadding, (windowWidth - contentWidth) / 2);
-        const contentRight = Math.min(windowWidth - minSidePadding, contentLeft + contentWidth);
-        
-        const leftZoneWidth = Math.max(0, contentLeft - minSidePadding);
-        const rightZoneWidth = Math.max(0, windowWidth - contentRight - minSidePadding);
-        
-        if (rand < 0.45 && leftZoneWidth > 0) {
-            // 45% de probabilidad - zona izquierda (garantizando el mínimo de 70px)
-            posX = minSidePadding + Math.random() * leftZoneWidth;
-        } else if (rand < 0.9 && rightZoneWidth > 0) {
-            // 45% de probabilidad - zona derecha (garantizando el mínimo de 70px)
-            posX = contentRight + Math.random() * rightZoneWidth;
+        // Nueva lógica de distribución: 60% en los costados, 40% en el centro
+        if (rand < 0.3) {
+            // 30% de probabilidad - zona izquierda (0-25% del ancho)
+            posX = Math.random() * (windowWidth * 0.25);
+        } else if (rand < 0.6) {
+            // 30% de probabilidad - zona derecha (75-100% del ancho)
+            posX = windowWidth * 0.75 + Math.random() * (windowWidth * 0.25);
         } else {
-            // Distribución en los extremos si el centro está muy limitado
-            if (windowWidth <= contentWidth + (minSidePadding * 2)) {
-                // Para pantallas muy pequeñas, mantener triángulos en los extremos
-                posX = Math.random() < 0.5 ? 
-                       Math.random() * minSidePadding : // Extremo izquierdo
-                       windowWidth - (Math.random() * minSidePadding); // Extremo derecho
-            } else {
-                // Si hay suficiente espacio, algunos pueden ir en el centro
-                posX = contentLeft + Math.random() * (contentRight - contentLeft);
-            }
+            // 40% de probabilidad - zona central (25-75% del ancho)
+            posX = windowWidth * 0.25 + Math.random() * (windowWidth * 0.5);
         }
         
         triangle.style.left = `${posX}px`;
@@ -261,8 +244,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Limitar la frecuencia de generación
         if (now - globalState.lastScrollTriangleTime < 200) return;
         
-        // Siempre generar 1-2 triángulos al hacer scroll, independiente de la velocidad
-        let trianglesToGenerate = Math.floor(Math.random() * 2) + 1;
+        // Siempre generar 1-3 triángulos al hacer scroll
+        let trianglesToGenerate = Math.floor(Math.random() * 3) + 1; // Aumentado de 1-2 a 1-3
         
         // Limitar al máximo
         if (triangles.length + trianglesToGenerate > globalState.maxTriangleCount) {
@@ -292,8 +275,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const viewportHeight = window.innerHeight;
         
-        // Generar 1-3 triángulos en partes aleatorias de la página
-        const toGenerate = Math.floor(Math.random() * 3) + 1;
+        // Generar 2-4 triángulos en partes aleatorias de la página
+        const toGenerate = Math.floor(Math.random() * 3) + 2; // Aumentado de 1-3 a 2-4
         
         for (let i = 0; i < toGenerate; i++) {
             // Posición Y aleatoria en toda la página
@@ -360,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animateTriangles);
     }
     
-    // Crear triángulos iniciales distribuidos equitativamente por toda la página
+    // Crear triángulos iniciales distribuidos por toda la página
     function createInitialTriangles() {
         const pageDimensions = getPageDimensions();
         const totalTriangles = globalState.minTriangleCount;
@@ -369,31 +352,110 @@ document.addEventListener('DOMContentLoaded', function() {
         const numberOfSections = 30; // Más secciones para distribución más uniforme
         const sectionHeight = pageDimensions.height / numberOfSections;
         
-        // Calcular cuántos triángulos por sección para distribución equitativa
-        const trianglesPerSection = Math.ceil(totalTriangles / numberOfSections);
+        // Secciones horizontales para distribución más uniforme
+        const horizontalSections = 5; // 5 secciones horizontales
+        const sectionWidth = pageDimensions.width / horizontalSections;
+        
+        // Distribución por sección horizontal (60% en costados, 40% en centro)
+        const trianglesPerHorizontalSection = [
+            Math.ceil(totalTriangles * 0.3), // 30% en la sección izquierda (0)
+            Math.ceil(totalTriangles * 0.13), // 13% en la sección 1
+            Math.ceil(totalTriangles * 0.14), // 14% en la sección central (2)
+            Math.ceil(totalTriangles * 0.13), // 13% en la sección 3
+            Math.ceil(totalTriangles * 0.3), // 30% en la sección derecha (4)
+        ];
         
         let trianglesCreated = 0;
         
-        // Crear triángulos para cada sección
-        for (let section = 0; section < numberOfSections; section++) {
-            const sectionStartY = section * sectionHeight;
+        // Crear triángulos para cada sección horizontal y vertical
+        for (let hSection = 0; hSection < horizontalSections; hSection++) {
+            const hStart = hSection * sectionWidth;
+            const hEnd = hStart + sectionWidth;
+            const trianglesForThisHSection = trianglesPerHorizontalSection[hSection];
             
-            // Determinar cuántos triángulos crear en esta sección
-            // Ajustamos el número en la última sección para no exceder el total
-            const toCreate = Math.min(trianglesPerSection, totalTriangles - trianglesCreated);
-            
-            for (let i = 0; i < toCreate; i++) {
-                // Posición Y aleatoria dentro de esta sección específica
-                const posY = sectionStartY + (Math.random() * sectionHeight);
-                createTriangle(false, 1000, posY);
-                trianglesCreated++;
+            // Distribuir verticalmente
+            for (let vSection = 0; vSection < numberOfSections; vSection++) {
+                const vStart = vSection * sectionHeight;
                 
-                // Si ya hemos creado todos los triángulos, salimos
-                if (trianglesCreated >= totalTriangles) break;
+                // Determinar cuántos triángulos crear en esta sección horizontal+vertical
+                const toCreateInThisSection = Math.ceil(trianglesForThisHSection / numberOfSections);
+                
+                for (let i = 0; i < toCreateInThisSection; i++) {
+                    // Posiciones aleatorias dentro de esta sección específica
+                    const posX = hStart + (Math.random() * sectionWidth);
+                    const posY = vStart + (Math.random() * sectionHeight);
+                    
+                    // Crear el triángulo con la posición específica
+                    const triangle = document.createElement('div');
+                    triangle.classList.add('triangle');
+                    
+                    // Configuración similar a createTriangle pero con posición específica
+                    const isWhite = Math.random() > 0.5;
+                    const size = Math.random() * 60 + 10;
+                    const opacity = Math.random() * 0.6 + 0.2;
+                    
+                    triangle.style.opacity = '0';
+                    triangle.style.width = '0';
+                    triangle.style.height = '0';
+                    triangle.style.borderLeft = `${size/2}px solid transparent`;
+                    triangle.style.borderRight = `${size/2}px solid transparent`;
+                    triangle.style.borderBottom = `${size}px solid ${isWhite ? `rgba(255,255,255,${opacity})` : `rgba(0,0,0,${opacity})`}`;
+                    triangle.style.left = `${posX}px`;
+                    triangle.style.top = `${posY}px`;
+                    
+                    const rotation = Math.random() * 360;
+                    const zIndex = Math.floor(Math.random() * 10);
+                    triangle.style.zIndex = zIndex;
+                    triangle.style.transform = `rotate(${rotation}deg) translateZ(${zIndex * 10}px)`;
+                    
+                    // Propiedades del triángulo
+                    const triangleObj = {
+                        element: triangle,
+                        posX,
+                        posY,
+                        size,
+                        rotation,
+                        speed: 3 + Math.random() * 20,
+                        delay: Math.random() * 5,
+                        isWhite,
+                        opacity,
+                        zIndex,
+                        offsetY: 0,
+                        offsetX: 0,
+                        velocityY: 0,
+                        creationTime: Date.now(),
+                        lifespan: 9000 + Math.random() * 6000,
+                        rotationSpeed: (Math.random() * 0.2) - 0.1,
+                        driftX: (Math.random() * 0.4) - 0.2,
+                        driftY: (Math.random() * 0.4) - 0.2,
+                        currentRotation: rotation,
+                        isVisible: true,
+                        fadingOut: false
+                    };
+                    
+                    triangles.push(triangleObj);
+                    trianglesContainer.appendChild(triangle);
+                    
+                    // Fade in suave
+                    setTimeout(() => {
+                        triangle.style.transition = `opacity 1000ms ease-in-out`;
+                        triangle.style.opacity = opacity;
+                    }, 10);
+                    
+                    // Programar eliminación
+                    setTimeout(() => {
+                        fadeOutAndRemoveTriangle(triangleObj);
+                    }, triangleObj.lifespan);
+                    
+                    trianglesCreated++;
+                    
+                    // Si ya hemos creado todos los triángulos, salimos
+                    if (trianglesCreated >= totalTriangles) {
+                        console.log(`Triángulos iniciales creados: ${trianglesCreated}`);
+                        return;
+                    }
+                }
             }
-            
-            // Si ya hemos creado todos los triángulos, salimos
-            if (trianglesCreated >= totalTriangles) break;
         }
         
         console.log(`Triángulos iniciales creados: ${trianglesCreated}`);
