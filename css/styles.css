@@ -442,7 +442,7 @@ header {
 #hero h1 {
     font-size: 3.5rem;
     margin-bottom: 0.7rem;
-    background: linear-gradient(90deg, var(--primary-color), #2980b9);
+    background: linear-gradient(90deg, var(--primary-color), #2695df);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -568,7 +568,8 @@ header {
     height: 250px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid #4aa3e5; /* Azul un poco más suave */
+    object-position: center 18%; /* Añadido para mostrar más de la parte superior */
+    border: 1px solid #4aa3e5; /* Azul un poco más suave */
     box-shadow: var(--box-shadow);
     transition: all var(--transition-speed) ease;
     margin: 0 auto;

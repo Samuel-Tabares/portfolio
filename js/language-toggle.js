@@ -278,10 +278,10 @@ const translations = {
         'es': 'Ingeniero de software',
         'en': 'Software Engineer'
     },
-    'hero-description': {
-        'es': 'Tengo capacidad excepcional para <strong>aprender rápidamente</strong> nuevas tecnologías y <strong>perfeccionista</strong> orientado a resultados de calidad. <strong>Domino Python/Django, HTML5/CSS3 y JavaScript/React</strong> para desarrollo integral, combinando pensamiento crítico y autonomía para <strong>resolver problemas complejos</strong>. Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>, pues como persona que interactúa diariamente con tecnología, comprendo la frustración de usar herramientas mal diseñadas. Busco <strong>liderar</strong> soluciones que optimicen procesos empresariales mientras elevan genuinamente la <strong>calidad de vida</strong> de quienes las utilizan.',
-        'en': 'I have exceptional ability to <strong>quickly learn</strong> new technologies and a <strong>perfectionist</strong> approach focused on quality results. <strong>Proficient in Python/Django, HTML5/CSS3, and JavaScript/React</strong> for comprehensive development, combining critical thinking and autonomy to <strong>solve complex problems</strong>. My focus is to <strong>transform</strong> systems to truly <strong>enhance the end-user experience</strong>, as someone who interacts with technology daily, I understand the frustration of using poorly designed tools. I seek to <strong>lead</strong> solutions that optimize business processes while genuinely elevating the <strong>quality of life</strong> for those who use them.'
-    },
+'hero-description': {
+    'en': 'Software engineer with an <strong>analytical mindset and comprehensive vision</strong> that transforms technical challenges into innovation opportunities. My proficiency in <strong>Python/Django, JavaScript/React, and full-stack architectures</strong> allows me to create robust and scalable systems from conception to implementation. I stand out for my <strong>self-taught capacity and adaptability</strong> to incorporate new technologies, combined with a <strong>meticulous and perfectionist</strong> approach that optimizes every line of code. My ability to <strong>lead end-to-end solutions</strong> is reflected in modular architectures that balance technical performance and user experience. I constantly seek to <strong>transform complex processes</strong> into intuitive and accessible interfaces, always with the conviction that technology should <strong>tangibly improve the lives of its users</strong>. My critical thinking, autonomy, and passion for technical excellence make me a developer who not only meets requirements but <strong>elevates the potential of each project</strong> to its maximum expression.',
+    'es': 'Ingeniero de software con <strong>mentalidad analítica y visión integral</strong> que transforma desafíos técnicos en oportunidades de innovación. Mi dominio de <strong>Python/Django, JavaScript/React y arquitecturas full-stack</strong> me permite crear sistemas robustos y escalables desde su concepción hasta su implementación. Destaco por mi <strong>capacidad autodidacta y adaptabilidad</strong> para incorporar nuevas tecnologías, combinadas con un enfoque <strong>meticuloso y perfeccionista</strong> que optimiza cada línea de código. Mi habilidad para <strong>liderar soluciones end-to-end</strong> se refleja en arquitecturas modulares que equilibran rendimiento técnico y experiencia de usuario. Busco constantemente <strong>transformar procesos complejos</strong> en interfaces intuitivas y accesibles, siempre con la convicción de que la tecnología debe <strong>mejorar tangiblemente la vida de sus usuarios</strong>. Mi pensamiento crítico, autonomía y pasión por la excelencia técnica me convierten en un desarrollador que no solo cumple requisitos, sino que <strong>eleva el potencial de cada proyecto</strong> llevándolo a su máxima expresión.'
+},
     'download-cv': {
         'es': 'Descargar CV',
         'en': 'Download CV'
@@ -405,17 +405,41 @@ const translations = {
         'en': 'Projects and Experience'
     },
     'portfolio-title': {
-        'es': 'Portafolio Web Profesional',
-        'en': 'Professional Web Portfolio'
+        'es': 'Portafolio Web Profesional Optimizado',
+        'en': 'Optimized Professional Web Portfolio'
     },
     'portfolio-desc': {
-        'es': 'Desarrollo de un portafolio web personal completo con diseño responsive, tema claro/oscuro y navegación intuitiva para mostrar proyectos y habilidades.',
-        'en': 'Development of a complete personal web portfolio with responsive design, light/dark theme, and intuitive navigation to showcase projects and skills.'
+        'es': 'Desarrollo de un portafolio web personal con diseño responsive, cambio de tema claro/oscuro, sistema de cambio de idioma y animaciones dinámicas. Implementación de arquitectura modular y optimización de código para rendimiento.',
+        'en': 'Development of a personal web portfolio with responsive design, light/dark theme switching, language change system, and dynamic animations. Implementation of modular architecture and code optimization for performance.'
     },
     'portfolio-tech': {
-        'es': '<strong>Tecnologías:</strong> HTML5, CSS3, JavaScript, Flexbox, Media Queries.',
-        'en': '<strong>Technologies:</strong> HTML5, CSS3, JavaScript, Flexbox, Media Queries.'
+        'es': '<strong>Tecnologías:</strong> HTML5, CSS3, JavaScript ES6, CSS Variables, CSS Grid, Flexbox, Manipulación del DOM, LocalStorage, CSS Transitions y Transformaciones.',
+        'en': '<strong>Technologies:</strong> HTML5, CSS3, JavaScript ES6, CSS Variables, CSS Grid, Flexbox, DOM Manipulation, LocalStorage, CSS Transitions and Transformations.'
     },
+    'portfolio-exp-title': {
+        'es': 'OPTIMIZACIÓN Y DESARROLLO DE PORTAFOLIO WEB',
+        'en': 'WEB PORTFOLIO OPTIMIZATION AND DEVELOPMENT'
+    },
+    'portfolio-exp-1': {
+        'es': '<strong>Refactorizado</strong> el código CSS de múltiples archivos en una solución unificada y optimizada, reduciendo el tamaño en un 40%',
+        'en': '<strong>Refactored</strong> CSS code from multiple files into a unified and optimized solution, reducing size by 40%'
+    },
+    'portfolio-exp-2': {
+        'es': '<strong>Implementado</strong> un sistema de cambio de idioma (español/inglés) utilizando JavaScript y almacenamiento local para persistencia',
+        'en': '<strong>Implemented</strong> a language switching system (Spanish/English) using JavaScript and local storage for persistence'
+    },
+    'portfolio-exp-3': {
+        'es': '<strong>Optimizado</strong> el rendimiento visual mediante ajustes en los colores y contrastes para mejorar la accesibilidad en ambos temas',
+        'en': '<strong>Optimized</strong> visual performance by adjusting colors and contrasts to improve accessibility in both themes'
+    },
+    'portfolio-exp-4': {
+        'es': '<strong>Mejorado</strong> la experiencia de usuario con animaciones y micro-interacciones suavizadas para ambos temas',
+        'en': '<strong>Enhanced</strong> user experience with smoothed animations and micro-interactions for both themes'
+    },
+    'portfolio-exp-5': {
+        'es': '<strong>Aplicado</strong> técnicas de optimización para dispositivos móviles, asegurando compatibilidad cross-browser y tiempos de carga reducidos',
+        'en': '<strong>Applied</strong> mobile optimization techniques, ensuring cross-browser compatibility and reduced loading times'
+    },    
     'importa-title': {
         'es': 'Importa Colombia',
         'en': 'Importa Colombia'
@@ -428,52 +452,7 @@ const translations = {
         'es': '<strong>Tecnologías:</strong> React, Django REST Framework, Bootstrap 5, Python.',
         'en': '<strong>Technologies:</strong> React, Django REST Framework, Bootstrap 5, Python.'
     },
-    'view-demo': {
-        'es': 'Ver Demo <i class="fas fa-external-link-alt"></i>',
-        'en': 'View Demo <i class="fas fa-external-link-alt"></i>'
-    },
-    'view-code': {
-        'es': 'Ver Código <i class="fab fa-github"></i>',
-        'en': 'View Code <i class="fab fa-github"></i>'
-    },
-// ACTUALIZA ESTAS TRADUCCIONES EN EL OBJETO translations DE language-toggle.js
-
-'portfolio-title': {
-    'es': 'Portafolio Web Profesional Optimizado',
-    'en': 'Optimized Professional Web Portfolio'
-},
-'portfolio-desc': {
-    'es': 'Desarrollo de un portafolio web personal con diseño responsive, cambio de tema claro/oscuro, sistema de cambio de idioma y animaciones dinámicas. Implementación de arquitectura modular y optimización de código para rendimiento.',
-    'en': 'Development of a personal web portfolio with responsive design, light/dark theme switching, language change system, and dynamic animations. Implementation of modular architecture and code optimization for performance.'
-},
-'portfolio-tech': {
-    'es': '<strong>Tecnologías:</strong> HTML5, CSS3, JavaScript ES6, CSS Variables, CSS Grid, Flexbox, Manipulación del DOM, LocalStorage, CSS Transitions y Transformaciones.',
-    'en': '<strong>Technologies:</strong> HTML5, CSS3, JavaScript ES6, CSS Variables, CSS Grid, Flexbox, DOM Manipulation, LocalStorage, CSS Transitions and Transformations.'
-},
-'portfolio-exp-title': {
-    'es': 'OPTIMIZACIÓN Y DESARROLLO DE PORTAFOLIO WEB',
-    'en': 'WEB PORTFOLIO OPTIMIZATION AND DEVELOPMENT'
-},
-'portfolio-exp-1': {
-    'es': '<strong>Refactorizado</strong> el código CSS de múltiples archivos en una solución unificada y optimizada, reduciendo el tamaño en un 40%',
-    'en': '<strong>Refactored</strong> CSS code from multiple files into a unified and optimized solution, reducing size by 40%'
-},
-'portfolio-exp-2': {
-    'es': '<strong>Implementado</strong> un sistema de cambio de idioma (español/inglés) utilizando JavaScript y almacenamiento local para persistencia',
-    'en': '<strong>Implemented</strong> a language switching system (Spanish/English) using JavaScript and local storage for persistence'
-},
-'portfolio-exp-3': {
-    'es': '<strong>Optimizado</strong> el rendimiento visual mediante ajustes en los colores y contrastes para mejorar la accesibilidad en ambos temas',
-    'en': '<strong>Optimized</strong> visual performance by adjusting colors and contrasts to improve accessibility in both themes'
-},
-'portfolio-exp-4': {
-    'es': '<strong>Mejorado</strong> la experiencia de usuario con animaciones y micro-interacciones suavizadas para ambos temas',
-    'en': '<strong>Enhanced</strong> user experience with smoothed animations and micro-interactions for both themes'
-},
-'portfolio-exp-5': {
-    'es': '<strong>Aplicado</strong> técnicas de optimización para dispositivos móviles, asegurando compatibilidad cross-browser y tiempos de carga reducidos',
-    'en': '<strong>Applied</strong> mobile optimization techniques, ensuring cross-browser compatibility and reduced loading times'
-},    'importa-exp-title': {
+    'importa-exp-title': {
         'es': 'DESARROLLO FULLSTACK IMPORTA COLOMBIA',
         'en': 'FULLSTACK DEVELOPMENT IMPORTA COLOMBIA'
     },
@@ -497,6 +476,14 @@ const translations = {
         'es': '<strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados',
         'en': '<strong>Optimized</strong> data loading and visualization with asynchronous requests and state management'
     },
+    'view-demo': {
+        'es': 'Ver Demo <i class="fas fa-external-link-alt"></i>',
+        'en': 'View Demo <i class="fas fa-external-link-alt"></i>'
+    },
+    'view-code': {
+        'es': 'Ver Código <i class="fab fa-github"></i>',
+        'en': 'View Code <i class="fab fa-github"></i>'
+    },
     
     // Education section
     'education-heading': {
@@ -518,10 +505,6 @@ const translations = {
     'english-b2': {
         'es': 'B2 INGLÉS',
         'en': 'ENGLISH B2'
-    },
-    'highschool': {
-        'es': 'BACHILLER',
-        'en': 'HIGH SCHOOL DIPLOMA'
     },
     'view-certificate': {
         'es': 'Ver certificado →',
@@ -596,19 +579,7 @@ const translations = {
     'menu-education': {
         'es': 'Educación',
         'en': 'Education'
-    },
-    // Nuevas traducciones para agregar a tu objeto translations en language-toggle.js
-// Añade estas traducciones al final del objeto translations existente
-
-// Nuevas categorías de habilidades
-'ui-ux-heading': {
-    'es': 'Diseño UI/UX',
-    'en': 'UI/UX Design'
-},
-'devops-heading': {
-    'es': 'DevOps & Infraestructura',
-    'en': 'DevOps & Infrastructure'
-},
+    }
 };
 
 // Inicializar al cargar la página

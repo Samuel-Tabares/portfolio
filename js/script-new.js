@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (scrollPos > 1930 && scrollPos < 3300) {
             // Sección Proyectos (segundo icono)
             document.querySelector('.side-menu a[href="#projects"]')?.classList.add('active');
-        } else if (scrollPos > 3300 && scrollPos < 4200){
+        } else if (scrollPos > 3300 && scrollPos < 4000){
             // Sección Educación (tercer icono)
             document.querySelector('.side-menu a[href="#education"]')?.classList.add('active');
         }
