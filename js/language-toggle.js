@@ -2,8 +2,8 @@
 const TypingEffect = {
   // Configuración
   texts: {
-    'es': "en proceso, enfocado en full-stack",
-    'en': "full-stack developer in training"
+    'es': "encaminado al full-stack",
+    'en': "aiming to full-stack"
   },
   typingSpeed: 100,      // Velocidad de escritura (ms)
   deletingSpeed: 50,     // Velocidad de borrado (ms)
