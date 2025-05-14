@@ -571,6 +571,18 @@ const translations = {
         'es': 'Todos los derechos reservados.',
         'en': 'All rights reserved.'
     },
+    'legal-text': {
+    'es': 'Este sitio web, incluyendo todo su contenido, diseño, código y elementos visuales, está protegido por leyes nacionales e internacionales de propiedad intelectual.',
+    'en': 'This website, including all its content, design, code, and visual elements, is protected by national and international intellectual property laws.'
+},
+'terms-link': {
+    'es': 'Términos y Condiciones',
+    'en': 'Terms and Conditions'
+},
+'copy-warning': {
+    'es': 'Copia de contenido deshabilitada. El contenido de este sitio web está protegido por leyes de derechos de autor.',
+    'en': 'Content copying is disabled. The content of this website is protected by copyright law.'
+},
     
     // Tooltips del menú lateral
     'menu-about': {
