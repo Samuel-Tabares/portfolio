@@ -432,6 +432,10 @@ const translations = {
     'es': 'Arquitectura de Microservicios',
     'en': 'Microservices Architecture'
 },
+'skill-ai-integration': {
+    'es': 'Integración APIs de IA (OpenAI)',
+    'en': 'AI APIs integration (OpenAI)'
+},
 'skill-docker': {
     'es': 'Docker/Docker Compose',
     'en': 'Docker/Docker Compose'
