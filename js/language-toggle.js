@@ -1,10 +1,10 @@
 // Objeto global para el efecto typing
 const TypingEffect = {
   // Configuración
-  texts: {
-    'es': "encaminado al full-stack",
-    'en': "aiming to full-stack"
-  },
+texts: {
+  'es': "especializado en full-stack e IA",
+  'en': "specialized in full-stack and AI"
+},
   typingSpeed: 100,      // Velocidad de escritura (ms)
   deletingSpeed: 50,     // Velocidad de borrado (ms)
   pauseDelay: 2000,      // Pausa después de escribir (ms)
@@ -274,14 +274,14 @@ const translations = {
         'es': 'Hola, soy Samuel Tabares León',
         'en': 'Hi, I\'m Samuel Tabares León'
     },
-    'job-title': {
-        'es': 'Ingeniero de software',
-        'en': 'Software Engineer'
-    },
-'hero-description': {
-    'en': 'Software engineer with an <strong>analytical mindset and comprehensive vision</strong> that transforms technical challenges into innovation opportunities. My proficiency in <strong>Python/Django, JavaScript/React, and full-stack architectures</strong> allows me to create robust and scalable systems from conception to implementation. I stand out for my <strong>self-taught capacity and adaptability</strong> to incorporate new technologies, combined with a <strong>meticulous and perfectionist</strong> approach that optimizes every line of code. My ability to <strong>lead end-to-end solutions</strong> is reflected in modular architectures that balance technical performance and user experience. I constantly seek to <strong>transform complex processes</strong> into intuitive and accessible interfaces, always with the conviction that technology should <strong>tangibly improve the lives of its users</strong>. My critical thinking, autonomy, and passion for technical excellence make me a developer who not only meets requirements but <strong>elevates the potential of each project</strong> to its maximum expression.',
-    'es': 'Ingeniero de software con <strong>mentalidad analítica y visión integral</strong> que transforma desafíos técnicos en oportunidades de innovación. Mi dominio de <strong>Python/Django, JavaScript/React y arquitecturas full-stack</strong> me permite crear sistemas robustos y escalables desde su concepción hasta su implementación. Destaco por mi <strong>capacidad autodidacta y adaptabilidad</strong> para incorporar nuevas tecnologías, combinadas con un enfoque <strong>meticuloso y perfeccionista</strong> que optimiza cada línea de código. Mi habilidad para <strong>liderar soluciones end-to-end</strong> se refleja en arquitecturas modulares que equilibran rendimiento técnico y experiencia de usuario. Busco constantemente <strong>transformar procesos complejos</strong> en interfaces intuitivas y accesibles, siempre con la convicción de que la tecnología debe <strong>mejorar tangiblemente la vida de sus usuarios</strong>. Mi pensamiento crítico, autonomía y pasión por la excelencia técnica me convierten en un desarrollador que no solo cumple requisitos, sino que <strong>eleva el potencial de cada proyecto</strong> llevándolo a su máxima expresión.'
-},
+      'job-title': {
+    'es': 'Estudiante de Ingeniería de Software',
+    'en': 'Software Engineering Student'
+  },
+  'hero-description': {
+    'en': 'Software Engineering student with an <strong>analytical mindset and comprehensive vision</strong> specialized in <strong>full-stack development</strong>. I combine my knowledge in <strong>Python/Django, JavaScript/React, and modern web technologies</strong> to transform concepts into functional and scalable applications. My experience includes <strong>impactful academic and personal projects</strong>, such as a complete veterinary clinic application and an import platform with product rating system. Distinguished by my <strong>self-taught ability and rapid learning</strong>, I\'m passionate about exploring new technologies, especially in <strong>Artificial Intelligence and mobile development</strong>. My meticulous approach focuses on creating <strong>technically sound and user-centered solutions</strong>, constantly seeking to optimize processes and enhance the end-user experience. I transform complex challenges into opportunities to <strong>innovate and create value</strong> through code.',
+    'es': 'Estudiante de Ingeniería de Software con <strong>mentalidad analítica y visión integral</strong> especializado en desarrollo <strong>full-stack</strong>. Combino mis conocimientos en <strong>Python/Django, JavaScript/React y tecnologías web modernas</strong> para transformar conceptos en aplicaciones funcionales y escalables. Mi experiencia incluye <strong>proyectos académicos y personales de impacto</strong>, como una aplicación completa para clínica veterinaria y una plataforma de importación con calificación de productos. Destacado por mi <strong>capacidad autodidacta y aprendizaje rápido</strong>, me apasiona explorar nuevas tecnologías, especialmente en <strong>Inteligencia Artificial y desarrollo móvil</strong>. Mi enfoque meticuloso se centra en crear <strong>soluciones técnicamente sólidas y centradas en el usuario</strong>, buscando constantemente optimizar procesos y mejorar la experiencia final. Transformo desafíos complejos en oportunidades para <strong>innovar y crear valor</strong> a través del código.'
+  },
     'download-cv': {
         'es': 'Descargar CV',
         'en': 'Download CV'
@@ -293,17 +293,17 @@ const translations = {
         'en': 'About Me'
     },
     'about-text-1': {
-        'es': '<strong>Domino Python/Django, HTML5/CSS3 y JavaScript/React</strong> para desarrollo integral, combinando pensamiento crítico y autonomía para <strong>resolver problemas complejos</strong>.',
-        'en': '<strong>Proficient in Python/Django, HTML5/CSS3, and JavaScript/React</strong> for comprehensive development, combining critical thinking and autonomy to <strong>solve complex problems</strong>.'
-    },
-    'about-text-2': {
-        'es': 'Mi enfoque es <strong>transformar</strong> sistemas para que realmente <strong>mejoren la experiencia del usuario final</strong>, pues como persona que interactúa diariamente con tecnología, comprendo la frustración de usar herramientas mal diseñadas.',
-        'en': 'My focus is to <strong>transform</strong> systems to truly <strong>enhance the end-user experience</strong>, as someone who interacts with technology daily, I understand the frustration of using poorly designed tools.'
-    },
-    'about-text-3': {
-        'es': 'Busco <strong>liderar</strong> soluciones que optimicen procesos empresariales mientras elevan genuinamente la <strong>calidad de vida</strong> de quienes las utilizan.',
-        'en': 'I seek to <strong>lead</strong> solutions that optimize business processes while genuinely elevating the <strong>quality of life</strong> for those who use them.'
-    },
+  'es': '<strong>Desarrollo aplicaciones full-stack utilizando Python/Django, React y tecnologías modernas</strong>, con especial interés en la integración de <strong>inteligencia artificial y experiencias de usuario intuitivas</strong>.',
+  'en': '<strong>I develop full-stack applications using Python/Django, React, and modern technologies</strong>, with special interest in integrating <strong>artificial intelligence and intuitive user experiences</strong>.'
+},
+'about-text-2': {
+  'es': 'Actualmente estoy <strong>cursando Ingeniería de Software</strong> mientras trabajo en proyectos personales ambiciosos, incluyendo una <strong>aplicación veterinaria integral</strong> y un emprendimiento para <strong>crear portafolios profesionales personalizados</strong>.',
+  'en': 'I am currently <strong>studying Software Engineering</strong> while working on ambitious personal projects, including a <strong>comprehensive veterinary application</strong> and a venture to <strong>create customized professional portfolios</strong>.'
+},
+'about-text-3': {
+  'es': 'Mi objetivo es <strong>construir soluciones digitales innovadoras</strong> que combinen excelencia técnica con <strong>valor real para usuarios y empresas</strong>, aplicando un enfoque meticuloso y orientado a resultados.',
+  'en': 'My goal is to <strong>build innovative digital solutions</strong> that combine technical excellence with <strong>real value for users and businesses</strong>, applying a meticulous and results-oriented approach.'
+},
     'personal-skills': {
         'es': 'Competencias Personales',
         'en': 'Personal Skills'
@@ -399,6 +399,185 @@ const translations = {
     'es': 'Automatización',
     'en': 'Automation'
 },
+
+
+//roadmap sections
+
+'roadmap-heading': {
+    'es': 'Mi Camino de Desarrollo',
+    'en': 'My Development Roadmap'
+},
+'current-skills': {
+    'es': 'Habilidades Dominadas',
+    'en': 'Mastered Skills'
+},
+'learning-now': {
+    'es': 'Fortaleciendo Actualmente',
+    'en': 'Currently Strengthening'
+},
+'future-skills': {
+    'es': 'Próximos Objetivos',
+    'en': 'Future Goals'
+},
+'vision': {
+    'es': 'Mi Visión Profesional',
+    'en': 'My Professional Vision'
+},
+'vision-text': {
+    'es': 'Desarrollar soluciones innovadoras que integren IA y tecnologías full-stack para resolver problemas reales, hacer el mundo más funcional y generar impacto positivo. Me veo creando ecosistemas digitales que combinen excelencia técnica con alto valor para usuarios y empresas.',
+    'en': 'Developing innovative solutions that integrate AI and full-stack technologies to solve real problems, make the world more functional, and generate positive impact. I see myself creating digital ecosystems that combine technical excellence with high value for users and businesses.'
+},
+// Habilidades específicas mencionadas en el roadmap (que podrían necesitar traducción)
+'skill-microservices': {
+    'es': 'Arquitectura de Microservicios',
+    'en': 'Microservices Architecture'
+},
+'skill-docker': {
+    'es': 'Docker/Docker Compose',
+    'en': 'Docker/Docker Compose'
+},
+'skill-design-patterns': {
+    'es': 'Patrones de Diseño en Software',
+    'en': 'Software Design Patterns'
+},
+'skill-ai-applications': {
+    'es': 'Aplicaciones Prácticas de IA',
+    'en': 'Practical AI Applications'
+},
+'skill-advanced-react': {
+    'es': 'React Avanzado',
+    'en': 'Advanced React'
+},
+'skill-ios': {
+    'es': 'Desarrollo iOS/Apple',
+    'en': 'iOS/Apple Development'
+},
+'skill-ai-specialization': {
+    'es': 'Specialización en IA Aplicada',
+    'en': 'Applied AI Specialization'
+},
+'skill-cloud': {
+    'es': 'Cloud Computing (AWS/Azure)',
+    'en': 'Cloud Computing (AWS/Azure)'
+},
+'skill-web3': {
+    'es': 'Web3 y Tecnologías Emergentes',
+    'en': 'Web3 and Emerging Technologies'
+},
+'skill-entrepreneurship': {
+    'es': 'Emprendimiento Tecnológico',
+    'en': 'Tech Entrepreneurship'
+},
+
+'status-ongoing': {
+    'es': 'En desarrollo',
+    'en': 'In progress'
+},
+'status-completed': {
+    'es': 'Completado',
+    'en': 'Completed'
+},
+
+// Métricas de proyectos
+'tech-used': {
+    'es': 'Tecnologías:',
+    'en': 'Technologies:'
+},
+'metric-modules': {
+    'es': 'Módulos',
+    'en': 'Modules'
+},
+'metric-apis': {
+    'es': 'Endpoints API',
+    'en': 'API Endpoints'
+},
+'metric-database': {
+    'es': 'Modelos DB',
+    'en': 'DB Models'
+},
+'metric-endpoints': {
+    'es': 'API Endpoints',
+    'en': 'API Endpoints'
+},
+'metric-models': {
+    'es': 'Modelos DB',
+    'en': 'DB Models'
+},
+'metric-integrations': {
+    'es': 'Integraciones',
+    'en': 'Integrations'
+},
+'metric-size': {
+    'es': 'Reducción Tamaño',
+    'en': 'Size Reduction'
+},
+'metric-langs': {
+    'es': 'Idiomas',
+    'en': 'Languages'
+},
+'metric-performance': {
+    'es': 'Performance',
+    'en': 'Performance'
+},
+
+// Textos específicos de proyectos
+'private-project': {
+    'es': 'Proyecto Privado <i class="fas fa-lock"></i>',
+    'en': 'Private Project <i class="fas fa-lock"></i>'
+},
+
+// Menú lateral
+'menu-roadmap': {
+    'es': 'Camino',
+    'en': 'Roadmap'
+},
+'menu-contact': {
+    'es': 'Contacto',
+    'en': 'Contact'
+},
+
+// Opciones que faltan en el menú
+'certificate-link': {
+    'es': '<i class="fas fa-award"></i> Ver certificado',
+    'en': '<i class="fas fa-award"></i> View certificate'
+},
+//seccion emprendimiento
+'entrepreneurship-heading': {
+    'es': 'Emprendimiento',
+    'en': 'Entrepreneurship'
+},
+'portfolio-venture': {
+    'es': 'Servicio de Creación de Portafolios Profesionales',
+    'en': 'Professional Portfolio Creation Service'
+},
+'portfolio-venture-desc': {
+    'es': 'Transformo perfiles profesionales en presencias digitales impactantes. Ofrezco un servicio completo de diseño y desarrollo de portafolios web personalizados para profesionales y pequeñas empresas.',
+    'en': 'I transform professional profiles into impactful digital presences. I offer a complete service of design and development of custom web portfolios for professionals and small businesses.'
+},
+'service-features': {
+    'es': 'Características del Servicio',
+    'en': 'Service Features'
+},
+'feature-1': {
+    'es': '<i class="fas fa-check"></i> Diseño personalizado adaptado a la identidad profesional',
+    'en': '<i class="fas fa-check"></i> Custom design adapted to professional identity'
+},
+'feature-2': {
+    'es': '<i class="fas fa-check"></i> Optimización SEO para mayor visibilidad',
+    'en': '<i class="fas fa-check"></i> SEO optimization for greater visibility'
+},
+'feature-3': {
+    'es': '<i class="fas fa-check"></i> Funcionalidades adaptadas a diferentes necesidades',
+    'en': '<i class="fas fa-check"></i> Features adapted to different needs'
+},
+'feature-4': {
+    'es': '<i class="fas fa-check"></i> Experiencia técnica con enfoque en rendimiento',
+    'en': '<i class="fas fa-check"></i> Technical expertise with focus on performance'
+},
+'contact-for-info': {
+    'es': 'Contactar para información <i class="fas fa-arrow-right"></i>',
+    'en': 'Contact for information <i class="fas fa-arrow-right"></i>'
+},
     // Projects section
     'projects-heading': {
         'es': 'Proyectos y Experiencia',
@@ -484,6 +663,50 @@ const translations = {
         'es': 'Ver Código <i class="fab fa-github"></i>',
         'en': 'View Code <i class="fab fa-github"></i>'
     },
+    'veterinary-title': {
+    'es': 'Backend para Plataforma de Gestión Veterinaria',
+    'en': 'Backend for Veterinary Management Platform'
+},
+'veterinary-desc': {
+    'es': 'Desarrollo completo del backend para un sistema integral de gestión de clínicas veterinarias. Diseño e implementación de la arquitectura de datos, lógica de negocio, APIs y servicios para soportar múltiples módulos: pacientes, agendamiento, historias clínicas, prescripción y facturación.',
+    'en': 'Complete backend development for a comprehensive veterinary clinic management system. Design and implementation of data architecture, business logic, APIs, and services to support multiple modules: patients, scheduling, medical records, prescription, and billing.'
+},
+'veterinary-exp-title': {
+    'es': 'DESARROLLO BACKEND PARA SISTEMA VETERINARIO',
+    'en': 'BACKEND DEVELOPMENT FOR VETERINARY SYSTEM'
+},
+'veterinary-exp-1': {
+    'es': '<strong>Diseñado</strong> una arquitectura backend completa con 8 servicios interconectados y estructura de datos normalizada',
+    'en': '<strong>Designed</strong> a complete backend architecture with 8 interconnected services and normalized data structure'
+},
+'veterinary-exp-2': {
+    'es': '<strong>Implementado</strong> sistema de autenticación y autorización con 5 perfiles de usuario y permisos granulares',
+    'en': '<strong>Implemented</strong> authentication and authorization system with 5 user profiles and granular permissions'
+},
+'veterinary-exp-3': {
+    'es': '<strong>Desarrollado</strong> APIs RESTful para manipulación de historias clínicas, con soporte para documentos binarios y versionado',
+    'en': '<strong>Developed</strong> RESTful APIs for medical records manipulation, with support for binary documents and versioning'
+},
+'veterinary-exp-4': {
+    'es': '<strong>Creado</strong> algoritmos de optimización para agendamiento de citas y sistema de notificaciones automatizadas',
+    'en': '<strong>Created</strong> optimization algorithms for appointment scheduling and automated notification system'
+},
+'veterinary-exp-5': {
+    'es': '<strong>Integrado</strong> lógica de negocio para facturación con cálculos fiscales y reportes personalizados',
+    'en': '<strong>Integrated</strong> business logic for billing with tax calculations and custom reports'
+},
+'metric-apis': {
+    'es': 'Endpoints API',
+    'en': 'API Endpoints'
+},
+'metric-database': {
+    'es': 'Modelos DB',
+    'en': 'DB Models'
+},
+'backend-role': {
+    'es': 'Rol: Backend Lead <i class="fas fa-server"></i>',
+    'en': 'Role: Backend Lead <i class="fas fa-server"></i>'
+},
     
     // Education section
     'education-heading': {
@@ -532,6 +755,10 @@ const translations = {
         'es': 'Nivel B2 | Certificado American School Way',
         'en': 'B2 Level | American School Way Certificate'
     },
+    'certificate-badge': {
+    'es': 'Certificado Oficial',
+    'en': 'Official Certificate'
+},
     
     // Contact section
     'contact-heading': {

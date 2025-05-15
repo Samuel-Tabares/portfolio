@@ -756,6 +756,174 @@ header {
     color: #4aa3e5 !important; /* Azul un poco más suave */
 }
 
+
+
+/* Estilos para el Roadmap */
+
+.roadmap-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 20px 0;
+}
+
+.roadmap-timeline {
+    position: relative;
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: rgba(52, 152, 219, 0.4);
+    border-radius: 2px;
+}
+
+.roadmap-item {
+    display: flex;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.roadmap-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--card-bg);
+    border: 2px solid #3498db;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.roadmap-icon i {
+    color: #3498db;
+    font-size: 1.2rem;
+}
+
+.roadmap-content {
+    background-color: rgba(35, 35, 35, 0.6);
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.roadmap-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.roadmap-content h3 {
+    margin-top: 0;
+    color: #3498db;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+.roadmap-skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.roadmap-skills li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+    color: var(--subtext-color);
+    transition: all 0.2s ease;
+}
+
+.roadmap-skills li:hover {
+    transform: translateX(5px);
+    color: var(--text-color);
+}
+
+.roadmap-skills li i {
+    margin-right: 10px;
+    color: #3498db;
+    width: 20px;
+    text-align: center;
+}
+
+/* Visión profesional */
+.roadmap-item.vision .roadmap-content p {
+    color: var(--subtext-color);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    text-align: justify;
+}
+
+/* Estilos específicos para cada sección del roadmap */
+.roadmap-item.current .roadmap-icon {
+    background-color: rgba(46, 204, 113, 0.2);
+    border-color: #2ecc71;
+}
+
+.roadmap-item.current .roadmap-icon i {
+    color: #2ecc71;
+}
+
+.roadmap-item.learning .roadmap-icon {
+    background-color: rgba(241, 196, 15, 0.2);
+    border-color: #f1c40f;
+}
+
+.roadmap-item.learning .roadmap-icon i {
+    color: #f1c40f;
+}
+
+.roadmap-item.future .roadmap-icon {
+    background-color: rgba(155, 89, 182, 0.2);
+    border-color: #9b59b6;
+}
+
+.roadmap-item.future .roadmap-icon i {
+    color: #9b59b6;
+}
+
+.roadmap-item.vision .roadmap-icon {
+    background-color: rgba(231, 76, 60, 0.2);
+    border-color: #e74c3c;
+}
+
+.roadmap-item.vision .roadmap-icon i {
+    color: #e74c3c;
+}
+
+/* Estilos para tema claro */
+.light-theme .roadmap-content {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.light-theme .roadmap-timeline::before {
+    background-color: rgba(52, 152, 219, 0.3);
+}
+
+.light-theme .roadmap-skills li {
+    color: var(--light-subtext);
+}
+
+.light-theme .roadmap-skills li:hover {
+    color: var(--light-text);
+}
+
+.light-theme .roadmap-item.vision .roadmap-content p {
+    color: var(--light-subtext);
+}
+
+
+
 /* --- Sección Proyectos --- */
 .projects-grid {
     display: grid !important;
@@ -1635,13 +1803,44 @@ footer p {
     .hero-header {
         flex-direction: column;
     }
+        .roadmap-skills {
+        grid-template-columns: 1fr;
+    }
     
+    .roadmap-content {
+        padding: 15px;
+    }
     .project-experience-card, 
     .timeline-content, 
     .personal-skills,
     .language-item,
     .reference-item {
         transform: none !important;
+    }
+        .venture-card {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .venture-icon {
+        margin-bottom: 20px;
+    }
+        .tech-badges {
+        gap: 5px;
+    }
+    
+    .tech-badge {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+    
+    .project-metrics {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .metric {
+        min-width: 80px;
     }
     
     .social-container {
@@ -1786,3 +1985,314 @@ footer p {
         filter: contrast(1.2);
     }
 }
+
+/* Mejoras para la sección de idiomas */
+.language-level {
+    margin-top: 15px;
+    width: 100%;
+}
+
+.level-bar {
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+
+.level-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+}
+
+.level-fill.native {
+    width: 100%;
+}
+
+.level-fill.b2 {
+    width: 80%;
+}
+
+.certificate-badge {
+    display: inline-block;
+    background-color: #3498db;
+    color: white;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 15px;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.certificate-link {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.certificate-link:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+    transform: translateY(-3px);
+}
+
+.certificate-link i {
+    color: #f1c40f;
+    margin-right: 8px;
+}
+
+/* Mejora para el tema claro */
+.light-theme .level-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .certificate-link {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.light-theme .certificate-link:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+}
+
+/* Estilos para la sección de emprendimiento */
+.entrepreneurship-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.venture-card {
+    background-color: rgba(35, 35, 35, 0.6);
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    gap: 30px;
+    transition: all 0.3s ease;
+}
+
+.venture-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background-color: rgba(40, 40, 40, 0.7);
+}
+
+.venture-icon {
+    background: linear-gradient(135deg, #3498db, #2ecc71);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.venture-icon i {
+    font-size: 32px;
+    color: white;
+}
+
+.venture-content {
+    flex: 1;
+}
+
+.venture-content h3 {
+    color: #3498db;
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.venture-content p {
+    color: var(--subtext-color);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.venture-features {
+    background-color: rgba(52, 152, 219, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.venture-features h4 {
+    color: var(--text-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.venture-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.venture-features li {
+    padding: 8px 0;
+    color: var(--subtext-color);
+    display: flex;
+    align-items: center;
+}
+
+.venture-features li i {
+    color: #2ecc71;
+    margin-right: 10px;
+}
+
+.venture-cta {
+    margin-top: 20px;
+}
+
+.venture-link {
+    display: inline-flex;
+    align-items: center;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.venture-link:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+    border-bottom: none;
+}
+
+.venture-link i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.venture-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Tema claro */
+.light-theme .venture-card {
+    background-color: white;
+}
+
+.light-theme .venture-card:hover {
+    background-color: white;
+}
+
+.light-theme .venture-content p {
+    color: var(--light-subtext);
+}
+
+.light-theme .venture-features {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.light-theme .venture-features li {
+    color: var(--light-subtext);
+}
+
+/* Mejoras para las tarjetas de proyectos */
+
+.project-experience-card {
+    position: relative;
+}
+
+.project-status {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+    z-index: 10;
+}
+
+.project-status.completed {
+    background-color: #2ecc71;
+}
+
+.project-status.ongoing {
+    background-color: #f39c12;
+}
+
+.tech-stack {
+    margin: 20px 0;
+}
+
+.tech-label {
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(52, 152, 219, 0.1);
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.tech-badge:hover {
+    background-color: rgba(52, 152, 219, 0.2);
+    transform: translateY(-3px);
+}
+
+.tech-badge i {
+    margin-right: 5px;
+    color: #3498db;
+}
+
+.project-metrics {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+}
+
+.metric {
+    text-align: center;
+    flex: 1;
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3498db;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--subtext-color);
+}
+
+/* Ajustes para tema claro */
+.light-theme .tech-badge {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: var(--light-text);
+}
+
+.light-theme .tech-badge:hover {
+    background-color: rgba(52, 152, 219, 0.15);
+}
+
+.light-theme .metric-label {
+    color: var(--light-subtext);
+}
+
