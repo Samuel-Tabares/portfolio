@@ -257,6 +257,8 @@ function translatePage(lang) {
         if (href === '#about') key = 'menu-about';
         else if (href === '#projects') key = 'menu-projects';
         else if (href === '#education') key = 'menu-education';
+                else if (href === '#roadmap') key = 'menu-roadmap';
+                else if (href === '#contact') key = 'menu-contact';
         
         // Aplicar traducción si existe
         if (key && translations[key] && translations[key][lang]) {
@@ -863,7 +865,15 @@ const translations = {
     'menu-education': {
         'es': 'Educación',
         'en': 'Education'
-    }
+    },
+        'menu-roadmap': {
+        'es': 'Camino',
+        'en': 'Roadmap'
+    },
+            'menu-contact': {
+        'es': 'Contacto',
+        'en': 'Contact'
+    },
 };
 
 // Inicializar al cargar la página
