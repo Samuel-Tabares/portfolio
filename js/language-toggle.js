@@ -623,6 +623,59 @@ const translations = {
         'es': '<strong>Aplicado</strong> técnicas de optimización para dispositivos móviles, asegurando compatibilidad cross-browser y tiempos de carga reducidos',
         'en': '<strong>Applied</strong> mobile optimization techniques, ensuring cross-browser compatibility and reduced loading times'
     },    
+
+
+// Proyecto Sistema de Perfumería
+'perfumeria-title': {
+    'es': 'Sistema de Perfumería - Arquitectura de Microservicios',
+    'en': 'Perfumery System - Microservices Architecture'
+},
+'perfumeria-desc': {
+    'es': 'Sistema integral para la gestión de una perfumería implementado como arquitectura completa de microservicios con API Gateway centralizado e interfaces de usuario individuales. Demuestra integración entre Java, Python y Node.js con gestión completa de proveedores, clientes y productos.',
+    'en': 'Comprehensive system for perfumery management implemented as a complete microservices architecture with centralized API Gateway and individual user interfaces. Demonstrates integration between Java, Python, and Node.js with complete management of suppliers, clients, and products.'
+},
+'perfumeria-exp-title': {
+    'es': 'DESARROLLO DE ARQUITECTURA DE MICROSERVICIOS',
+    'en': 'MICROSERVICES ARCHITECTURE DEVELOPMENT'
+},
+'perfumeria-exp-1': {
+    'es': '<strong>Diseñado</strong> una arquitectura completa de microservicios con API Gateway centralizado para gestión unificada de 4 servicios independientes',
+    'en': '<strong>Designed</strong> a complete microservices architecture with centralized API Gateway for unified management of 4 independent services'
+},
+'perfumeria-exp-2': {
+    'es': '<strong>Implementado</strong> microservicios usando múltiples tecnologías: Java/Spring Boot para proveedores, Python/FastAPI para clientes, y Node.js/Express para productos',
+    'en': '<strong>Implemented</strong> microservices using multiple technologies: Java/Spring Boot for suppliers, Python/FastAPI for clients, and Node.js/Express for products'
+},
+'perfumeria-exp-3': {
+    'es': '<strong>Desarrollado</strong> interfaces de usuario individuales para cada microservicio con gestión CRUD completa y navegación intuitiva',
+    'en': '<strong>Developed</strong> individual user interfaces for each microservice with complete CRUD management and intuitive navigation'
+},
+'perfumeria-exp-4': {
+    'es': '<strong>Creado</strong> scripts de automatización para inicio/parada del sistema completo con detección automática de servicios en ejecución',
+    'en': '<strong>Created</strong> automation scripts for complete system startup/shutdown with automatic detection of running services'
+},
+'perfumeria-exp-5': {
+    'es': '<strong>Configurado</strong> containerización con Docker, migraciones de BD automáticas (Alembic, JPA, Sequelize) y documentación API con Swagger',
+    'en': '<strong>Configured</strong> Docker containerization, automatic DB migrations (Alembic, JPA, Sequelize), and API documentation with Swagger'
+},
+
+// Métricas específicas del proyecto
+'metric-microservices': {
+    'es': 'Microservicios',
+    'en': 'Microservices'
+},
+'metric-technologies': {
+    'es': 'Tecnologías',
+    'en': 'Technologies'
+},
+
+// Rol específico
+'architect-role': {
+    'es': 'Rol: Arquitecto Full-Stack <i class="fas fa-sitemap"></i>',
+    'en': 'Role: Full-Stack Architect <i class="fas fa-sitemap"></i>'
+},
+
+
     'importa-title': {
         'es': 'Importa Colombia',
         'en': 'Importa Colombia'
