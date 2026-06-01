@@ -58,11 +58,11 @@
     <!-- Menú lateral flotante simplificado -->
     <nav class="side-menu">
         <ul>
-            <li><a href="#about" data-section="Sobre Mí"><i class="fas fa-user"></i></a></li>
-            <li><a href="#roadmap" data-section="Camino"><i class="fas fa-map"></i></a></li>
-            <li><a href="#projects" data-section="Proyectos"><i class="fas fa-laptop-code"></i></a></li>
-            <li><a href="#education" data-section="Educación"><i class="fas fa-graduation-cap"></i></a></li>
-            <li><a href="#contact" data-section="Contacto"><i class="fas fa-envelope"></i></a></li>
+            <li><a href="#about" data-section="Sobre Mí" aria-label="Sobre Mí"><i class="fas fa-user" aria-hidden="true"></i></a></li>
+            <li><a href="#roadmap" data-section="Camino" aria-label="Camino"><i class="fas fa-map" aria-hidden="true"></i></a></li>
+            <li><a href="#projects" data-section="Proyectos" aria-label="Proyectos"><i class="fas fa-laptop-code" aria-hidden="true"></i></a></li>
+            <li><a href="#education" data-section="Educación" aria-label="Educación"><i class="fas fa-graduation-cap" aria-hidden="true"></i></a></li>
+            <li><a href="#contact" data-section="Contacto" aria-label="Contacto"><i class="fas fa-envelope" aria-hidden="true"></i></a></li>
         </ul>
     </nav>   
     
@@ -90,10 +90,10 @@
             <div class="hero-header">
                 <div class="hero-titles">
                     <h1 data-translate="greeting">Hola, soy Samuel Tabares León</h1>
-                    <p class="subtitle"><span data-translate="job-title">Estudiante de Ingeniería de Software</span> <span id="typing-effect"></span></p>
+                    <p class="subtitle"><span data-translate="job-title">Estudiante de Ingeniería de Software</span> <span id="typing-effect" aria-live="polite" aria-atomic="true"></span></p>
                 </div>
                 <div class="hero-image">
-                    <img src="images/foto-perfil.png" alt="Foto de Samuel Tabares León">
+                    <img src="images/foto-perfil.png" alt="Foto de Samuel Tabares León" width="250" height="250">
                 </div>
             </div>
             
@@ -104,17 +104,17 @@
             <div class="social-container">
                 <!-- Enlaces sociales -->
                 <div class="social-links">
-                    <a href="https://linkedin.com/in/tabaresss" target="_blank" class="social-link" data-name="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
+                    <a href="https://linkedin.com/in/tabaresss" target="_blank" class="social-link" data-name="LinkedIn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
                     </a>
-                    <a href="https://github.com/Samuel-Tabares" target="_blank" class="social-link" data-name="GitHub">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/Samuel-Tabares" target="_blank" class="social-link" data-name="GitHub" aria-label="GitHub">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
-                    <a href="https://platzi.com/p/Tabaresss/" target="_blank" class="social-link" data-name="Platzi">
-                        <i class="fas fa-graduation-cap"></i>
+                    <a href="https://platzi.com/p/Tabaresss/" target="_blank" class="social-link" data-name="Platzi" aria-label="Platzi">
+                        <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                     </a>
-                    <a href="https://orcid.org/0009-0006-7643-1335" target="_blank" class="social-link" data-name="ORCID">
-                        <i class="fas fa-id-card"></i>
+                    <a href="https://orcid.org/0009-0006-7643-1335" target="_blank" class="social-link" data-name="ORCID" aria-label="ORCID">
+                        <i class="fas fa-id-card" aria-hidden="true"></i>
                     </a>
                 </div>
                 
@@ -343,8 +343,8 @@
                             </div>
                             
                             <div class="project-links">
-                                <a href="#" class="project-link disabled" data-translate="private-project">Proyecto Privado <i class="fas fa-lock"></i></a>
-                                <a href="#" class="project-link role-badge" data-translate="backend-role">Rol: Backend Lead <i class="fas fa-server"></i></a>
+                                <span class="project-link disabled" data-translate="private-project">Proyecto Privado <i class="fas fa-lock" aria-hidden="true"></i></span>
+                                <span class="project-link role-badge" data-translate="backend-role">Rol: Backend Lead <i class="fas fa-server" aria-hidden="true"></i></span>
                             </div>
                         </div>
                     </div>
@@ -459,7 +459,7 @@
             
             <div class="project-links">
                 <a href="https://github.com/Samuel-Tabares/sistema-perfumeria" target="_blank" class="project-link" data-translate="view-code">Ver Código <i class="fab fa-github"></i></a>
-                <a href="#" class="project-link role-badge" data-translate="architect-role">Rol: Arquitecto Full-Stack <i class="fas fa-sitemap"></i></a>
+                <span class="project-link role-badge" data-translate="architect-role">Rol: Arquitecto Full-Stack <i class="fas fa-sitemap" aria-hidden="true"></i></span>
             </div>
         </div>
     </div>
@@ -552,7 +552,7 @@
                         <p class="company-name">AMERICAN SCHOOL WAY</p>
                         <p class="date">Ene 2021 - Ago 2022</p>
                         <p class="location">Armenia, Quindío - Colombia</p>
-                        <p class="certificate"><a href="images/english-certificate.heic" target="_blank" data-translate="view-certificate">Ver certificado →</a></p>
+                        <p class="certificate"><a href="images/english-certificate.jpg" target="_blank" data-translate="view-certificate">Ver certificado →</a></p>
                     </div>
                 </div>
             </div>
@@ -583,7 +583,7 @@
                     </div>
                     <div class="certificate-badge" data-translate="certificate-badge">Certificado Oficial</div>
                     <p class="certificate">
-                        <a href="images/english-certificate.heic" target="_blank" class="certificate-link" data-translate="view-certificate">
+                        <a href="images/english-certificate.jpg" target="_blank" class="certificate-link" data-translate="view-certificate">
                             <i class="fas fa-award"></i> Ver certificado
                         </a>
                     </p>
