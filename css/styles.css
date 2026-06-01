@@ -65,6 +65,7 @@ h1, h2, h3 {
     margin-bottom: 1rem;
     color: var(--text-color);
     transition: color var(--transition-speed) ease;
+    text-wrap: balance;
 }
 
 h1 {
@@ -238,7 +239,7 @@ header {
     color: var(--primary-color);
     text-align: center;
     text-decoration: none;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     letter-spacing: 0.5px;
 }
 
@@ -265,7 +266,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -339,7 +340,7 @@ header {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    transition: all 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease !important;
     background-color: transparent !important;
 }
 
@@ -353,13 +354,13 @@ header {
     color: var(--text-color) !important;
     border-bottom: none !important;
     opacity: 0.8 !important;
-    transition: all 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease !important;
 }
 
 /* Estilo para los iconos */
 .side-menu li a i {
     font-size: 1.1rem !important;
-    transition: all 0.3s ease !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease !important;
 }
 
 /* Estilo al pasar el mouse */
@@ -405,7 +406,7 @@ header {
     box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
     opacity: 0 !important;
     visibility: hidden !important;
-    transition: all 0.2s ease !important;
+    transition: opacity 0.2s ease, visibility 0.2s ease !important;
 }
 
 .side-menu li a:hover::after {
@@ -502,7 +503,7 @@ header {
     border-radius: 50%;
     color: #4aa3e5; /* Azul un poco más suave */
     font-size: 1.2rem;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     border: none;
     position: relative;
 }
@@ -549,7 +550,7 @@ header {
     color: #ffffff !important;
     font-size: 1rem;
     text-transform: uppercase;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     border-bottom: none !important;
 }
 
@@ -571,7 +572,7 @@ header {
     object-position: center 18%; /* Añadido para mostrar más de la parte superior */
     border: 1px solid #4aa3e5; /* Azul un poco más suave */
     box-shadow: var(--box-shadow);
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     margin: 0 auto;
 }
 
@@ -616,7 +617,7 @@ header {
     max-width: 800px;
     margin: 2rem auto 0;
     padding: 1.5rem;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
 }
 
 .personal-skills:hover {
@@ -659,7 +660,7 @@ header {
     width: 120px;
     padding: 1rem 0.5rem;
     border-radius: var(--border-radius);
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
 }
 
 .soft-skill:hover {
@@ -671,7 +672,7 @@ header {
     font-size: 2rem;
     color: #4aa3e5; /* Azul un poco más suave */
     margin-bottom: 0.8rem;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
 }
 
 .soft-skill:hover i {
@@ -812,7 +813,7 @@ header {
     border-radius: 8px;
     padding: 20px;
     flex: 1;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 .roadmap-content:hover {
@@ -841,7 +842,7 @@ header {
     display: flex;
     align-items: center;
     color: var(--subtext-color);
-    transition: all 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
 }
 
 .roadmap-skills li:hover {
@@ -1088,7 +1089,7 @@ header {
     justify-content: center;
     z-index: 1;
     box-shadow: 0 0 0 5px rgba(30, 30, 30, 0.75);
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
 }
 
 .timeline-item:hover .timeline-icon {
@@ -1108,7 +1109,7 @@ header {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1) !important;
     border-radius: 12px !important;
     padding: 1.5rem;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
 }
 
 .timeline-item:hover .timeline-content {
@@ -1166,7 +1167,7 @@ header {
     border-radius: 12px !important;
     padding: 2rem;
     text-align: center;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     flex: 1;
     max-width: 300px;
 }
@@ -1217,7 +1218,7 @@ header {
     color: var(--text-color);
     padding: 12px 18px;
     border-radius: var(--border-radius);
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
     display: flex;
@@ -1255,7 +1256,7 @@ header {
     border-radius: 12px !important;
     padding: 1.5rem;
     text-align: center;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     flex: 1;
     max-width: 300px;
 }
@@ -1394,7 +1395,7 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: all var(--transition-speed) ease;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100px;
@@ -1412,7 +1413,7 @@ footer p {
     justify-content: center;
     width: 50%;
     height: 100%;
-    transition: all 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, color 0.4s ease, opacity 0.4s ease;
     position: relative;
 }
 
@@ -1429,7 +1430,7 @@ footer p {
     background-color: #4aa3e5; /* Azul un poco más suave */
     top: 5px;
     left: 5px;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     z-index: 1;
 }
 
@@ -1444,7 +1445,7 @@ footer p {
 .lang-toggle-btn .lang-text {
     position: relative;
     z-index: 2;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 .lang-toggle-btn.es-active .es .lang-text {
@@ -2032,7 +2033,7 @@ footer p {
     padding: 8px 15px;
     background-color: rgba(52, 152, 219, 0.1);
     border-radius: 4px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 .certificate-link:hover {
@@ -2070,7 +2071,7 @@ footer p {
     padding: 30px;
     display: flex;
     gap: 30px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 .venture-card:hover {
@@ -2156,7 +2157,7 @@ footer p {
     padding: 10px 20px;
     border-radius: 30px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 .venture-link:hover {
@@ -2246,7 +2247,7 @@ footer p {
     border-radius: 15px;
     font-size: 0.85rem;
     color: var(--text-color);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
 }
 
 .tech-badge:hover {
@@ -2294,5 +2295,15 @@ footer p {
 
 .light-theme .metric-label {
     color: var(--light-subtext);
+}
+
+/* --- Respeto por preferencias de accesibilidad --- */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
