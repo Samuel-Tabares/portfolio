@@ -1,27 +1,15 @@
 // email-protection.js
-document.addEventListener('DOMContentLoaded', function() {
-    // Buscar todos los links de correo
+// Soft anti-scrape: keeps mailto links functional and accessible,
+// but adds an obfuscated `title` attribute (basic deterrent for naive crawlers).
+// The previous version stripped the href which broke keyboard activation
+// and screen-reader semantics.
+document.addEventListener('DOMContentLoaded', function () {
     const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
-    
+
     emailLinks.forEach(link => {
-        // Obtener el correo electrónico
         const email = link.getAttribute('href').replace('mailto:', '');
-        const displayText = link.textContent;
-        
-        // Ofuscar el correo
-        const obfuscatedEmail = email.replace('@', ' [at] ').replace('.', ' [dot] ');
-        
-        // Establecer el texto ofuscado pero mantener el link funcional
-        link.textContent = displayText;
-        link.setAttribute('data-email', email);
-        link.removeAttribute('href');
-        
-        // Agregar evento de clic
-        link.addEventListener('click', function() {
-            window.location.href = 'mailto:' + this.getAttribute('data-email');
-        });
-        
-        // Mostrar el correo ofuscado al hover
-        link.setAttribute('title', obfuscatedEmail);
+        const obfuscated = email.replace('@', ' [at] ').replace(/\./g, ' [dot] ');
+        link.setAttribute('title', obfuscated);
+        link.setAttribute('rel', 'nofollow');
     });
 });

@@ -212,7 +212,14 @@ document.addEventListener('DOMContentLoaded', function() {
         generateGlobalTriangles();
     }
 
+    let animationRAF = null;
+    let isPaused = false;
+
     function animateTriangles() {
+        if (isPaused) {
+            animationRAF = null;
+            return;
+        }
         triangles.forEach(triangle => {
             if (triangle.fadingOut || globalState.scrolling) return;
             triangle.currentRotation += triangle.rotationSpeed;
@@ -220,8 +227,18 @@ document.addEventListener('DOMContentLoaded', function() {
             triangle.offsetY += triangle.driftY;
             triangle.element.style.transform = `translate3d(${triangle.offsetX}px, ${triangle.offsetY}px, 0) rotate(${triangle.currentRotation}deg)`;
         });
-        requestAnimationFrame(animateTriangles);
+        animationRAF = requestAnimationFrame(animateTriangles);
     }
+
+    // Pause animations when tab is hidden — saves CPU when user isn't watching.
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            isPaused = true;
+        } else if (isPaused) {
+            isPaused = false;
+            if (!animationRAF) animationRAF = requestAnimationFrame(animateTriangles);
+        }
+    });
 
     function createInitialTriangles() {
         const pageDimensions = getPageDimensions();
@@ -308,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     createInitialTriangles();
-    requestAnimationFrame(animateTriangles);
+    animationRAF = requestAnimationFrame(animateTriangles);
 
     let lastScrollTime = Date.now();
     let scrollTimer;
@@ -348,7 +365,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const rotationSpeed = Math.min(Math.abs(globalState.scrollVelocity / 10), 5);
                     triangle.currentRotation += rotationSpeed * globalState.scrollDirection * 0.3;
 
-                    const scaleChange = Math.min(Math.abs(globalState.scrollVelocity / 100), 0.3);
+                    // Clamp scale change tighter — at high velocity, 0.3 made triangles visibly pop.
+                    const scaleChange = Math.min(Math.abs(globalState.scrollVelocity / 100), 0.12);
                     triangle.element.style.transform = `translate3d(${triangle.offsetX}px, ${triangle.offsetY}px, 0) rotate(${triangle.currentRotation}deg) scale(${1 + scaleChange})`;
 
                     const opacityChange = Math.min(Math.abs(globalState.scrollVelocity / 100), 0.4);
@@ -388,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         globalState.lastScrollTop = scrollTop;
         lastScrollTime = now;
-    });
+    }, { passive: true });
 
     // will-change hints for compositor — safe at this count (45-65 elements)
     const style = document.createElement('style');

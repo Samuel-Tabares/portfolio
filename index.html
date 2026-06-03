@@ -31,19 +31,26 @@
     <meta property="twitter:description" content="Estudiante de Ingeniería de Software especializado en desarrollo full-stack, backend con Python/Django, e integración de IA. Explora mi portafolio de proyectos.">
     <meta property="twitter:image" content="https://portfolio-kappa-blue-50.vercel.app/images/og-image.jpg">
 
-    <title>Samuel Tabares León</title>
-    
+    <title>Samuel Tabares León | Desarrollador Full-Stack freelance</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23121212'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Segoe UI,system-ui,sans-serif' font-size='30' font-weight='700' fill='%234aa3e5'%3EST%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="images/foto-perfil.png">
+    <link rel="manifest" href="site.webmanifest">
+
     <!-- Optimización de recursos -->
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="dark-theme">
+    <a href="#main-content" class="skip-link" data-translate="skip-link-text">Saltar al contenido</a>
+
     <!-- Contenedor de triángulos -->
     <div class="triangles-container" id="triangles-container"></div>
     
@@ -85,7 +92,7 @@
         </div>
     </header>
 
-    <main>
+    <main id="main-content">
         <section id="hero">
             <div class="hero-header">
                 <div class="hero-titles">
@@ -98,7 +105,7 @@
             </div>
             
             <p class="hero-description" data-translate="hero-description">
-                Estudiante de Ingeniería de Software con <strong>mentalidad analítica y visión integral</strong> especializado en desarrollo <strong>full-stack</strong>. Combino mis conocimientos en <strong>Python/Django, JavaScript/React y tecnologías web modernas</strong> para transformar conceptos en aplicaciones funcionales y escalables. Mi experiencia incluye <strong>proyectos académicos y personales de impacto</strong>, como una aplicación completa para clínica veterinaria y una plataforma de importación con calificación de productos. Destacado por mi <strong>capacidad autodidacta y aprendizaje rápido</strong>, me apasiona explorar nuevas tecnologías, especialmente en <strong>Inteligencia Artificial y desarrollo móvil</strong>. Mi enfoque meticuloso se centra en crear <strong>soluciones técnicamente sólidas y centradas en el usuario</strong>, buscando constantemente optimizar procesos y mejorar la experiencia final. Transformo desafíos complejos en oportunidades para <strong>innovar y crear valor</strong> a través del código.
+                Construyo <strong>aplicaciones web full-stack</strong> para profesionales y equipos pequeños que necesitan algo más que un template. Trabajo con <strong>Python/Django, React e integración de IA</strong> para llevar ideas de cliente a producto en producción: desde <strong>plataformas internas</strong> hasta <strong>MVPs listos para validar</strong>. Mi enfoque combina <strong>decisiones de arquitectura claras</strong> con <strong>velocidad de delivery</strong>, sin sacrificar mantenibilidad. Si tenés un proyecto concreto y un problema que vale la pena resolver, hablemos.
             </p>
             
             <div class="social-container">
@@ -127,9 +134,9 @@
             <h2 data-translate="about-heading">Sobre Mí</h2>
             <div class="about-container">
                 <div class="about-text">
-                    <p data-translate="about-text-1"><strong>Desarrollo aplicaciones full-stack utilizando Python/Django, React y tecnologías modernas</strong>, con especial interés en la integración de <strong>inteligencia artificial y experiencias de usuario intuitivas</strong>.</p>
-                    <p data-translate="about-text-2">Actualmente estoy <strong>cursando Ingeniería de Software</strong> mientras trabajo en proyectos personales ambiciosos, incluyendo una <strong>aplicación veterinaria integral</strong> y un emprendimiento para <strong>crear portafolios profesionales personalizados</strong>.</p>
-                    <p data-translate="about-text-3">Mi objetivo es <strong>construir soluciones digitales innovadoras</strong> que combinen excelencia técnica con <strong>valor real para usuarios y empresas</strong>, aplicando un enfoque meticuloso y orientado a resultados.</p>
+                    <p data-translate="about-text-1">Construyo <strong>backends y aplicaciones web a medida</strong> con <strong>Python/Django, React y APIs de IA</strong>. Mi sweet spot son los proyectos que necesitan <strong>arquitectura desde cero</strong> o <strong>integraciones complejas</strong> — no plantillas, ni código que se rompe en seis meses.</p>
+                    <p data-translate="about-text-2">He desarrollado un <strong>backend de gestión veterinaria con 8 módulos y 20+ endpoints</strong>, una <strong>arquitectura de microservicios</strong> que conecta Java, Python y Node.js, y una <strong>plataforma de importación</strong> con sistema de calificación. Cada uno con problema real, no demo.</p>
+                    <p data-translate="about-text-3">Trabajo de forma <strong>directa y enfocada</strong>: pocas reuniones, mucho código, decisiones documentadas. Si necesitás algo <strong>construido bien la primera vez</strong> —no rehacerlo en tres meses—, esa es la idea.</p>
                 </div>
             </div>
             
@@ -593,13 +600,89 @@
 
         <!-- Sección de contacto -->
         <section id="contact">
-            <h2 data-translate="contact-heading">Contacto</h2>
-            <p data-translate="contact-description">Estoy disponible para nuevas oportunidades y colaboraciones, mándame un correo explicándome tu situación y en el menor tiempo posible estaremos en contacto.</p>
-            <div class="contact-methods">
-                <a href="mailto:stabares_26@cue.edu.co" class="contact-method" itemprop="email">
-                    <i class="fas fa-envelope"></i> stabares_26@cue.edu.co
-                </a>
+            <h2 data-translate="contact-heading">Trabajemos juntos</h2>
+            <p data-translate="contact-description">Disponible para <strong>proyectos freelance</strong>: MVPs, backends a medida, integraciones de IA y migraciones técnicas. Respondo en menos de 24h con un primer estimado claro — alcance, tiempos y precio. Sin discovery calls eternas: si encaja, encaja.</p>
+
+            <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/your_form_id" method="POST" novalidate>
+                <div class="form-row">
+                    <div>
+                        <label for="cf-name" data-translate="form-name">Nombre</label>
+                        <input type="text" id="cf-name" name="name" required autocomplete="name" placeholder="Cómo te llamás" />
+                    </div>
+                    <div>
+                        <label for="cf-email" data-translate="form-email">Email</label>
+                        <input type="email" id="cf-email" name="email" required autocomplete="email" placeholder="tu@correo.com" />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label for="cf-type" data-translate="form-project-type">Tipo de proyecto</label>
+                        <select id="cf-type" name="project_type" required>
+                            <option value="" data-translate="form-select-placeholder">Seleccioná una opción</option>
+                            <option value="mvp" data-translate="form-opt-mvp">MVP desde cero</option>
+                            <option value="backend" data-translate="form-opt-backend">Backend / API a medida</option>
+                            <option value="ai" data-translate="form-opt-ai">Integración de IA</option>
+                            <option value="migration" data-translate="form-opt-migration">Migración / refactor</option>
+                            <option value="other" data-translate="form-opt-other">Otro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="cf-budget" data-translate="form-budget">Presupuesto estimado (USD)</label>
+                        <select id="cf-budget" name="budget">
+                            <option value="" data-translate="form-select-placeholder">Seleccioná una opción</option>
+                            <option value="<1k">&lt; 1,000</option>
+                            <option value="1k-5k">1,000 – 5,000</option>
+                            <option value="5k-15k">5,000 – 15,000</option>
+                            <option value=">15k">15,000+</option>
+                            <option value="not-sure" data-translate="form-budget-unsure">Aún no lo tengo claro</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="cf-message" data-translate="form-message">Contame el proyecto</label>
+                    <textarea id="cf-message" name="message" required placeholder="Qué problema querés resolver, qué tenés ya, y para cuándo." rows="5"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" data-translate="form-submit">Enviar</button>
+                    <p class="form-fallback">
+                        <span data-translate="form-fallback-text">o escribime directo a</span>
+                        <a href="mailto:stabares_26@cue.edu.co" itemprop="email">stabares_26@cue.edu.co</a>
+                    </p>
+                </div>
+
+                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <!-- Sección de testimonios -->
+        <section id="testimonials">
+            <h2 data-translate="testimonials-heading">Lo que dicen</h2>
+            <div class="testimonials-grid">
+                <figure class="testimonial">
+                    <blockquote data-translate="testimonial-1-quote">
+                        Samuel entrega rápido y la calidad del código se ve. Documenta las decisiones, no improvisa.
+                    </blockquote>
+                    <figcaption>
+                        <strong>Arle Morales Ortiz</strong>
+                        <span data-translate="testimonial-1-role">Docente — Ingeniería de Software</span>
+                    </figcaption>
+                </figure>
+                <figure class="testimonial">
+                    <blockquote data-translate="testimonial-2-quote">
+                        Se nota que piensa la arquitectura antes de codear. Eso ahorra meses de refactor después.
+                    </blockquote>
+                    <figcaption>
+                        <strong>Susana Eguis Muñoz</strong>
+                        <span data-translate="testimonial-2-role">Docente — Ingeniería de Software</span>
+                    </figcaption>
+                </figure>
             </div>
+            <p style="text-align:center; color: var(--subtext-color); font-size: var(--text-sm); margin-top: var(--space-4);">
+                <span data-translate="testimonials-note">¿Trabajamos juntos? Si te sirve, te pido el quote después del proyecto.</span>
+            </p>
         </section>
 
         <!-- Sección de referencias -->
@@ -616,6 +699,25 @@
                     <h3>Susana Eguis Muñoz</h3>
                     <p><a href="mailto:seguis_212@cue.edu.co" target="_blank">seguis_212@cue.edu.co</a></p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Sección de GitHub stats -->
+        <section id="github-stats" aria-labelledby="github-stats-heading">
+            <h2 id="github-stats-heading" data-translate="github-stats-heading">Actividad en GitHub</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:var(--space-6); justify-content:center; align-items:center; max-width:900px; margin:0 auto;">
+                <img
+                    src="https://github-readme-stats.vercel.app/api?username=Samuel-Tabares&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=4aa3e5&icon_color=2ecc71&text_color=c0c0c0"
+                    alt="Estadísticas de GitHub de Samuel Tabares"
+                    loading="lazy"
+                    width="495" height="195"
+                    style="max-width:100%; height:auto; border-radius:12px;" />
+                <img
+                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Samuel-Tabares&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=4aa3e5&text_color=c0c0c0"
+                    alt="Lenguajes más usados por Samuel Tabares en GitHub"
+                    loading="lazy"
+                    width="320" height="195"
+                    style="max-width:100%; height:auto; border-radius:12px;" />
             </div>
         </section>
     </main>
@@ -657,11 +759,11 @@
     }
     </script>
 
-    <!-- Scripts optimizados -->
-    <script src="js/triangles.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/language-toggle.js"></script>
-    <script src="js/security.js"></script>
-    <script src="js/email-protection.js"></script>
+    <!-- Scripts optimizados (defer = no parser blocking; order preserved) -->
+    <script defer src="js/language-toggle.js"></script>
+    <script defer src="js/triangles.js"></script>
+    <script defer src="js/script.js"></script>
+    <script defer src="js/security.js"></script>
+    <script defer src="js/email-protection.js"></script>
 </body>
 </html>

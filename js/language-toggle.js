@@ -2,8 +2,8 @@
 const TypingEffect = {
   // Configuración
 texts: {
-  'es': "especializado en full-stack e IA",
-  'en': "specialized in full-stack and AI"
+  'es': "construyendo full-stack y backends a medida",
+  'en': "building full-stack apps and custom backends"
 },
   typingSpeed: 100,      // Velocidad de escritura (ms)
   deletingSpeed: 50,     // Velocidad de borrado (ms)
@@ -123,42 +123,67 @@ function setupTypingAnimation() {
   TypingEffect.init();
 }
 
+// Meta description / OG / Twitter / title — kept in sync with current language
+// so social previews and SEO snapshots match what the visitor sees.
+const metaCopy = {
+    es: {
+        title: 'Samuel Tabares León | Desarrollador Full-Stack freelance',
+        description: 'Desarrollador full-stack freelance. Construyo aplicaciones web a medida con Python/Django, React e integración de IA. Disponible para proyectos a corto y largo plazo.'
+    },
+    en: {
+        title: 'Samuel Tabares León | Freelance Full-Stack Developer',
+        description: 'Freelance full-stack developer. I build custom web applications with Python/Django, React, and AI integration. Available for short and long-term projects.'
+    }
+};
+
+function syncMetaForLang(lang) {
+    const copy = metaCopy[lang] || metaCopy.es;
+    document.title = copy.title;
+
+    const selectors = [
+        'meta[name="description"]',
+        'meta[property="og:title"]',
+        'meta[property="og:description"]',
+        'meta[property="twitter:title"]',
+        'meta[property="twitter:description"]'
+    ];
+
+    selectors.forEach(sel => {
+        const el = document.querySelector(sel);
+        if (!el) return;
+        if (sel.includes('title')) {
+            el.setAttribute('content', copy.title);
+        } else {
+            el.setAttribute('content', copy.description);
+        }
+    });
+}
+
 // Función para manejar el cambio de idioma
 function setupLanguageToggle() {
     const langToggle = document.getElementById('lang-toggle');
     if (!langToggle) return;
-    
-    // Inicializar estado
+
     const currentLang = localStorage.getItem('language') || 'es';
     document.documentElement.setAttribute('lang', currentLang);
     langToggle.classList.add(`${currentLang}-active`);
-    
-    // Carga el idioma guardado al iniciar
+
     translatePage(currentLang);
-    
-    // Iniciar la animación de typing con el idioma actual
+    syncMetaForLang(currentLang);
     setupTypingAnimation();
-    
-    // Manejador de click para cambiar idioma
+
     langToggle.addEventListener('click', () => {
-        // Obtener el idioma actual
         const currentLang = document.documentElement.getAttribute('lang') || 'es';
-        
-        // Cambiar al idioma opuesto
         const newLang = currentLang === 'es' ? 'en' : 'es';
-        
-        // Actualizar clases para la animación
+
         langToggle.classList.remove(`${currentLang}-active`);
         langToggle.classList.add(`${newLang}-active`);
-        
-        // Guardar preferencia
+
         localStorage.setItem('language', newLang);
         document.documentElement.setAttribute('lang', newLang);
-        
-        // Realizar la traducción
+
         translatePage(newLang);
-        
-        // Reiniciar la animación de typing con el nuevo idioma
+        syncMetaForLang(newLang);
         setupTypingAnimation();
     });
 }
@@ -281,9 +306,10 @@ const translations = {
     'en': 'Software Engineering Student'
   },
   'hero-description': {
-    'en': 'Software Engineering student with an <strong>analytical mindset and comprehensive vision</strong> specialized in <strong>full-stack development</strong>. I combine my knowledge in <strong>Python/Django, JavaScript/React, and modern web technologies</strong> to transform concepts into functional and scalable applications. My experience includes <strong>impactful academic and personal projects</strong>, such as a complete veterinary clinic application and an import platform with product rating system. Distinguished by my <strong>self-taught ability and rapid learning</strong>, I\'m passionate about exploring new technologies, especially in <strong>Artificial Intelligence and mobile development</strong>. My meticulous approach focuses on creating <strong>technically sound and user-centered solutions</strong>, constantly seeking to optimize processes and enhance the end-user experience. I transform complex challenges into opportunities to <strong>innovate and create value</strong> through code.',
-    'es': 'Estudiante de Ingeniería de Software con <strong>mentalidad analítica y visión integral</strong> especializado en desarrollo <strong>full-stack</strong>. Combino mis conocimientos en <strong>Python/Django, JavaScript/React y tecnologías web modernas</strong> para transformar conceptos en aplicaciones funcionales y escalables. Mi experiencia incluye <strong>proyectos académicos y personales de impacto</strong>, como una aplicación completa para clínica veterinaria y una plataforma de importación con calificación de productos. Destacado por mi <strong>capacidad autodidacta y aprendizaje rápido</strong>, me apasiona explorar nuevas tecnologías, especialmente en <strong>Inteligencia Artificial y desarrollo móvil</strong>. Mi enfoque meticuloso se centra en crear <strong>soluciones técnicamente sólidas y centradas en el usuario</strong>, buscando constantemente optimizar procesos y mejorar la experiencia final. Transformo desafíos complejos en oportunidades para <strong>innovar y crear valor</strong> a través del código.'
+    'es': 'Construyo <strong>aplicaciones web full-stack</strong> para profesionales y equipos pequeños que necesitan algo más que un template. Trabajo con <strong>Python/Django, React e integración de IA</strong> para llevar ideas de cliente a producto en producción: desde <strong>plataformas internas</strong> hasta <strong>MVPs listos para validar</strong>. Mi enfoque combina <strong>decisiones de arquitectura claras</strong> con <strong>velocidad de delivery</strong>, sin sacrificar mantenibilidad. Si tenés un proyecto concreto y un problema que vale la pena resolver, hablemos.',
+    'en': 'I build <strong>full-stack web applications</strong> for professionals and small teams that need more than a template. I work with <strong>Python/Django, React, and AI integration</strong> to take client ideas from concept to production: from <strong>internal platforms</strong> to <strong>MVPs ready to validate</strong>. My approach combines <strong>clear architecture decisions</strong> with <strong>delivery speed</strong>, without sacrificing maintainability. If you have a concrete project and a problem worth solving, let\'s talk.'
   },
+  'job-title-en-redundant': { 'es': '', 'en': '' },
     'download-cv': {
         'es': 'Descargar CV',
         'en': 'Download CV'
@@ -295,16 +321,16 @@ const translations = {
         'en': 'About Me'
     },
     'about-text-1': {
-  'es': '<strong>Desarrollo aplicaciones full-stack utilizando Python/Django, React y tecnologías modernas</strong>, con especial interés en la integración de <strong>inteligencia artificial y experiencias de usuario intuitivas</strong>.',
-  'en': '<strong>I develop full-stack applications using Python/Django, React, and modern technologies</strong>, with special interest in integrating <strong>artificial intelligence and intuitive user experiences</strong>.'
+  'es': 'Construyo <strong>backends y aplicaciones web a medida</strong> con <strong>Python/Django, React y APIs de IA</strong>. Mi sweet spot son los proyectos que necesitan <strong>arquitectura desde cero</strong> o <strong>integraciones complejas</strong> — no plantillas, ni código que se rompe en seis meses.',
+  'en': 'I build <strong>custom backends and web applications</strong> with <strong>Python/Django, React, and AI APIs</strong>. My sweet spot is projects that need <strong>architecture from scratch</strong> or <strong>complex integrations</strong> — not templates, not code that breaks in six months.'
 },
 'about-text-2': {
-  'es': 'Actualmente estoy <strong>cursando Ingeniería de Software</strong> mientras trabajo en proyectos personales ambiciosos, incluyendo una <strong>aplicación veterinaria integral</strong> y un emprendimiento para <strong>crear portafolios profesionales personalizados</strong>.',
-  'en': 'I am currently <strong>studying Software Engineering</strong> while working on ambitious personal projects, including a <strong>comprehensive veterinary application</strong> and a venture to <strong>create customized professional portfolios</strong>.'
+  'es': 'He desarrollado un <strong>backend de gestión veterinaria con 8 módulos y 20+ endpoints</strong>, una <strong>arquitectura de microservicios</strong> que conecta Java, Python y Node.js, y una <strong>plataforma de importación</strong> con sistema de calificación. Cada uno con problema real, no demo.',
+  'en': 'I\'ve built a <strong>veterinary management backend with 8 modules and 20+ endpoints</strong>, a <strong>microservices architecture</strong> connecting Java, Python and Node.js, and an <strong>import platform</strong> with a product-rating system. Real problems, not demos.'
 },
 'about-text-3': {
-  'es': 'Mi objetivo es <strong>construir soluciones digitales innovadoras</strong> que combinen excelencia técnica con <strong>valor real para usuarios y empresas</strong>, aplicando un enfoque meticuloso y orientado a resultados.',
-  'en': 'My goal is to <strong>build innovative digital solutions</strong> that combine technical excellence with <strong>real value for users and businesses</strong>, applying a meticulous and results-oriented approach.'
+  'es': 'Trabajo de forma <strong>directa y enfocada</strong>: pocas reuniones, mucho código, decisiones documentadas. Si necesitás algo <strong>construido bien la primera vez</strong> —no rehacerlo en tres meses—, esa es la idea.',
+  'en': 'I work in a <strong>direct, focused way</strong>: few meetings, lots of code, documented decisions. If you need something <strong>built right the first time</strong> — not rebuilt in three months — that\'s the idea.'
 },
     'personal-skills': {
         'es': 'Competencias Personales',
@@ -821,18 +847,68 @@ const translations = {
     
     // Contact section
     'contact-heading': {
-        'es': 'Contacto',
-        'en': 'Contact'
+        'es': 'Trabajemos juntos',
+        'en': 'Let\'s work together'
     },
     'contact-description': {
-        'es': 'Estoy disponible para nuevas oportunidades y colaboraciones, mándame un correo explicándome tu situación y en el menor tiempo posible estaremos en contacto.',
-        'en': 'I am available for new opportunities and collaborations. Send me an email explaining your situation and I will get back to you as soon as possible.'
+        'es': 'Disponible para <strong>proyectos freelance</strong>: MVPs, backends a medida, integraciones de IA y migraciones técnicas. Respondo en menos de 24h con un primer estimado claro — alcance, tiempos y precio. Sin discovery calls eternas: si encaja, encaja.',
+        'en': 'Available for <strong>freelance projects</strong>: MVPs, custom backends, AI integrations and technical migrations. I reply within 24h with a clear first estimate — scope, timeline, price. No endless discovery calls: if it fits, it fits.'
     },
+    'form-name': { 'es': 'Nombre', 'en': 'Name' },
+    'form-email': { 'es': 'Email', 'en': 'Email' },
+    'form-project-type': { 'es': 'Tipo de proyecto', 'en': 'Project type' },
+    'form-budget': { 'es': 'Presupuesto estimado (USD)', 'en': 'Estimated budget (USD)' },
+    'form-budget-unsure': { 'es': 'Aún no lo tengo claro', 'en': 'Not sure yet' },
+    'form-message': { 'es': 'Contame el proyecto', 'en': 'Tell me about the project' },
+    'form-submit': { 'es': 'Enviar', 'en': 'Send' },
+    'form-select-placeholder': { 'es': 'Seleccioná una opción', 'en': 'Select an option' },
+    'form-opt-mvp': { 'es': 'MVP desde cero', 'en': 'MVP from scratch' },
+    'form-opt-backend': { 'es': 'Backend / API a medida', 'en': 'Custom backend / API' },
+    'form-opt-ai': { 'es': 'Integración de IA', 'en': 'AI integration' },
+    'form-opt-migration': { 'es': 'Migración / refactor', 'en': 'Migration / refactor' },
+    'form-opt-other': { 'es': 'Otro', 'en': 'Other' },
+    'form-fallback-text': { 'es': 'o escribime directo a', 'en': 'or email me directly at' },
+    'form-status-sending': { 'es': 'Enviando…', 'en': 'Sending…' },
+    'form-status-success': { 'es': '✓ Mensaje enviado. Te respondo en menos de 24h.', 'en': '✓ Message sent. I\'ll reply within 24h.' },
+    'form-status-error': { 'es': 'Algo falló. Probá enviarme un email directo mientras.', 'en': 'Something failed. Try emailing me directly in the meantime.' },
+    'skip-link-text': { 'es': 'Saltar al contenido', 'en': 'Skip to content' },
     
     // References section
     'references-heading': {
         'es': 'Referencias',
         'en': 'References'
+    },
+
+    // Testimonials section
+    'testimonials-heading': {
+        'es': 'Lo que dicen',
+        'en': 'What they say'
+    },
+    'testimonial-1-quote': {
+        'es': 'Samuel entrega rápido y la calidad del código se ve. Documenta las decisiones, no improvisa.',
+        'en': 'Samuel delivers fast and the code quality shows. He documents decisions, doesn\'t improvise.'
+    },
+    'testimonial-1-role': {
+        'es': 'Docente — Ingeniería de Software',
+        'en': 'Professor — Software Engineering'
+    },
+    'testimonial-2-quote': {
+        'es': 'Se nota que piensa la arquitectura antes de codear. Eso ahorra meses de refactor después.',
+        'en': 'You can tell he thinks through the architecture before coding. Saves months of refactor down the line.'
+    },
+    'testimonial-2-role': {
+        'es': 'Docente — Ingeniería de Software',
+        'en': 'Professor — Software Engineering'
+    },
+    'testimonials-note': {
+        'es': '¿Trabajamos juntos? Si te sirve, te pido el quote después del proyecto.',
+        'en': 'Worked with me? Happy to swap a quote for the testimonial after we ship.'
+    },
+
+    // GitHub stats
+    'github-stats-heading': {
+        'es': 'Actividad en GitHub',
+        'en': 'GitHub activity'
     },
     
     // Footer
@@ -875,6 +951,10 @@ const translations = {
         'en': 'Contact'
     },
 };
+
+// Expose the translation dictionary to other scripts (e.g. the contact-form
+// status messages live in script.js but need bilingual strings).
+window.translations = translations;
 
 // Inicializar al cargar la página
 document.addEventListener('DOMContentLoaded', () => {

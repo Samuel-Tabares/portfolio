@@ -1,0 +1,17 @@
+{
+  "name": "Samuel Tabares León",
+  "short_name": "Samuel T.",
+  "description": "Desarrollador Full-Stack freelance — Python/Django, React, IA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "images/foto-perfil.png",
+      "sizes": "250x250",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

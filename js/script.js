@@ -250,28 +250,111 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
+    // --- Contact form ---
+    function setupContactForm() {
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('form-status');
+        if (!form) return;
+
+        const t = (key) => (window.translations && window.translations[key]
+            ? window.translations[key][document.documentElement.lang || 'es']
+            : null);
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const submitBtn = form.querySelector('button[type="submit"]');
+
+            status.className = 'form-status';
+            status.textContent = t('form-status-sending') || 'Sending…';
+            submitBtn.disabled = true;
+
+            try {
+                const action = form.getAttribute('action') || '';
+                // Placeholder action: fall through to mailto fallback.
+                if (!action || action.includes('your_form_id')) {
+                    throw new Error('form-action-not-configured');
+                }
+                const res = await fetch(action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { Accept: 'application/json' }
+                });
+                if (!res.ok) throw new Error('bad-response');
+
+                form.reset();
+                status.className = 'form-status success';
+                status.textContent = t('form-status-success') || '✓ Sent. Reply within 24h.';
+            } catch (err) {
+                status.className = 'form-status error';
+                status.textContent = t('form-status-error') || 'Failed. Email me directly meanwhile.';
+            } finally {
+                submitBtn.disabled = false;
+            }
+        });
+    }
+
+    // --- Reveal on scroll ---
+    function setupRevealOnScroll() {
+        const targets = document.querySelectorAll('section, .project-experience-card, .testimonial');
+        if (!targets.length || !('IntersectionObserver' in window)) return;
+        targets.forEach(el => el.classList.add('reveal'));
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+        targets.forEach(el => io.observe(el));
+    }
+
+    // --- Scroll progress bar ---
+    function setupScrollProgress() {
+        const bar = document.createElement('div');
+        bar.className = 'scroll-progress';
+        document.body.appendChild(bar);
+        let ticking = false;
+        const update = () => {
+            const h = document.documentElement;
+            const max = h.scrollHeight - h.clientHeight;
+            const pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+            bar.style.width = pct + '%';
+            ticking = false;
+        };
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(update);
+                ticking = true;
+            }
+        }, { passive: true });
+        update();
+    }
+
+    // --- Keyboard support for project card expand on touch ---
+    function setupCardKeyboard() {
+        projectCards.forEach(card => {
+            if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.classList.toggle('active');
+                }
+            });
+        });
+    }
+
     // --- Inicialización ---
-    // Inicializar observador de intersección para navegación
     const observer = setupIntersectionObserver();
-    
-    // Configurar smooth scroll
     setupSmoothScroll();
-    
-    // Preparar menú móvil
     setupMobileMenu();
-    
-    // Configurar cambio de tema
     setupThemeSwitch();
-    
-    // Optimizar para dispositivos táctiles
     setupTouchDevices();
-    
-    // Optimizar imágenes
     optimizeProjectImages();
-    
-    // Actualizar año en el footer
     updateFooterYear();
-    
-    // Configurar handler de resize
     setupResizeHandler();
+    setupContactForm();
+    setupRevealOnScroll();
+    setupScrollProgress();
+    setupCardKeyboard();
 });

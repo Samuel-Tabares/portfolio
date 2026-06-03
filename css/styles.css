@@ -6,14 +6,17 @@
 :root {
     /* Paleta de colores */
     --primary-color: #3498db;
+    --primary-color-hover: #2980b9;
+    --accent-blue-soft: var(--accent-blue-soft);
     --secondary-color: #2ecc71;
-    --dark-bg: #121212;          /* Suavizado para mejor visualización */
-    --dark-section-bg: #1e1e1e;  /* Gris muy oscuro pero no tan intenso */
-    --dark-text: #f0f0f0;        /* Blanco suave, no tan brillante */
-    --dark-subtext: #c0c0c0;     /* Gris claro menos intenso */
-    --dark-card-bg: #252525;     /* Gris oscuro más suave */
-    --dark-border: #383838;      /* Borde más suave */
-    
+    --dark-bg: #121212;
+    --dark-section-bg: #1e1e1e;
+    --dark-text: #f0f0f0;
+    --dark-subtext: #c0c0c0;
+    --dark-card-bg: #252525;
+    --dark-border: #383838;
+    --text-highlight: #f8f8f8;
+
     /* Paleta de colores (tema claro) */
     --light-bg: #f5f5f5;
     --light-section-bg: #ffffff;
@@ -21,14 +24,49 @@
     --light-subtext: #555555;
     --light-card-bg: #ffffff;
     --light-border: #e0e0e0;
-    
-    /* Variables comunes */
+
+    /* Tipografía */
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
+
+    /* Escala tipográfica (modular ratio ~1.25) */
+    --text-xs:   0.75rem;   /* 12px */
+    --text-sm:   0.875rem;  /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg:   1.125rem;  /* 18px */
+    --text-xl:   1.25rem;   /* 20px */
+    --text-2xl:  1.5rem;    /* 24px */
+    --text-3xl:  1.875rem;  /* 30px */
+    --text-4xl:  2.25rem;   /* 36px */
+    --text-5xl:  3rem;      /* 48px */
+    --text-6xl:  3.5rem;    /* 56px */
+
+    /* Escala de espaciado (base 4px) */
+    --space-1:  0.25rem;   /* 4 */
+    --space-2:  0.5rem;    /* 8 */
+    --space-3:  0.75rem;   /* 12 */
+    --space-4:  1rem;      /* 16 */
+    --space-5:  1.25rem;   /* 20 */
+    --space-6:  1.5rem;    /* 24 */
+    --space-8:  2rem;      /* 32 */
+    --space-10: 2.5rem;    /* 40 */
+    --space-12: 3rem;      /* 48 */
+    --space-16: 4rem;      /* 64 */
+    --space-20: 5rem;      /* 80 */
+
+    /* Sombras y bordes */
     --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 5px 25px rgba(0, 0, 0, 0.1);
+    --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.25);
     --border-radius: 8px;
+    --border-radius-lg: 12px;
+
+    /* Animación */
     --transition-speed: 0.3s;
-    
-    /* Colores actuales */
+    --ease-base: ease;
+    --transition-base: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+
+    /* Colores activos (tema oscuro por defecto) */
     --bg-color: var(--dark-bg);
     --section-bg: var(--dark-section-bg);
     --text-color: var(--dark-text);
@@ -37,6 +75,9 @@
     --border-color: var(--dark-border);
     --gradient-mono: linear-gradient(120deg, #1e1e1e 0%, #2c2c2c 100%);
     --side-menu-width: 60px;
+
+    /* Focus ring */
+    --focus-ring: 0 0 0 3px rgba(74, 163, 229, 0.55);
 }
 
 /* --- Reseteo Básico y Estilos Globales --- */
@@ -239,7 +280,7 @@ header {
     color: var(--primary-color);
     text-align: center;
     text-decoration: none;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     letter-spacing: 0.5px;
 }
 
@@ -266,7 +307,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -340,7 +381,7 @@ header {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease !important;
+    transition: var(--transition-base) !important;
     background-color: transparent !important;
 }
 
@@ -354,13 +395,13 @@ header {
     color: var(--text-color) !important;
     border-bottom: none !important;
     opacity: 0.8 !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease !important;
+    transition: var(--transition-base) !important;
 }
 
 /* Estilo para los iconos */
 .side-menu li a i {
     font-size: 1.1rem !important;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease !important;
+    transition: var(--transition-base) !important;
 }
 
 /* Estilo al pasar el mouse */
@@ -454,7 +495,7 @@ header {
 
 #hero .subtitle {
     font-size: 2rem;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     margin-bottom: 1.5rem;
     min-height: 2.2rem;
     text-align: left;
@@ -501,9 +542,9 @@ header {
     height: 40px;
     background-color: rgba(52, 152, 219, 0.1);
     border-radius: 50%;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     font-size: 1.2rem;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     border: none;
     position: relative;
 }
@@ -550,7 +591,7 @@ header {
     color: #ffffff !important;
     font-size: 1rem;
     text-transform: uppercase;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     border-bottom: none !important;
 }
 
@@ -570,9 +611,9 @@ header {
     border-radius: 50%;
     object-fit: cover;
     object-position: center 18%; /* Añadido para mostrar más de la parte superior */
-    border: 1px solid #4aa3e5; /* Azul un poco más suave */
+    border: 1px solid var(--accent-blue-soft); /* Azul un poco más suave */
     box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     margin: 0 auto;
 }
 
@@ -602,7 +643,7 @@ header {
 }
 
 .about-text strong, .project-info p strong {
-    color: #f8f8f8; /* Blanco un poco más brillante para texto importante */
+    color: var(--text-highlight);
     font-weight: bold;
 }
 
@@ -617,7 +658,7 @@ header {
     max-width: 800px;
     margin: 2rem auto 0;
     padding: 1.5rem;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
 }
 
 .personal-skills:hover {
@@ -628,7 +669,7 @@ header {
 
 .personal-skills h3 {
     text-align: center;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     margin-bottom: 1.5rem;
     position: relative;
 }
@@ -638,7 +679,7 @@ header {
     display: block;
     width: 50px;
     height: 2px;
-    background-color: #4aa3e5; /* Azul un poco más suave */
+    background-color: var(--accent-blue-soft); /* Azul un poco más suave */
     position: absolute;
     bottom: -5px;
     left: 50%;
@@ -660,7 +701,7 @@ header {
     width: 120px;
     padding: 1rem 0.5rem;
     border-radius: var(--border-radius);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
 }
 
 .soft-skill:hover {
@@ -670,9 +711,9 @@ header {
 
 .soft-skill i {
     font-size: 2rem;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     margin-bottom: 0.8rem;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
 }
 
 .soft-skill:hover i {
@@ -708,7 +749,7 @@ header {
 }
 
 .skill-category h3 {
-    color: #4aa3e5 !important; /* Azul un poco más suave */
+    color: var(--accent-blue-soft) !important; /* Azul un poco más suave */
     font-size: 1.1rem !important;
     margin-bottom: 0.8rem !important;
     border-bottom: 2px solid rgba(70, 70, 70, 0.8) !important;
@@ -724,7 +765,7 @@ header {
 }
 
 .skill-category ul li {
-    color: #c0c0c0 !important; /* Gris claro menos intenso */
+    color: var(--subtext-color) !important;
     font-size: 0.95rem !important;
     padding: 0.4rem 0 !important;
     display: flex !important;
@@ -733,7 +774,7 @@ header {
 }
 
 .skill-category ul li i {
-    color: #4aa3e5 !important; /* Azul un poco más suave */
+    color: var(--accent-blue-soft) !important; /* Azul un poco más suave */
     margin-right: 0.7rem !important;
     font-size: 1rem !important;
     width: 20px !important;
@@ -749,12 +790,12 @@ header {
 
 .skill-category ul li:hover {
     transform: translateX(5px) !important;
-    color: #f0f0f0 !important; /* Blanco suave */
+    color: var(--text-color) !important;
 }
 
 .skill-category ul li:hover i {
     transform: scale(1.2) !important;
-    color: #4aa3e5 !important; /* Azul un poco más suave */
+    color: var(--accent-blue-soft) !important; /* Azul un poco más suave */
 }
 
 
@@ -813,7 +854,7 @@ header {
     border-radius: 8px;
     padding: 20px;
     flex: 1;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    transition: var(--transition-base);
 }
 
 .roadmap-content:hover {
@@ -842,7 +883,7 @@ header {
     display: flex;
     align-items: center;
     color: var(--subtext-color);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+    transition: var(--transition-base);
 }
 
 .roadmap-skills li:hover {
@@ -943,7 +984,7 @@ header {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1) !important;
     border-radius: 12px !important;
     overflow: hidden;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    transition: var(--transition-base);
     width: 100% !important;
     height: auto !important;
     display: flex !important;
@@ -981,7 +1022,7 @@ header {
 }
 
 .project-info h3 {
-    color: #4aa3e5 !important; /* Azul un poco más suave */
+    color: var(--accent-blue-soft) !important; /* Azul un poco más suave */
     margin-bottom: 0.5rem !important;
 }
 
@@ -1001,20 +1042,20 @@ header {
 .project-link {
     display: inline-block;
     padding: 6px 12px;
-    border: 1px solid #4aa3e5; /* Azul un poco más suave */
+    border: 1px solid var(--accent-blue-soft); /* Azul un poco más suave */
     border-radius: var(--border-radius);
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     font-size: 0.85rem;
 }
 
 .experience-detail {
     padding: 1.5rem !important;
     background-color: var(--card-bg) !important;
-    border-top: 2px solid #4aa3e5 !important; /* Azul un poco más suave */
+    border-top: 2px solid var(--accent-blue-soft) !important; /* Azul un poco más suave */
 }
 
 .experience-detail h3 {
-    color: #4aa3e5 !important; /* Azul un poco más suave */
+    color: var(--accent-blue-soft) !important; /* Azul un poco más suave */
     font-size: 1rem !important;
     margin-bottom: 1rem !important;
     position: relative !important;
@@ -1027,7 +1068,7 @@ header {
     left: 0 !important;
     width: 50px !important;
     height: 2px !important;
-    background-color: #4aa3e5 !important; /* Azul un poco más suave */
+    background-color: var(--accent-blue-soft) !important; /* Azul un poco más suave */
 }
 
 .experience-detail ul li {
@@ -1041,12 +1082,12 @@ header {
     content: "•" !important;
     position: absolute !important;
     left: 0 !important;
-    color: #4aa3e5 !important; /* Azul un poco más suave */
+    color: var(--accent-blue-soft) !important; /* Azul un poco más suave */
     font-weight: bold !important;
 }
 
 .experience-detail ul li strong {
-    color: #f8f8f8; /* Blanco un poco más brillante para texto importante */
+    color: var(--text-highlight);
     font-weight: bold;
 }
 
@@ -1079,7 +1120,7 @@ header {
     left: 21.5px;
     top: 0;
     transform: translateX(-50%);
-    background-color: #4aa3e5; /* Azul un poco más suave */
+    background-color: var(--accent-blue-soft); /* Azul un poco más suave */
     color: #ffffff;
     width: 40px;
     height: 40px;
@@ -1089,7 +1130,7 @@ header {
     justify-content: center;
     z-index: 1;
     box-shadow: 0 0 0 5px rgba(30, 30, 30, 0.75);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
 }
 
 .timeline-item:hover .timeline-icon {
@@ -1109,7 +1150,7 @@ header {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1) !important;
     border-radius: 12px !important;
     padding: 1.5rem;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
 }
 
 .timeline-item:hover .timeline-content {
@@ -1119,7 +1160,7 @@ header {
 
 .timeline-content h3 {
     margin-top: 0;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     font-size: 1.2rem;
 }
 
@@ -1139,7 +1180,7 @@ header {
 
 .certificate a {
     display: inline-block;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     font-size: 0.9rem;
     margin-top: 10px;
     transition: transform var(--transition-speed) ease;
@@ -1167,7 +1208,7 @@ header {
     border-radius: 12px !important;
     padding: 2rem;
     text-align: center;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     flex: 1;
     max-width: 300px;
 }
@@ -1180,7 +1221,7 @@ header {
 
 .language-icon {
     font-size: 2.5rem;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     margin-bottom: 1rem;
 }
 
@@ -1218,7 +1259,7 @@ header {
     color: var(--text-color);
     padding: 12px 18px;
     border-radius: var(--border-radius);
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
     display: flex;
@@ -1227,10 +1268,10 @@ header {
 
 .contact-method:hover {
     color: #ffffff;
-    background-color: #4aa3e5; /* Azul un poco más suave */
+    background-color: var(--accent-blue-soft); /* Azul un poco más suave */
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    border-color: #4aa3e5; /* Azul un poco más suave */
+    border-color: var(--accent-blue-soft); /* Azul un poco más suave */
 }
 
 .contact-method i {
@@ -1256,7 +1297,7 @@ header {
     border-radius: 12px !important;
     padding: 1.5rem;
     text-align: center;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     flex: 1;
     max-width: 300px;
 }
@@ -1269,7 +1310,7 @@ header {
 
 .reference-icon {
     font-size: 2rem;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
     margin-bottom: 1rem;
 }
 
@@ -1286,7 +1327,7 @@ header {
 .reference-item a {
     display: inline-flex;
     align-items: center;
-    color: #4aa3e5; /* Azul un poco más suave */
+    color: var(--accent-blue-soft); /* Azul un poco más suave */
 }
 
 .reference-item a i {
@@ -1395,7 +1436,7 @@ footer p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease, opacity var(--transition-speed) ease;
+    transition: var(--transition-base);
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100px;
@@ -1413,7 +1454,7 @@ footer p {
     justify-content: center;
     width: 50%;
     height: 100%;
-    transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease, color 0.4s ease, opacity 0.4s ease;
+    transition: var(--transition-base);
     position: relative;
 }
 
@@ -1427,7 +1468,7 @@ footer p {
     width: 44px;
     height: 28px;
     border-radius: 20px;
-    background-color: #4aa3e5; /* Azul un poco más suave */
+    background-color: var(--accent-blue-soft); /* Azul un poco más suave */
     top: 5px;
     left: 5px;
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -1445,7 +1486,7 @@ footer p {
 .lang-toggle-btn .lang-text {
     position: relative;
     z-index: 2;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    transition: var(--transition-base);
 }
 
 .lang-toggle-btn.es-active .es .lang-text {
@@ -2033,7 +2074,7 @@ footer p {
     padding: 8px 15px;
     background-color: rgba(52, 152, 219, 0.1);
     border-radius: 4px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    transition: var(--transition-base);
 }
 
 .certificate-link:hover {
@@ -2071,7 +2112,7 @@ footer p {
     padding: 30px;
     display: flex;
     gap: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    transition: var(--transition-base);
 }
 
 .venture-card:hover {
@@ -2157,7 +2198,7 @@ footer p {
     padding: 10px 20px;
     border-radius: 30px;
     font-weight: 500;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    transition: var(--transition-base);
 }
 
 .venture-link:hover {
@@ -2247,7 +2288,7 @@ footer p {
     border-radius: 15px;
     font-size: 0.85rem;
     color: var(--text-color);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    transition: var(--transition-base);
 }
 
 .tech-badge:hover {
@@ -2305,5 +2346,366 @@ footer p {
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }
+}
+
+/* =======================================================
+   Accessibility — focus-visible, skip link
+   ======================================================= */
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    background-color: var(--accent-blue-soft);
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 0.25s ease;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 12px;
+    outline: none;
+    border-bottom: none;
+    transform: none;
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]):focus {
+    outline: none;
+}
+
+:where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+    border-radius: 6px;
+}
+
+.side-menu li a:focus-visible,
+.theme-toggle-btn:focus-visible,
+.lang-toggle-btn:focus-visible {
+    box-shadow: var(--focus-ring) !important;
+}
+
+.project-experience-card:focus-visible,
+.skill-category:focus-visible,
+.reference-item:focus-visible,
+.language-item:focus-visible,
+.soft-skill:focus-visible {
+    box-shadow: var(--focus-ring), var(--shadow-card-hover) !important;
+    outline: none;
+}
+
+/* =======================================================
+   Scroll progress bar (top of viewport)
+   ======================================================= */
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-blue-soft));
+    z-index: 9998;
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
+
+/* =======================================================
+   Reveal-on-scroll
+   ======================================================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =======================================================
+   Contact form
+   ======================================================= */
+
+.contact-form {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: left;
+    display: grid;
+    gap: var(--space-4);
+}
+
+.contact-form .form-row {
+    display: grid;
+    gap: var(--space-4);
+    grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 600px) {
+    .contact-form .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-form label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: var(--space-2);
+    letter-spacing: 0.02em;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background-color: rgba(35, 35, 35, 0.7);
+    border: 1px solid rgba(74, 163, 229, 0.18);
+    border-radius: 10px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: var(--text-base);
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(192, 192, 192, 0.55);
+}
+
+.contact-form input:hover,
+.contact-form select:hover,
+.contact-form textarea:hover {
+    border-color: rgba(74, 163, 229, 0.4);
+}
+
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible {
+    outline: none;
+    border-color: var(--accent-blue-soft);
+    background-color: rgba(35, 35, 35, 0.95);
+    box-shadow: var(--focus-ring);
+}
+
+.contact-form textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.contact-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='%234aa3e5'><path d='M6 8L0 0h12z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-size: 10px;
+    padding-right: 36px;
+}
+
+.contact-form .form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+}
+
+.contact-form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: var(--text-base);
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: 0 5px 15px rgba(40, 130, 200, 0.3);
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: var(--primary-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(40, 130, 200, 0.4);
+}
+
+.contact-form button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.contact-form .form-fallback {
+    color: var(--subtext-color);
+    font-size: var(--text-sm);
+}
+
+.contact-form .form-fallback a {
+    color: var(--accent-blue-soft);
+}
+
+.form-status {
+    min-height: 24px;
+    font-size: var(--text-sm);
+    margin-top: var(--space-2);
+}
+
+.form-status.success {
+    color: var(--secondary-color);
+}
+
+.form-status.error {
+    color: #e74c3c;
+}
+
+/* Light theme — contact form */
+.light-theme .contact-form input,
+.light-theme .contact-form select,
+.light-theme .contact-form textarea {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(52, 152, 219, 0.2);
+    color: var(--light-text);
+}
+
+.light-theme .contact-form input::placeholder,
+.light-theme .contact-form textarea::placeholder {
+    color: rgba(85, 85, 85, 0.55);
+}
+
+.light-theme .contact-form input:focus-visible,
+.light-theme .contact-form select:focus-visible,
+.light-theme .contact-form textarea:focus-visible {
+    background-color: #ffffff;
+}
+
+.light-theme .contact-form label {
+    color: var(--light-text);
+}
+
+/* =======================================================
+   Testimonials
+   ======================================================= */
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    max-width: 900px;
+    margin: 0 auto var(--space-10);
+}
+
+.testimonial {
+    background-color: rgba(35, 35, 35, 0.55);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: var(--border-radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    transition: var(--transition-base);
+}
+
+.testimonial:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.testimonial::before {
+    content: '\201C';
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--accent-blue-soft);
+    opacity: 0.4;
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.testimonial blockquote {
+    color: var(--text-color);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    margin: var(--space-4) 0;
+    font-style: italic;
+}
+
+.testimonial figcaption {
+    color: var(--subtext-color);
+    font-size: var(--text-sm);
+}
+
+.testimonial figcaption strong {
+    color: var(--text-color);
+    font-weight: 600;
+    display: block;
+}
+
+.light-theme .testimonial {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.light-theme .testimonial blockquote {
+    color: var(--light-text);
+}
+
+.light-theme .testimonial figcaption {
+    color: var(--light-subtext);
+}
+
+.light-theme .testimonial figcaption strong {
+    color: var(--light-text);
+}
+
+/* =======================================================
+   Project case-study expand button
+   ======================================================= */
+
+.case-toggle {
+    background: transparent;
+    border: 1px solid var(--accent-blue-soft);
+    color: var(--accent-blue-soft);
+    padding: 8px 14px;
+    border-radius: var(--border-radius);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-base);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.case-toggle:hover {
+    background-color: rgba(74, 163, 229, 0.12);
+}
+
+.case-toggle[aria-expanded="true"] .case-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.case-toggle-icon {
+    transition: transform 0.25s ease;
+}
+
+.experience-detail[hidden] {
+    display: none !important;
 }
 
