@@ -1588,13 +1588,9 @@ footer p::before { content: none !important; display: none !important; }
 
 .gh-summary-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: var(--space-5);
     align-items: start;
-}
-
-@media (max-width: 720px) {
-    .gh-summary-grid { grid-template-columns: 1fr; }
 }
 
 .gh-summary-grid img {
