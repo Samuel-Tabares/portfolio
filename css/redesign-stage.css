@@ -140,16 +140,18 @@ section h2::after { display: none !important; }
     .hero-header { grid-template-columns: 1fr !important; }
 }
 
-/* HERO H1 — editorial font + wipe animation (per Samuel) */
+/* HERO H1 — cinematic font, editorial wipe animation (per Samuel) */
 #hero h1 {
-    font-family: var(--font-serif) !important;
-    font-weight: 900 !important;
-    font-size: clamp(3.5rem, 9vw, 7rem) !important;
-    line-height: 0.92 !important;
+    font-family: var(--font-display) !important;
+    font-weight: 800 !important;
+    font-size: clamp(3rem, 7.5vw, 6.5rem) !important;
+    line-height: 0.96 !important;
     letter-spacing: -0.045em !important;
     color: var(--dark-text) !important;
-    background: none !important;
-    -webkit-text-fill-color: currentColor !important;
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0.55) 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
     text-shadow: none !important;
     margin-bottom: var(--space-6) !important;
     text-align: left !important;
