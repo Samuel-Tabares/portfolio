@@ -472,9 +472,81 @@ header {
     transition: max-height 0.45s ease, opacity 0.3s ease 0.05s !important;
 }
 
-/* ---------------- ROADMAP ---------------- */
-/* Cinematic base, TERMINAL hover */
+/* ---------------- ROADMAP — HORIZONTAL LAYOUT ---------------- */
 
+.roadmap-container {
+    max-width: 1200px !important;
+    overflow-x: auto !important;
+    padding: 0 !important;
+}
+
+.roadmap-timeline {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: var(--space-5) !important;
+    padding: var(--space-12) var(--space-2) var(--space-4) !important;
+    position: relative !important;
+}
+
+/* Horizontal connecting line */
+.roadmap-timeline::before {
+    top: calc(var(--space-12) - 20px) !important;
+    left: 20px !important;
+    right: 20px !important;
+    bottom: auto !important;
+    width: auto !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--accent-blue-soft), rgba(139, 158, 255, 0.1)) !important;
+}
+
+/* Each item: icon on top, card below */
+.roadmap-item {
+    flex: 1 1 220px !important;
+    min-width: 190px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+}
+
+.roadmap-icon {
+    margin-right: 0 !important;
+    margin-bottom: var(--space-4) !important;
+    flex-shrink: 0 !important;
+    position: relative !important;
+}
+
+/* Mobile: revert to vertical */
+@media (max-width: 768px) {
+    .roadmap-timeline {
+        flex-direction: column !important;
+        padding: var(--space-4) 0 !important;
+    }
+
+    .roadmap-timeline::before {
+        top: 0 !important;
+        left: 20px !important;
+        right: auto !important;
+        bottom: 0 !important;
+        width: 2px !important;
+        height: auto !important;
+    }
+
+    .roadmap-item {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        margin-bottom: var(--space-8) !important;
+    }
+
+    .roadmap-icon {
+        margin-right: var(--space-4) !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Cinematic base, TERMINAL hover */
 .roadmap-content {
     background: var(--dark-card-bg) !important;
     backdrop-filter: blur(12px);
@@ -757,7 +829,100 @@ header {
     letter-spacing: 0.1em !important;
 }
 
-/* ---------------- EDUCATION ---------------- */
+/* ---------------- EDUCATION — HORIZONTAL LAYOUT ---------------- */
+
+.education-timeline {
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: var(--space-8) !important;
+    padding-top: var(--space-12) !important;
+    position: relative !important;
+    margin: 0 !important;
+}
+
+/* Horizontal connecting line */
+.education-timeline::before {
+    top: calc(var(--space-12) - 20px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    height: 2px !important;
+    width: auto !important;
+    background: linear-gradient(90deg, var(--accent-blue-soft), rgba(139, 158, 255, 0.1)) !important;
+}
+
+/* Each timeline item: icon on top, content below */
+.timeline-item {
+    flex: 1 !important;
+    padding-left: 0 !important;
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+}
+
+.timeline-icon {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    margin-bottom: var(--space-4) !important;
+    flex-shrink: 0 !important;
+}
+
+.timeline-item:hover .timeline-icon {
+    transform: scale(1.15) !important;
+}
+
+.timeline-content {
+    width: 100% !important;
+    text-align: center !important;
+    transform: none !important;
+}
+
+.timeline-item:hover .timeline-content {
+    transform: none !important;
+    border-color: var(--terminal-phosphor) !important;
+    box-shadow: 0 0 18px var(--terminal-phosphor-glow), 0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
+}
+
+/* Mobile: revert to vertical */
+@media (max-width: 768px) {
+    .education-timeline {
+        flex-direction: column !important;
+        padding-top: var(--space-4) !important;
+    }
+
+    .education-timeline::before {
+        top: 0 !important;
+        left: 20px !important;
+        right: auto !important;
+        bottom: 0 !important;
+        width: 2px !important;
+        height: auto !important;
+    }
+
+    .timeline-item {
+        flex-direction: row !important;
+        align-items: flex-start !important;
+        padding-left: var(--space-14) !important;
+    }
+
+    .timeline-icon {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: translateX(0) !important;
+        margin-bottom: 0 !important;
+    }
+
+    .timeline-content {
+        text-align: left !important;
+    }
+}
 
 .timeline-content {
     background: var(--dark-card-bg) !important;
@@ -888,7 +1053,173 @@ header {
 
 .reference-icon { color: var(--accent-blue-soft) !important; }
 
-/* ---------------- CONTACT FORM — cinematic ---------------- */
+/* ---------------- CONTACT FORM — email composer ---------------- */
+
+.contact-composer {
+    background: var(--dark-card-bg) !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: var(--border-radius-lg) !important;
+    box-shadow: var(--shadow-card) !important;
+    backdrop-filter: blur(20px) !important;
+    overflow: hidden !important;
+    max-width: 780px !important;
+    margin: 2rem 0 0 !important;
+    padding: 0 !important;
+}
+
+/* Header — To/From rows */
+.composer-header {
+    padding: var(--space-5) var(--space-6) !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--space-3) !important;
+}
+
+.composer-to {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+}
+
+.composer-from-row {
+    display: flex !important;
+    gap: var(--space-3) !important;
+}
+
+.composer-from-field {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+    flex: 1 !important;
+}
+
+.composer-from-field input {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+.composer-recipient {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-sm) !important;
+    color: var(--dark-text) !important;
+}
+
+/* Subject row */
+.composer-subject-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    padding: var(--space-3) var(--space-6) !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+}
+
+.composer-subject-select {
+    flex: 1 !important;
+    min-width: 0 !important;
+}
+
+/* Budget + WhatsApp meta row */
+.composer-meta-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-3) !important;
+    padding: var(--space-3) var(--space-6) !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+    flex-wrap: wrap !important;
+}
+
+.composer-budget-select {
+    flex: 1 !important;
+    min-width: 160px !important;
+}
+
+.composer-phone {
+    flex: 1 !important;
+    min-width: 140px !important;
+}
+
+/* Label styling inside composer */
+.composer-label {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--dark-subtext) !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* Message body */
+.composer-body {
+    padding: 0 !important;
+}
+
+.composer-body textarea {
+    width: 100% !important;
+    border: none !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    resize: none !important;
+    padding: var(--space-5) var(--space-6) !important;
+    min-height: 200px !important;
+}
+
+/* Actions row */
+.composer-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: var(--space-4) !important;
+    padding: var(--space-4) var(--space-6) !important;
+}
+
+.composer-send-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: var(--space-2) !important;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+}
+
+@media (max-width: 600px) {
+    .composer-from-row,
+    .composer-meta-row { flex-direction: column !important; }
+    .composer-subject-row { flex-wrap: wrap !important; }
+}
+
+/* Override: remove border-radius from inputs/selects inside composer rows
+   so they look like inline fields, not standalone inputs */
+.contact-composer .composer-header input,
+.contact-composer .composer-subject-row select,
+.contact-composer .composer-meta-row select,
+.contact-composer .composer-meta-row input {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    padding: var(--space-1) var(--space-2) !important;
+    font-size: var(--text-sm) !important;
+}
+
+.contact-composer .composer-header input:focus-visible,
+.contact-composer .composer-subject-row select:focus-visible,
+.contact-composer .composer-meta-row select:focus-visible,
+.contact-composer .composer-meta-row input:focus-visible {
+    border-bottom-color: var(--accent-blue-soft) !important;
+    box-shadow: none !important;
+    background: rgba(139, 158, 255, 0.04) !important;
+}
+
+/* Keep the textarea full-width styling */
 
 #contact .contact-form input,
 #contact .contact-form select,
