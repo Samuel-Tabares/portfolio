@@ -2056,6 +2056,12 @@ footer p {
     width: 80%;
 }
 
+.level-fill.german-a1 {
+    width: 12%;
+    background: linear-gradient(to right, #3498db, #6ab0de);
+    opacity: 0.7;
+}
+
 .certificate-badge {
     display: inline-block;
     background-color: #3498db;

@@ -840,6 +840,14 @@ const translations = {
         'es': 'Nivel B2 | Certificado American School Way',
         'en': 'B2 Level | American School Way Certificate'
     },
+    'german': {
+        'es': 'ALEMÁN',
+        'en': 'GERMAN'
+    },
+    'german-level': {
+        'es': 'En proceso — A1',
+        'en': 'In progress — A1'
+    },
     'certificate-badge': {
     'es': 'Certificado Oficial',
     'en': 'Official Certificate'
@@ -898,8 +906,8 @@ const translations = {
         'en': 'You can tell he thinks through the architecture before coding. Saves months of refactor down the line.'
     },
     'testimonial-2-role': {
-        'es': 'Docente — Ingeniería de Software',
-        'en': 'Professor — Software Engineering'
+        'es': 'Compañera de carrera — Ingeniería de Software',
+        'en': 'Classmate — Software Engineering'
     },
     'testimonials-note': {
         'es': '¿Trabajamos juntos? Si te sirve, te pido el quote después del proyecto.',
@@ -911,7 +919,43 @@ const translations = {
         'es': 'Actividad en GitHub',
         'en': 'GitHub activity'
     },
-    
+    'gh-heatmap-title': {
+        'es': 'Mapa de contribuciones — año en curso',
+        'en': 'Contribution heatmap — year to date'
+    },
+    'gh-heatmap-meta': {
+        'es': 'Desde enero de 2026',
+        'en': 'Since January 2026'
+    },
+    'gh-summary-title': {
+        'es': 'Resumen de lenguajes',
+        'en': 'Language summary'
+    },
+    'gh-summary-meta': {
+        'es': 'Por repos · por commits',
+        'en': 'By repos · by commits'
+    },
+    'gh-activity-title': {
+        'es': 'Gráfico de actividad',
+        'en': 'Activity graph'
+    },
+    'gh-activity-meta': {
+        'es': 'Últimos 12 meses',
+        'en': 'Past 12 months'
+    },
+    'gh-loading': {
+        'es': 'Cargando…',
+        'en': 'Loading…'
+    },
+    'gh-heatmap-empty': {
+        'es': 'Sin contribuciones públicas todavía este año.',
+        'en': 'No public contributions yet this year.'
+    },
+    'gh-heatmap-error': {
+        'es': 'El servicio del mapa no está disponible.',
+        'en': 'Heatmap service unavailable.'
+    },
+
     // Footer
     'copyright': {
         'es': 'Todos los derechos reservados.',

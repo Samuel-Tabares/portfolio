@@ -46,6 +46,10 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/redesign-cinematic.css">
+    <link rel="stylesheet" href="css/redesign-terminal.css">
+    <link rel="stylesheet" href="css/redesign-editorial.css">
+    <link rel="stylesheet" href="css/redesign-stage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class="dark-theme">
@@ -595,6 +599,16 @@
                         </a>
                     </p>
                 </div>
+                <div class="language-item">
+                    <div class="language-icon"><i class="fa-solid fa-language"></i></div>
+                    <h3 data-translate="german">ALEMÁN</h3>
+                    <div class="language-level">
+                        <div class="level-bar">
+                            <div class="level-fill german-a1"></div>
+                        </div>
+                        <p data-translate="german-level">En proceso — A1</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -689,7 +703,7 @@
                     </blockquote>
                     <figcaption>
                         <strong>Susana Eguis Muñoz</strong>
-                        <span data-translate="testimonial-2-role">Docente — Ingeniería de Software</span>
+                        <span data-translate="testimonial-2-role">Compañera de carrera — Ingeniería de Software</span>
                     </figcaption>
                 </figure>
             </div>
@@ -715,22 +729,55 @@
             </div>
         </section>
 
-        <!-- Sección de GitHub stats -->
+        <!-- GitHub Activity -->
         <section id="github-stats" aria-labelledby="github-stats-heading">
             <h2 id="github-stats-heading" data-translate="github-stats-heading">Actividad en GitHub</h2>
-            <div style="display:flex; flex-wrap:wrap; gap:var(--space-6); justify-content:center; align-items:center; max-width:900px; margin:0 auto;">
-                <img
-                    src="https://github-readme-stats.vercel.app/api?username=Samuel-Tabares&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=4aa3e5&icon_color=2ecc71&text_color=c0c0c0"
-                    alt="Estadísticas de GitHub de Samuel Tabares"
-                    loading="lazy"
-                    width="495" height="195"
-                    style="max-width:100%; height:auto; border-radius:12px;" />
-                <img
-                    src="https://github-readme-stats.vercel.app/api/top-langs/?username=Samuel-Tabares&layout=compact&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=4aa3e5&text_color=c0c0c0"
-                    alt="Lenguajes más usados por Samuel Tabares en GitHub"
-                    loading="lazy"
-                    width="320" height="195"
-                    style="max-width:100%; height:auto; border-radius:12px;" />
+
+            <div class="gh-grid">
+                <!-- A. Contribution heatmap (year-to-date, custom) -->
+                <article class="gh-card" aria-labelledby="gh-heatmap-heading">
+                    <header class="gh-card-head">
+                        <h3 id="gh-heatmap-heading" data-translate="gh-heatmap-title">Mapa de contribuciones — año en curso</h3>
+                        <span class="gh-card-meta" data-translate="gh-heatmap-meta">Desde enero de 2026</span>
+                    </header>
+                    <div class="gh-card-body">
+                        <div id="gh-heatmap" class="gh-heatmap-wrap" aria-live="polite">
+                            <p class="gh-loading" data-translate="gh-loading">Cargando…</p>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- K. Profile summary cards (trimmed: top langs by repo + by commit) -->
+                <article class="gh-card" aria-labelledby="gh-summary-heading">
+                    <header class="gh-card-head">
+                        <h3 id="gh-summary-heading" data-translate="gh-summary-title">Resumen de lenguajes</h3>
+                        <span class="gh-card-meta" data-translate="gh-summary-meta">Por repos · por commits</span>
+                    </header>
+                    <div class="gh-card-body">
+                        <div class="gh-summary-grid">
+                            <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Samuel-Tabares&theme=tokyonight"
+                                 alt="Top languages by repository count" loading="lazy"
+                                 onerror="this.style.display='none'" />
+                            <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Samuel-Tabares&theme=tokyonight"
+                                 alt="Top languages by commits" loading="lazy"
+                                 onerror="this.style.display='none'" />
+                        </div>
+                    </div>
+                </article>
+
+                <!-- N. Activity graph (past 12 months) -->
+                <article class="gh-card" aria-labelledby="gh-activity-heading">
+                    <header class="gh-card-head">
+                        <h3 id="gh-activity-heading" data-translate="gh-activity-title">Gráfico de actividad</h3>
+                        <span class="gh-card-meta" data-translate="gh-activity-meta">Últimos 12 meses</span>
+                    </header>
+                    <div class="gh-card-body">
+                        <img class="gh-activity-graph"
+                             src="https://github-readme-activity-graph.vercel.app/graph?username=Samuel-Tabares&theme=tokyo-night&hide_border=true&bg_color=00000000&color=8b9eff&line=1f6feb&point=ffffff&area=true&area_color=8b9eff"
+                             alt="Year-over-year GitHub activity line chart" loading="lazy"
+                             onerror="this.parentElement.innerHTML='&lt;p class=&quot;gh-error&quot;&gt;Activity graph service unavailable.&lt;/p&gt;'" />
+                    </div>
+                </article>
             </div>
         </section>
     </main>
@@ -778,5 +825,6 @@
     <script defer src="js/script.js"></script>
     <script defer src="js/security.js"></script>
     <script defer src="js/email-protection.js"></script>
+    <script defer src="js/github-activity.js"></script>
 </body>
 </html>
