@@ -427,49 +427,79 @@ header {
 
 .skill-category ul li:hover { color: var(--terminal-phosphor) !important; transform: none !important; }
 
-/* ---- Skill category: click-to-expand ---- */
-.skill-category { cursor: pointer; }
+/* ---- Skill category: minimal pill → wing expand ---- */
 
-/* Expand indicator on h3 */
-.skill-category h3 {
+/* Grid becomes centered flex-wrap */
+#skills .skills-grid {
     display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    gap: var(--space-3) !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
 }
 
-.skill-category h3::after {
-    content: '+' !important;
-    font-size: 1.1rem !important;
-    font-weight: 400 !important;
-    color: var(--dark-subtext) !important;
-    letter-spacing: 0 !important;
-    text-transform: none !important;
-    transition: transform 0.3s ease, color 0.2s ease !important;
-    display: block !important;
-    width: 16px !important;
+/* Collapsed pill: just the name, centered */
+.skill-category {
+    cursor: pointer !important;
+    width: auto !important;
+    min-width: 120px !important;
+    padding: var(--space-3) var(--space-6) !important;
     text-align: center !important;
-    flex-shrink: 0 !important;
+    transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.3s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease !important;
 }
 
-.skill-category.expanded h3::after {
-    content: '−' !important;
-    color: var(--terminal-phosphor) !important;
+.skill-category h3 {
+    justify-content: center !important;
+    border-bottom: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
 }
 
-/* Collapsed: hide the ul */
+/* No +/- indicator — purely minimal */
+.skill-category h3::after { content: none !important; display: none !important; }
+
+/* Content hidden + clipped to center (wing effect) */
 .skill-category ul {
     max-height: 0 !important;
     overflow: hidden !important;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease !important;
     opacity: 0 !important;
+    clip-path: inset(0 50%) !important;
+    transition: max-height 0.5s ease,
+                opacity 0.3s ease,
+                clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1) !important;
     margin-top: 0 !important;
+    text-align: left !important;
+}
+
+/* Expanded: card widens and content opens from center outward */
+.skill-category.expanded {
+    width: 260px !important;
+    padding: var(--space-4) var(--space-5) !important;
+}
+
+.skill-category.expanded h3 {
+    border-bottom: 1px solid var(--dark-border) !important;
+    margin-bottom: var(--space-3) !important;
+    padding-bottom: var(--space-2) !important;
+    justify-content: center !important;
+    display: block !important;
 }
 
 .skill-category.expanded ul {
     max-height: 500px !important;
     opacity: 1 !important;
-    margin-top: var(--space-3) !important;
-    transition: max-height 0.45s ease, opacity 0.3s ease 0.05s !important;
+    clip-path: inset(0 0%) !important;
+    margin-top: 0 !important;
+    transition: max-height 0.5s ease,
+                opacity 0.35s ease 0.1s,
+                clip-path 0.45s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 /* ---------------- ROADMAP — HORIZONTAL LAYOUT ---------------- */
@@ -614,6 +644,20 @@ header {
 /* ---------------- PROJECTS & EXPERIENCE ---------------- */
 /* Cinematic base, TERMINAL hover */
 
+/* Projects grid: horizontal row */
+.projects-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: var(--space-4) !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: var(--space-2) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
 .project-experience-card {
     background: var(--dark-card-bg) !important;
     backdrop-filter: blur(14px) saturate(1.2);
@@ -623,6 +667,9 @@ header {
     box-shadow: var(--shadow-card) !important;
     padding-bottom: 0 !important;
     overflow: hidden;
+    flex: 0 0 260px !important;
+    scroll-snap-align: start !important;
+    position: relative !important;
 }
 
 /* Kill terminal traffic-light header */
@@ -700,7 +747,13 @@ header {
     box-shadow: 0 0 22px var(--terminal-phosphor-glow), 0 1px 0 rgba(255, 255, 255, 0.04) inset !important;
 }
 
+/* Status badge floats over the image */
 .project-status {
+    position: absolute !important;
+    top: var(--space-3) !important;
+    left: var(--space-3) !important;
+    right: auto !important;
+    z-index: 3 !important;
     border-radius: 999px !important;
     font-family: var(--font-display) !important;
     font-size: var(--text-xs) !important;
@@ -709,17 +762,31 @@ header {
     letter-spacing: -0.01em !important;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    top: auto !important;
-    right: auto !important;
 }
 
 .project-status.completed { background-color: rgba(197, 240, 0, 0.15) !important; color: var(--cinematic-electric) !important; }
 .project-status.ongoing { background-color: rgba(168, 85, 247, 0.18) !important; color: var(--cinematic-violet) !important; }
 
+/* Image fills the full card height */
+.project-card {
+    height: 320px !important;
+    position: relative !important;
+}
+
 .project-image-container {
     border-radius: 0 !important;
     background: var(--dark-bg) !important;
     filter: none !important;
+    height: 100% !important;
+    width: 100% !important;
+}
+
+.project-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: top !important;
+    display: block !important;
 }
 
 .project-info h3 {
@@ -1055,6 +1122,15 @@ header {
 
 /* ---------------- CONTACT FORM — email composer ---------------- */
 
+#contact {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+}
+
+#contact h2,
+#contact > p { width: 100% !important; max-width: 780px !important; }
+
 .contact-composer {
     background: var(--dark-card-bg) !important;
     border: 1px solid var(--dark-border) !important;
@@ -1062,24 +1138,16 @@ header {
     box-shadow: var(--shadow-card) !important;
     backdrop-filter: blur(20px) !important;
     overflow: hidden !important;
+    width: 100% !important;
     max-width: 780px !important;
-    margin: 2rem 0 0 !important;
+    margin: var(--space-6) 0 0 !important;
     padding: 0 !important;
 }
 
-/* Header — To/From rows */
+/* Header: From row */
 .composer-header {
-    padding: var(--space-5) var(--space-6) !important;
+    padding: var(--space-4) var(--space-6) !important;
     border-bottom: 1px solid var(--dark-border) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: var(--space-3) !important;
-}
-
-.composer-to {
-    display: flex !important;
-    align-items: center !important;
-    gap: var(--space-3) !important;
 }
 
 .composer-from-row {
@@ -1092,18 +1160,10 @@ header {
     align-items: center !important;
     gap: var(--space-2) !important;
     flex: 1 !important;
-}
-
-.composer-from-field input {
-    flex: 1 !important;
     min-width: 0 !important;
 }
 
-.composer-recipient {
-    font-family: var(--font-display) !important;
-    font-size: var(--text-sm) !important;
-    color: var(--dark-text) !important;
-}
+.composer-from-field input { flex: 1 !important; min-width: 0 !important; }
 
 /* Subject row */
 .composer-subject-row {
@@ -1114,10 +1174,7 @@ header {
     border-bottom: 1px solid var(--dark-border) !important;
 }
 
-.composer-subject-select {
-    flex: 1 !important;
-    min-width: 0 !important;
-}
+.composer-subject-select { flex: 1 !important; min-width: 0 !important; }
 
 /* Budget + WhatsApp meta row */
 .composer-meta-row {
@@ -1129,17 +1186,10 @@ header {
     flex-wrap: wrap !important;
 }
 
-.composer-budget-select {
-    flex: 1 !important;
-    min-width: 160px !important;
-}
+.composer-budget-select { flex: 1 !important; min-width: 150px !important; }
+.composer-phone        { flex: 1 !important; min-width: 130px !important; }
 
-.composer-phone {
-    flex: 1 !important;
-    min-width: 140px !important;
-}
-
-/* Label styling inside composer */
+/* Row labels */
 .composer-label {
     font-family: var(--font-display) !important;
     font-size: var(--text-xs) !important;
@@ -1153,9 +1203,7 @@ header {
 }
 
 /* Message body */
-.composer-body {
-    padding: 0 !important;
-}
+.composer-body { padding: 0 !important; }
 
 .composer-body textarea {
     width: 100% !important;
@@ -1164,14 +1212,14 @@ header {
     border-radius: 0 !important;
     resize: none !important;
     padding: var(--space-5) var(--space-6) !important;
-    min-height: 200px !important;
+    min-height: 180px !important;
+    box-sizing: border-box !important;
 }
 
-/* Actions row */
+/* Send button row */
 .composer-actions {
     display: flex !important;
     align-items: center !important;
-    gap: var(--space-4) !important;
     padding: var(--space-4) var(--space-6) !important;
 }
 
@@ -1181,45 +1229,42 @@ header {
     gap: var(--space-2) !important;
 }
 
-.sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    overflow: hidden !important;
-    clip: rect(0,0,0,0) !important;
-    white-space: nowrap !important;
-}
-
-@media (max-width: 600px) {
-    .composer-from-row,
-    .composer-meta-row { flex-direction: column !important; }
-    .composer-subject-row { flex-wrap: wrap !important; }
-}
-
-/* Override: remove border-radius from inputs/selects inside composer rows
-   so they look like inline fields, not standalone inputs */
-.contact-composer .composer-header input,
-.contact-composer .composer-subject-row select,
-.contact-composer .composer-meta-row select,
-.contact-composer .composer-meta-row input {
+/* All composer inputs look like inline fields */
+.contact-composer input,
+.contact-composer select {
     background: transparent !important;
     border: none !important;
     border-bottom: 1px solid var(--dark-border) !important;
     border-radius: 0 !important;
     padding: var(--space-1) var(--space-2) !important;
     font-size: var(--text-sm) !important;
+    color: var(--dark-text) !important;
+    font-family: var(--font-display) !important;
 }
 
-.contact-composer .composer-header input:focus-visible,
-.contact-composer .composer-subject-row select:focus-visible,
-.contact-composer .composer-meta-row select:focus-visible,
-.contact-composer .composer-meta-row input:focus-visible {
+.contact-composer input:focus-visible,
+.contact-composer select:focus-visible {
     border-bottom-color: var(--accent-blue-soft) !important;
     box-shadow: none !important;
+    outline: none !important;
     background: rgba(139, 158, 255, 0.04) !important;
 }
 
-/* Keep the textarea full-width styling */
+.contact-composer input::placeholder { color: rgba(168, 168, 179, 0.45) !important; }
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important; height: 1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+}
+
+@media (max-width: 600px) {
+    .composer-from-row  { flex-direction: column !important; }
+    .composer-meta-row  { flex-direction: column !important; }
+    .composer-subject-row { flex-wrap: wrap !important; }
+}
 
 #contact .contact-form input,
 #contact .contact-form select,
@@ -1416,6 +1461,10 @@ footer p::before { content: none !important; display: none !important; }
     padding: var(--space-6);
     transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
+
+/* Hide card titles and meta — show widgets only */
+.gh-card-head { display: none !important; }
+.gh-card { padding: var(--space-4) !important; }
 
 /* Terminal hover glow on github cards too (consistent with skill/roadmap/project) */
 .gh-card:hover {
