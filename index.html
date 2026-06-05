@@ -315,18 +315,24 @@
             <h2 data-translate="projects-heading">Proyectos y Experiencia</h2>
             <div class="projects-grid">
                 <!-- Proyecto Clínica Veterinaria - Backend -->
-                <div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication">
+                <div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication" data-project-card>
                     <meta itemprop="applicationCategory" content="HealthcareApplication" />
                     <meta itemprop="operatingSystem" content="Web" />
                     <div class="project-status ongoing" data-translate="status-ongoing">En desarrollo</div>
                     <div class="project-card">
                         <div class="project-image-container">
                             <img src="images/proyecto-veterinaria.png" alt="Arquitectura de Backend para la Plataforma de Gestión Veterinaria" class="project-image" loading="lazy">
+                            <div class="project-thumb-overlay">
+                                <span data-translate="veterinary-title">Backend para Plataforma de Gestión Veterinaria</span>
+                                <span class="project-expand-icon"><i class="fas fa-plus"></i></span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="project-details">
                         <div class="project-info">
                             <h3 data-translate="veterinary-title">Backend para Plataforma de Gestión Veterinaria</h3>
                             <p data-translate="veterinary-desc">Desarrollo completo del backend para un sistema integral de gestión de clínicas veterinarias. Diseño e implementación de la arquitectura de datos, lógica de negocio, APIs y servicios para soportar múltiples módulos: pacientes, agendamiento, historias clínicas, prescripción y facturación.</p>
-                            
+
                             <div class="tech-stack">
                                 <div class="tech-label" data-translate="tech-used">Tecnologías:</div>
                                 <div class="tech-badges">
@@ -337,7 +343,7 @@
                                     <span class="tech-badge"><i class="fas fa-plug"></i> API Integrations</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-metrics">
                                 <div class="metric">
                                     <div class="metric-value">8</div>
@@ -352,38 +358,44 @@
                                     <div class="metric-label" data-translate="metric-database">Modelos DB</div>
                                 </div>
                             </div>
-                            
+
                             <div class="project-links">
                                 <span class="project-link disabled" data-translate="private-project">Proyecto Privado <i class="fas fa-lock" aria-hidden="true"></i></span>
                                 <span class="project-link role-badge" data-translate="backend-role">Rol: Backend Lead <i class="fas fa-server" aria-hidden="true"></i></span>
                             </div>
                         </div>
-                    </div>
-                    <div class="experience-detail">
-                        <h3 data-translate="veterinary-exp-title">DESARROLLO BACKEND PARA SISTEMA VETERINARIO</h3>
-                        <ul>
-                            <li data-translate="veterinary-exp-1"><strong>Diseñado</strong> una arquitectura backend completa con 8 servicios interconectados y estructura de datos normalizada</li>
-                            <li data-translate="veterinary-exp-2"><strong>Implementado</strong> sistema de autenticación y autorización con 5 perfiles de usuario y permisos granulares</li>
-                            <li data-translate="veterinary-exp-3"><strong>Desarrollado</strong> APIs RESTful para manipulación de historias clínicas, con soporte para documentos binarios y versionado</li>
-                            <li data-translate="veterinary-exp-4"><strong>Creado</strong> algoritmos de optimización para agendamiento de citas y sistema de notificaciones automatizadas</li>
-                            <li data-translate="veterinary-exp-5"><strong>Integrado</strong> lógica de negocio para facturación con cálculos fiscales y reportes personalizados</li>
-                        </ul>
+                        <div class="experience-detail">
+                            <h3 data-translate="veterinary-exp-title">DESARROLLO BACKEND PARA SISTEMA VETERINARIO</h3>
+                            <ul>
+                                <li data-translate="veterinary-exp-1"><strong>Diseñado</strong> una arquitectura backend completa con 8 servicios interconectados y estructura de datos normalizada</li>
+                                <li data-translate="veterinary-exp-2"><strong>Implementado</strong> sistema de autenticación y autorización con 5 perfiles de usuario y permisos granulares</li>
+                                <li data-translate="veterinary-exp-3"><strong>Desarrollado</strong> APIs RESTful para manipulación de historias clínicas, con soporte para documentos binarios y versionado</li>
+                                <li data-translate="veterinary-exp-4"><strong>Creado</strong> algoritmos de optimización para agendamiento de citas y sistema de notificaciones automatizadas</li>
+                                <li data-translate="veterinary-exp-5"><strong>Integrado</strong> lógica de negocio para facturación con cálculos fiscales y reportes personalizados</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Proyecto portfolio -->
-                <div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication">
+                <div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication" data-project-card>
                     <meta itemprop="applicationCategory" content="Portfolio" />
                     <meta itemprop="operatingSystem" content="Web" />
                     <div class="project-status completed" data-translate="status-completed">Completado</div>
                     <div class="project-card">
                         <div class="project-image-container">
                             <img src="images/proyecto-portfolio.png" alt="Vista previa del Portafolio Web" class="project-image" loading="lazy">
+                            <div class="project-thumb-overlay">
+                                <span data-translate="portfolio-title">Portafolio Web Profesional Optimizado</span>
+                                <span class="project-expand-icon"><i class="fas fa-plus"></i></span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="project-details">
                         <div class="project-info">
                             <h3 data-translate="portfolio-title">Portafolio Web Profesional Optimizado</h3>
                             <p data-translate="portfolio-desc">Desarrollo de un portafolio web personal con diseño responsive, múltiples temas, sistema de cambio de idioma y animaciones dinámicas. Optimización completa del código HTML/CSS para mejorar el rendimiento y la experiencia del usuario, con especial atención a la accesibilidad y SEO.</p>
-                            
+
                             <div class="tech-stack">
                                 <div class="tech-label" data-translate="tech-used">Tecnologías:</div>
                                 <div class="tech-badges">
@@ -395,7 +407,7 @@
                                     <span class="tech-badge"><i class="fas fa-search"></i> SEO</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-metrics">
                                 <div class="metric">
                                     <div class="metric-value">40%</div>
@@ -410,37 +422,43 @@
                                     <div class="metric-label" data-translate="metric-performance">Performance</div>
                                 </div>
                             </div>
-                            
+
                             <div class="project-links">
                                 <a href="https://portfolio-kappa-blue-50.vercel.app/" target="_blank" class="project-link" data-translate="view-demo">Ver Demo <i class="fas fa-external-link-alt"></i></a>
                                 <a href="https://github.com/Samuel-Tabares/portfolio" target="_blank" class="project-link" data-translate="view-code">Ver Código <i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="experience-detail">
-                        <h3 data-translate="portfolio-exp-title">OPTIMIZACIÓN Y DESARROLLO DE PORTAFOLIO WEB</h3>
-                        <ul>
-                            <li data-translate="portfolio-exp-1"><strong>Refactorizado</strong> completamente el código HTML para mejorar la estructura semántica, accesibilidad y SEO</li>
-                            <li data-translate="portfolio-exp-2"><strong>Implementado</strong> un sistema de cambio de idioma (español/inglés) utilizando JavaScript y almacenamiento local para persistencia</li>
-                            <li data-translate="portfolio-exp-3"><strong>Optimizado</strong> metadatos y Schema.org para mejorar el posicionamiento en buscadores</li>
-                            <li data-translate="portfolio-exp-4"><strong>Mejorado</strong> la experiencia de usuario con animaciones y micro-interacciones para múltiples dispositivos</li>
-                            <li data-translate="portfolio-exp-5"><strong>Reorganizado</strong> la estructura del proyecto para mejorar la mantenibilidad y reducir la redundancia de código</li>
-                        </ul>
+                        <div class="experience-detail">
+                            <h3 data-translate="portfolio-exp-title">OPTIMIZACIÓN Y DESARROLLO DE PORTAFOLIO WEB</h3>
+                            <ul>
+                                <li data-translate="portfolio-exp-1"><strong>Refactorizado</strong> completamente el código HTML para mejorar la estructura semántica, accesibilidad y SEO</li>
+                                <li data-translate="portfolio-exp-2"><strong>Implementado</strong> un sistema de cambio de idioma (español/inglés) utilizando JavaScript y almacenamiento local para persistencia</li>
+                                <li data-translate="portfolio-exp-3"><strong>Optimizado</strong> metadatos y Schema.org para mejorar el posicionamiento en buscadores</li>
+                                <li data-translate="portfolio-exp-4"><strong>Mejorado</strong> la experiencia de usuario con animaciones y micro-interacciones para múltiples dispositivos</li>
+                                <li data-translate="portfolio-exp-5"><strong>Reorganizado</strong> la estructura del proyecto para mejorar la mantenibilidad y reducir la redundancia de código</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 <!-- Proyecto Sistema de Perfumería - Arquitectura de Microservicios -->
-<div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication">
+<div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication" data-project-card>
     <meta itemprop="applicationCategory" content="BusinessApplication" />
     <meta itemprop="operatingSystem" content="Cross-platform" />
     <div class="project-status completed" data-translate="status-completed">Completado</div>
     <div class="project-card">
         <div class="project-image-container">
             <img src="images/proyecto-perfumeria.png" alt="Arquitectura de Microservicios del Sistema de Perfumería" class="project-image" loading="lazy">
+            <div class="project-thumb-overlay">
+                <span data-translate="perfumeria-title">Sistema de Perfumería - Arquitectura de Microservicios</span>
+                <span class="project-expand-icon"><i class="fas fa-plus"></i></span>
+            </div>
         </div>
+    </div>
+    <div class="project-details">
         <div class="project-info">
             <h3 data-translate="perfumeria-title">Sistema de Perfumería - Arquitectura de Microservicios</h3>
             <p data-translate="perfumeria-desc">Sistema integral para la gestión de una perfumería implementado como arquitectura completa de microservicios con API Gateway centralizado e interfaces de usuario individuales. Demuestra integración entre Java, Python y Node.js con gestión completa de proveedores, clientes y productos.</p>
-            
+
             <div class="tech-stack">
                 <div class="tech-label" data-translate="tech-used">Tecnologías:</div>
                 <div class="tech-badges">
@@ -452,7 +470,7 @@
                     <span class="tech-badge"><i class="fab fa-docker"></i> Docker</span>
                 </div>
             </div>
-            
+
             <div class="project-metrics">
                 <div class="metric">
                     <div class="metric-value">4</div>
@@ -467,37 +485,43 @@
                     <div class="metric-label" data-translate="metric-endpoints">Endpoints</div>
                 </div>
             </div>
-            
+
             <div class="project-links">
                 <a href="https://github.com/Samuel-Tabares/sistema-perfumeria" target="_blank" class="project-link" data-translate="view-code">Ver Código <i class="fab fa-github"></i></a>
                 <span class="project-link role-badge" data-translate="architect-role">Rol: Arquitecto Full-Stack <i class="fas fa-sitemap" aria-hidden="true"></i></span>
             </div>
         </div>
-    </div>
-    <div class="experience-detail">
-        <h3 data-translate="perfumeria-exp-title">DESARROLLO DE ARQUITECTURA DE MICROSERVICIOS</h3>
-        <ul>
-            <li data-translate="perfumeria-exp-1"><strong>Diseñado</strong> una arquitectura completa de microservicios con API Gateway centralizado para gestión unificada de 4 servicios independientes</li>
-            <li data-translate="perfumeria-exp-2"><strong>Implementado</strong> microservicios usando múltiples tecnologías: Java/Spring Boot para proveedores, Python/FastAPI para clientes, y Node.js/Express para productos</li>
-            <li data-translate="perfumeria-exp-3"><strong>Desarrollado</strong> interfaces de usuario individuales para cada microservicio con gestión CRUD completa y navegación intuitiva</li>
-            <li data-translate="perfumeria-exp-4"><strong>Creado</strong> scripts de automatización para inicio/parada del sistema completo con detección automática de servicios en ejecución</li>
-            <li data-translate="perfumeria-exp-5"><strong>Configurado</strong> containerización con Docker, migraciones de BD automáticas (Alembic, JPA, Sequelize) y documentación API con Swagger</li>
-        </ul>
+        <div class="experience-detail">
+            <h3 data-translate="perfumeria-exp-title">DESARROLLO DE ARQUITECTURA DE MICROSERVICIOS</h3>
+            <ul>
+                <li data-translate="perfumeria-exp-1"><strong>Diseñado</strong> una arquitectura completa de microservicios con API Gateway centralizado para gestión unificada de 4 servicios independientes</li>
+                <li data-translate="perfumeria-exp-2"><strong>Implementado</strong> microservicios usando múltiples tecnologías: Java/Spring Boot para proveedores, Python/FastAPI para clientes, y Node.js/Express para productos</li>
+                <li data-translate="perfumeria-exp-3"><strong>Desarrollado</strong> interfaces de usuario individuales para cada microservicio con gestión CRUD completa y navegación intuitiva</li>
+                <li data-translate="perfumeria-exp-4"><strong>Creado</strong> scripts de automatización para inicio/parada del sistema completo con detección automática de servicios en ejecución</li>
+                <li data-translate="perfumeria-exp-5"><strong>Configurado</strong> containerización con Docker, migraciones de BD automáticas (Alembic, JPA, Sequelize) y documentación API con Swagger</li>
+            </ul>
+        </div>
     </div>
 </div>
                 <!-- Proyecto Importa Colombia -->
-                <div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication">
+                <div class="project-experience-card" itemscope itemtype="http://schema.org/SoftwareApplication" data-project-card>
                     <meta itemprop="applicationCategory" content="E-commerce" />
                     <meta itemprop="operatingSystem" content="Web" />
                     <div class="project-status completed" data-translate="status-completed">Completado</div>
                     <div class="project-card">
                         <div class="project-image-container">
                             <img src="images/importacolombia-1.png" alt="Interfaz principal de Importa Colombia" class="project-image" loading="lazy">
+                            <div class="project-thumb-overlay">
+                                <span data-translate="importa-title">Importa Colombia</span>
+                                <span class="project-expand-icon"><i class="fas fa-plus"></i></span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="project-details">
                         <div class="project-info">
                             <h3 data-translate="importa-title">Importa Colombia</h3>
                             <p data-translate="importa-desc">Aplicación web para mostrar y evaluar productos importados de China a Colombia, con sistema de likes/dislikes y reseñas con calificaciones de estrellas.</p>
-                            
+
                             <div class="tech-stack">
                                 <div class="tech-label" data-translate="tech-used">Tecnologías:</div>
                                 <div class="tech-badges">
@@ -508,7 +532,7 @@
                                     <span class="tech-badge"><i class="fas fa-star"></i> Ratings API</span>
                                 </div>
                             </div>
-                            
+
                             <div class="project-metrics">
                                 <div class="metric">
                                     <div class="metric-value">10+</div>
@@ -523,21 +547,21 @@
                                     <div class="metric-label" data-translate="metric-integrations">Integraciones</div>
                                 </div>
                             </div>
-                            
+
                             <div class="project-links">
                                 <a href="https://github.com/Samuel-Tabares/Importadora-Colombia" target="_blank" class="project-link" data-translate="view-code">Ver Código <i class="fab fa-github"></i></a>
                             </div>
                         </div>
-                    </div>
-                    <div class="experience-detail">
-                        <h3 data-translate="importa-exp-title">DESARROLLO FULLSTACK IMPORTA COLOMBIA</h3>
-                        <ul>
-                            <li data-translate="importa-exp-1"><strong>Desarrollé</strong> un backend API REST con Django, implementando modelos para productos, reseñas y sistema de likes</li>
-                            <li data-translate="importa-exp-2"><strong>Diseñé</strong> la interfaz frontend con React y Bootstrap 5, con enfoque en experiencia de usuario</li>
-                            <li data-translate="importa-exp-3"><strong>Implementé</strong> autenticación básica para usuarios anónimos mediante IP para reseñas y valoraciones</li>
-                            <li data-translate="importa-exp-4"><strong>Integré</strong> sistema de calificaciones con estrellas y funcionalidad para likes/dislikes</li>
-                            <li data-translate="importa-exp-5"><strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados</li>
-                        </ul>
+                        <div class="experience-detail">
+                            <h3 data-translate="importa-exp-title">DESARROLLO FULLSTACK IMPORTA COLOMBIA</h3>
+                            <ul>
+                                <li data-translate="importa-exp-1"><strong>Desarrollé</strong> un backend API REST con Django, implementando modelos para productos, reseñas y sistema de likes</li>
+                                <li data-translate="importa-exp-2"><strong>Diseñé</strong> la interfaz frontend con React y Bootstrap 5, con enfoque en experiencia de usuario</li>
+                                <li data-translate="importa-exp-3"><strong>Implementé</strong> autenticación básica para usuarios anónimos mediante IP para reseñas y valoraciones</li>
+                                <li data-translate="importa-exp-4"><strong>Integré</strong> sistema de calificaciones con estrellas y funcionalidad para likes/dislikes</li>
+                                <li data-translate="importa-exp-5"><strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

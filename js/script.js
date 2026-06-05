@@ -167,27 +167,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Mejora para dispositivos táctiles ---
+    // --- Project cards: click to expand/collapse (all devices) ---
     function setupTouchDevices() {
-        const isTouchDevice = 'ontouchstart' in window || 
-                             navigator.maxTouchPoints > 0 || 
-                             navigator.msMaxTouchPoints > 0;
-        
-        if (isTouchDevice) {
-            projectCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Toggle active state
-                    if (this.classList.contains('active')) {
-                        this.classList.remove('active');
-                    } else {
-                        // Desactivar otros cards
-                        projectCards.forEach(c => c.classList.remove('active'));
-                        // Activar este card
-                        this.classList.add('active');
-                    }
-                });
+        projectCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
             });
-        }
+        });
+    }
+
+    // --- Skill categories: click to expand/collapse ---
+    function setupSkillCards() {
+        document.querySelectorAll('.skill-category').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
     }
 
     // --- Optimización de imágenes ---
@@ -339,14 +334,23 @@ document.addEventListener('DOMContentLoaded', () => {
         update();
     }
 
-    // --- Keyboard support for project card expand on touch ---
+    // --- Keyboard support for project & skill cards ---
     function setupCardKeyboard() {
         projectCards.forEach(card => {
             if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    card.classList.toggle('active');
+                    card.classList.toggle('expanded');
+                }
+            });
+        });
+        document.querySelectorAll('.skill-category').forEach(card => {
+            if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.classList.toggle('expanded');
                 }
             });
         });
@@ -358,6 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupThemeSwitch();
     setupTouchDevices();
+    setupSkillCards();
     optimizeProjectImages();
     updateFooterYear();
     setupResizeHandler();
