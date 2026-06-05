@@ -16,6 +16,9 @@
      - .personal-skills + .soft-skill hover tint → CINEMATIC
    ================================================================ */
 
+/* ---------------- TRIANGLES — restore from cinematic/terminal/editorial hide ---------------- */
+.triangles-container { display: block !important; }
+
 /* ---------------- PALETTE + FONTS ---------------- */
 
 :root {
@@ -1093,6 +1096,66 @@ footer p::before { content: none !important; display: none !important; }
 
 /* ============ N — Activity graph ============ */
 
+/* ============ GitHub widgets — smaller on laptop ============ */
+@media (min-width: 1024px) {
+    .gh-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-5);
+        max-width: 900px;
+    }
+
+    /* Activity graph spans full width below the two card row */
+    .gh-grid > article:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+
+    .gh-card {
+        padding: var(--space-4);
+    }
+
+    .gh-card-head {
+        margin-bottom: var(--space-3);
+        padding-bottom: var(--space-2);
+    }
+
+    .gh-card-body {
+        min-height: 60px;
+    }
+
+    .gh-activity-graph {
+        max-height: 160px;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+/* ============ Light theme — variable swap ============
+   Every redesign layer sets properties via var(--dark-*) with !important.
+   Overriding the variables at body.light-theme scope makes all those
+   resolved values flip to light without needing an !important arms race. */
+body.light-theme {
+    --dark-bg:          #f0f0f2;
+    --dark-section-bg:  #f0f0f2;
+    --dark-text:        #1a1a2e;
+    --dark-subtext:     #4a4a6a;
+    --dark-card-bg:     rgba(255, 255, 255, 0.85);
+    --dark-border:      rgba(0, 0, 0, 0.10);
+    --text-highlight:   #0a0a18;
+    --shadow-card:      0 1px 0 rgba(255,255,255,0.9) inset, 0 20px 60px -20px rgba(0,0,0,0.10);
+    --shadow-card-hover:0 1px 0 rgba(255,255,255,0.9) inset, 0 30px 80px -20px rgba(0,0,0,0.16);
+}
+
+/* Tone down the cinematic mesh gradient in light mode */
+body.light-theme::before {
+    opacity: 0.08;
+}
+
+/* Section dividers are too dark in light mode without the variable */
+body.light-theme section {
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+
+/* ============ Activity graph ============ */
 .gh-activity-graph {
     width: 100%;
     height: auto;

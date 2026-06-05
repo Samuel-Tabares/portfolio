@@ -840,6 +840,14 @@ const translations = {
         'es': 'Nivel B2 | Certificado American School Way',
         'en': 'B2 Level | American School Way Certificate'
     },
+    'german': {
+        'es': 'ALEMÁN',
+        'en': 'GERMAN'
+    },
+    'german-level': {
+        'es': 'En proceso — A1',
+        'en': 'In progress — A1'
+    },
     'certificate-badge': {
     'es': 'Certificado Oficial',
     'en': 'Official Certificate'
@@ -898,8 +906,8 @@ const translations = {
         'en': 'You can tell he thinks through the architecture before coding. Saves months of refactor down the line.'
     },
     'testimonial-2-role': {
-        'es': 'Docente — Ingeniería de Software',
-        'en': 'Professor — Software Engineering'
+        'es': 'Compañera de carrera — Ingeniería de Software',
+        'en': 'Classmate — Software Engineering'
     },
     'testimonials-note': {
         'es': '¿Trabajamos juntos? Si te sirve, te pido el quote después del proyecto.',
