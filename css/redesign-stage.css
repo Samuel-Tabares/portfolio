@@ -647,12 +647,11 @@ header {
 /* Projects grid: horizontal row */
 .projects-grid {
     display: flex !important;
-    flex-direction: row !important;
+    flex-direction: column !important;
     gap: var(--space-4) !important;
-    overflow-x: auto !important;
-    scroll-snap-type: x mandatory !important;
-    -webkit-overflow-scrolling: touch !important;
-    padding-bottom: var(--space-2) !important;
+    overflow-x: visible !important;
+    scroll-snap-type: none !important;
+    padding-bottom: 0 !important;
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
@@ -667,8 +666,9 @@ header {
     box-shadow: var(--shadow-card) !important;
     padding-bottom: 0 !important;
     overflow: hidden;
-    flex: 0 0 260px !important;
-    scroll-snap-align: start !important;
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    scroll-snap-align: none !important;
     position: relative !important;
 }
 
@@ -727,15 +727,17 @@ header {
     color: var(--cinematic-electric);
 }
 
-/* Collapsible details panel */
+/* Collapsible details panel — horizontal split when expanded */
 .project-details {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex !important;
+    flex-direction: row !important;
 }
 
 .project-experience-card.expanded .project-details {
-    max-height: 3200px;
+    max-height: 1000px;
     transition: max-height 0.85s ease;
 }
 
@@ -767,9 +769,9 @@ header {
 .project-status.completed { background-color: rgba(197, 240, 0, 0.15) !important; color: var(--cinematic-electric) !important; }
 .project-status.ongoing { background-color: rgba(168, 85, 247, 0.18) !important; color: var(--cinematic-violet) !important; }
 
-/* Image fills the full card height */
+/* Image thumbnail row */
 .project-card {
-    height: 320px !important;
+    height: 200px !important;
     position: relative !important;
 }
 
@@ -861,9 +863,22 @@ header {
 
 .project-link::before, .project-link::after { content: none !important; display: none !important; }
 
-.experience-detail {
-    background: rgba(0, 0, 0, 0.25) !important;
+/* Horizontal split panels */
+.project-details {
     border-top: 1px solid var(--dark-border) !important;
+}
+
+.project-info {
+    flex: 1 1 50% !important;
+    border-right: 1px solid var(--dark-border) !important;
+    min-width: 0 !important;
+}
+
+.experience-detail {
+    flex: 1 1 50% !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    border-top: none !important;
+    min-width: 0 !important;
 }
 
 .experience-detail h3 {
@@ -1220,6 +1235,7 @@ header {
 .composer-actions {
     display: flex !important;
     align-items: center !important;
+    justify-content: center !important;
     padding: var(--space-4) var(--space-6) !important;
 }
 
@@ -1612,9 +1628,8 @@ footer p::before { content: none !important; display: none !important; }
     }
 
     .gh-activity-graph {
-        max-height: 160px;
-        object-fit: cover;
-        object-position: top;
+        height: auto;
+        object-fit: unset;
     }
 }
 
