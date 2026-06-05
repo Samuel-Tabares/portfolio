@@ -1,0 +1,761 @@
+/* ================================================================
+   REDESIGN — EDITORIAL / BRUTALIST SWISS
+   Personality: print-magazine gravitas, asymmetric grid, hot accent,
+   display serif paired with mono metadata. No triangles, no glass.
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    /* Override base palette */
+    --dark-bg: #0a0a0a;
+    --dark-section-bg: #0e0e0e;
+    --dark-text: #ededed;
+    --dark-subtext: #9a9a9a;
+    --dark-card-bg: #131313;
+    --dark-border: #1f1f1f;
+    --text-highlight: #ffffff;
+
+    /* Editorial accent — single hot color */
+    --primary-color: #ff5b1f;
+    --primary-color-hover: #ff7642;
+    --accent-blue-soft: #ff5b1f;
+    --secondary-color: #ededed;
+
+    /* Typography */
+    --font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+    --focus-ring: 0 0 0 3px rgba(255, 91, 31, 0.55);
+    --shadow-card: none;
+    --shadow-card-hover: none;
+    --border-radius: 0;
+    --border-radius-lg: 0;
+}
+
+body {
+    background-color: var(--dark-bg) !important;
+    font-family: var(--font-family);
+    font-feature-settings: 'ss01', 'cv11';
+}
+
+/* Body grain texture — subtle noise so the matte black isn't flat */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='200' height='200' filter='url(%23n)' opacity='0.7'/></svg>");
+    mix-blend-mode: overlay;
+}
+
+/* Kill the triangles + gradient overlay — replaced by grain */
+.triangles-container,
+.gradient-overlay {
+    display: none !important;
+}
+
+/* Sections: no backdrop blur, no fill — let the page breathe */
+section {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: var(--space-20) 8% !important;
+    border-bottom: 1px solid var(--dark-border);
+}
+
+section::before { display: none !important; }
+section:nth-child(odd) { background-color: transparent !important; }
+
+/* Section numbering — counter prepended to each h2 */
+main { counter-reset: section-counter; }
+section h2 {
+    counter-increment: section-counter;
+    text-align: left !important;
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-12) !important;
+    padding-top: 0 !important;
+    color: var(--dark-text);
+    max-width: none;
+}
+
+section h2::before {
+    content: counter(section-counter, decimal-leading-zero) "  /  ";
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: var(--space-4);
+    text-transform: uppercase;
+}
+
+section h2::after {
+    display: none !important;
+}
+
+/* HERO — asymmetric, image on right but smaller, headline-dominant */
+#hero {
+    min-height: 100vh !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding: var(--space-20) 8% var(--space-12) !important;
+}
+
+.hero-header {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto var(--space-10) !important;
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-12);
+    align-items: end;
+}
+
+@media (max-width: 768px) {
+    .hero-header {
+        grid-template-columns: 1fr;
+    }
+}
+
+.hero-titles {
+    text-align: left;
+}
+
+#hero h1 {
+    font-family: var(--font-display) !important;
+    font-weight: 900 !important;
+    font-size: clamp(3.5rem, 9vw, 7rem) !important;
+    line-height: 0.92 !important;
+    letter-spacing: -0.045em;
+    background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    color: var(--dark-text) !important;
+    text-shadow: none !important;
+    margin-bottom: var(--space-6) !important;
+    text-wrap: balance;
+}
+
+#hero h1::after {
+    content: '.';
+    color: var(--primary-color);
+}
+
+#hero .subtitle {
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-base) !important;
+    color: var(--dark-subtext) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0 !important;
+}
+
+#hero .hero-image img {
+    border-radius: 0 !important;
+    border: 1px solid var(--dark-border) !important;
+    width: 220px !important;
+    height: 280px !important;
+    object-fit: cover;
+    filter: grayscale(0.3) contrast(1.05);
+    box-shadow: none !important;
+}
+
+.hero-description {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 auto var(--space-10) !important;
+    max-width: 720px !important;
+    font-family: var(--font-display) !important;
+    font-size: clamp(1.25rem, 2vw, 1.65rem) !important;
+    line-height: 1.5 !important;
+    color: var(--dark-text) !important;
+    text-align: left !important;
+    box-shadow: none !important;
+    font-weight: 400;
+    border-top: 1px solid var(--dark-border);
+    padding-top: var(--space-8) !important;
+}
+
+.hero-description strong {
+    color: var(--primary-color);
+    font-weight: 600;
+    background: linear-gradient(transparent 70%, rgba(255, 91, 31, 0.18) 70%);
+}
+
+/* Social + CTA — cleaner, asymmetric */
+.social-container {
+    max-width: 1280px !important;
+    border-top: 1px solid var(--dark-border);
+    padding-top: var(--space-6);
+    margin: 0 auto !important;
+}
+
+.social-link {
+    background: transparent !important;
+    color: var(--dark-text) !important;
+    border-radius: 0 !important;
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid var(--dark-border) !important;
+}
+
+.social-link:hover {
+    background: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+    border-color: var(--primary-color) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.cta-button {
+    background-color: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+    border-radius: 0 !important;
+    padding: 14px 28px !important;
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-sm) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.12em !important;
+    box-shadow: none !important;
+    font-weight: 500 !important;
+}
+
+.cta-button:hover {
+    background-color: var(--primary-color-hover) !important;
+    transform: none !important;
+    box-shadow: 0 0 0 2px var(--primary-color-hover) !important;
+}
+
+/* Header — minimal, mono brand */
+header {
+    background-color: rgba(10, 10, 10, 0.85) !important;
+    border-bottom: 1px solid var(--dark-border);
+    box-shadow: none !important;
+}
+
+.logo {
+    font-family: var(--font-mono) !important;
+    font-weight: 500 !important;
+    font-size: var(--text-sm) !important;
+    color: var(--dark-text) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* About — editorial 2-column with pull quote feel */
+.about-container {
+    max-width: 1100px !important;
+}
+
+.about-text {
+    columns: 2;
+    column-gap: var(--space-12);
+    column-rule: 1px solid var(--dark-border);
+}
+
+@media (max-width: 768px) {
+    .about-text { columns: 1; }
+}
+
+.about-text p {
+    color: var(--dark-text) !important;
+    font-size: var(--text-lg) !important;
+    line-height: 1.6;
+    text-align: left !important;
+    margin-bottom: var(--space-5);
+    break-inside: avoid;
+}
+
+.about-text strong {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+}
+
+/* Soft skills — minimal grid */
+.personal-skills {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: var(--space-8) !important;
+}
+
+.personal-skills h3 {
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color) !important;
+    text-align: left !important;
+}
+
+.personal-skills h3::after { display: none !important; }
+
+.soft-skill {
+    background: transparent !important;
+    width: auto !important;
+    padding: 0 !important;
+}
+
+.soft-skill i {
+    color: var(--primary-color) !important;
+    font-size: 1.5rem !important;
+}
+
+.soft-skill:hover {
+    background: transparent !important;
+    transform: none !important;
+}
+
+.soft-skill:hover i {
+    transform: none !important;
+}
+
+/* Skills grid — flat cards, mono labels */
+.skill-category {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: var(--space-6) !important;
+}
+
+.skill-category:hover {
+    background: var(--dark-card-bg) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    border-color: var(--primary-color) !important;
+}
+
+.skill-category h3 {
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--primary-color) !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+}
+
+.skill-category ul li {
+    font-family: var(--font-family) !important;
+    font-size: var(--text-base) !important;
+    color: var(--dark-text) !important;
+}
+
+.skill-category ul li i {
+    color: var(--primary-color) !important;
+}
+
+.skill-category ul li:hover {
+    transform: none !important;
+    color: var(--text-highlight) !important;
+}
+
+/* Roadmap — left-rail editorial */
+.roadmap-content {
+    background: transparent !important;
+    border-radius: 0 !important;
+    border-left: 2px solid var(--primary-color);
+    padding-left: var(--space-6);
+    box-shadow: none !important;
+}
+
+.roadmap-content:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.roadmap-content h3 {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-2xl) !important;
+    color: var(--dark-text) !important;
+    font-weight: 600;
+}
+
+.roadmap-icon {
+    background: var(--dark-bg) !important;
+    border-color: var(--primary-color) !important;
+    border-radius: 0 !important;
+}
+
+.roadmap-icon i { color: var(--primary-color) !important; }
+
+.roadmap-timeline::before {
+    background-color: var(--dark-border) !important;
+}
+
+.roadmap-item.current .roadmap-icon,
+.roadmap-item.learning .roadmap-icon,
+.roadmap-item.future .roadmap-icon,
+.roadmap-item.vision .roadmap-icon {
+    background: var(--dark-bg) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.roadmap-item.current .roadmap-icon i,
+.roadmap-item.learning .roadmap-icon i,
+.roadmap-item.future .roadmap-icon i,
+.roadmap-item.vision .roadmap-icon i {
+    color: var(--primary-color) !important;
+}
+
+.roadmap-skills li {
+    font-family: var(--font-family) !important;
+    color: var(--dark-text) !important;
+}
+
+.roadmap-skills li i { color: var(--primary-color) !important; }
+
+/* Projects — magazine spread, no glass */
+.project-experience-card {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding-bottom: var(--space-2);
+}
+
+.project-experience-card:hover {
+    background: var(--dark-card-bg) !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: var(--primary-color) !important;
+}
+
+.project-status {
+    border-radius: 0 !important;
+    font-family: var(--font-mono) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: var(--text-xs) !important;
+}
+
+.project-image-container {
+    border-radius: 0 !important;
+    background: var(--dark-section-bg) !important;
+    filter: contrast(1.02);
+}
+
+.project-info h3 {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-2xl) !important;
+    color: var(--dark-text) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.project-info p {
+    color: var(--dark-subtext) !important;
+    font-size: var(--text-base) !important;
+}
+
+.tech-badge {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-xs) !important;
+    color: var(--dark-text) !important;
+}
+
+.tech-badge:hover {
+    background: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+    transform: none !important;
+}
+
+.tech-badge i {
+    color: var(--primary-color) !important;
+}
+
+.tech-badge:hover i { color: var(--dark-bg) !important; }
+
+.metric-value {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-4xl) !important;
+    color: var(--primary-color) !important;
+    font-weight: 700;
+}
+
+.metric-label {
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.project-link {
+    border-radius: 0 !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    font-family: var(--font-mono) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-xs) !important;
+}
+
+.experience-detail {
+    background: var(--dark-section-bg) !important;
+    border-top: 2px solid var(--primary-color) !important;
+}
+
+.experience-detail h3 {
+    font-family: var(--font-mono) !important;
+    color: var(--primary-color) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+}
+
+.experience-detail h3::after { background-color: var(--primary-color) !important; }
+
+.experience-detail ul li {
+    color: var(--dark-text) !important;
+}
+
+.experience-detail ul li strong {
+    color: var(--primary-color);
+}
+
+.experience-detail ul li::before {
+    color: var(--primary-color) !important;
+}
+
+/* Education timeline */
+.timeline-content {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.timeline-icon {
+    background-color: var(--primary-color) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.timeline-content h3 {
+    font-family: var(--font-display) !important;
+    color: var(--dark-text) !important;
+    letter-spacing: -0.01em;
+}
+
+.timeline-content .company-name {
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.education-timeline::before {
+    background-color: var(--dark-border) !important;
+}
+
+/* Languages */
+.language-item {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.language-icon { color: var(--primary-color) !important; }
+
+.level-fill {
+    background: var(--primary-color) !important;
+    border-radius: 0;
+}
+
+.level-bar { border-radius: 0; }
+
+.certificate-badge {
+    background-color: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+    border-radius: 0 !important;
+    font-family: var(--font-mono) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* References */
+.reference-item {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.reference-item h3 {
+    font-family: var(--font-display) !important;
+    color: var(--dark-text) !important;
+}
+
+.reference-icon { color: var(--primary-color) !important; }
+
+/* Testimonials — editorial pull quotes */
+.testimonial {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: var(--space-8) !important;
+}
+
+.testimonial::before {
+    color: var(--primary-color) !important;
+    font-family: var(--font-display) !important;
+    font-size: 6rem;
+    opacity: 0.6;
+}
+
+.testimonial blockquote {
+    font-family: var(--font-display) !important;
+    font-size: var(--text-xl) !important;
+    line-height: 1.45 !important;
+    font-style: normal !important;
+    color: var(--dark-text) !important;
+}
+
+.testimonial figcaption {
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Contact form — editorial */
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    color: var(--dark-text);
+    font-family: var(--font-family);
+}
+
+.contact-form input:focus-visible,
+.contact-form select:focus-visible,
+.contact-form textarea:focus-visible {
+    border-color: var(--primary-color) !important;
+    background: transparent !important;
+}
+
+.contact-form label {
+    font-family: var(--font-mono) !important;
+    font-size: var(--text-xs) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--dark-subtext);
+}
+
+.contact-form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    border-radius: 0;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    box-shadow: none;
+}
+
+/* Side menu nav */
+.side-menu {
+    background-color: rgba(10, 10, 10, 0.92) !important;
+    border-radius: 0 !important;
+    border: 1px solid var(--dark-border) !important;
+    box-shadow: none !important;
+}
+
+.side-menu li {
+    border-radius: 0 !important;
+}
+
+.side-menu li:hover,
+.side-menu li a.active {
+    background-color: var(--primary-color) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.side-menu li a::after {
+    background-color: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+    border-radius: 0 !important;
+    font-family: var(--font-mono) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Footer */
+footer {
+    background: var(--dark-bg) !important;
+    border-top: 1px solid var(--dark-border);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+footer p {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Theme/lang toggles */
+.theme-toggle-btn,
+.lang-toggle-btn {
+    background: transparent !important;
+    border: 1px solid var(--dark-border) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.lang-toggle-btn .active-indicator {
+    background-color: var(--primary-color) !important;
+    border-radius: 0 !important;
+}
+
+.lang-toggle-btn .lang-text {
+    font-family: var(--font-mono) !important;
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+    background: var(--primary-color) !important;
+    height: 3px;
+}
+
+/* Disable the section-fade-in for editorial — replaced by direct text-reveal */
+.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+/* Headline reveal animation — clip-path wipe */
+@keyframes editorial-reveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
+}
+
+#hero h1,
+section h2 {
+    animation: editorial-reveal 1.1s cubic-bezier(0.65, 0, 0.35, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #hero h1, section h2 { animation: none; }
+}
