@@ -856,6 +856,7 @@ const translations = {
     },
     'form-name': { 'es': 'Nombre', 'en': 'Name' },
     'form-email': { 'es': 'Email', 'en': 'Email' },
+    'form-whatsapp': { 'es': 'WhatsApp (opcional)', 'en': 'WhatsApp (optional)' },
     'form-project-type': { 'es': 'Tipo de proyecto', 'en': 'Project type' },
     'form-budget': { 'es': 'Presupuesto estimado (USD)', 'en': 'Estimated budget (USD)' },
     'form-budget-unsure': { 'es': 'Aún no lo tengo claro', 'en': 'Not sure yet' },

@@ -2455,10 +2455,23 @@ footer p {
     grid-template-columns: 1fr 1fr;
 }
 
+.contact-form .form-row .form-row-full {
+    grid-column: 1 / -1;
+}
+
 @media (max-width: 600px) {
     .contact-form .form-row {
         grid-template-columns: 1fr;
     }
+}
+
+.contact-form .form-honeypot {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    pointer-events: none;
+    height: 0;
+    overflow: hidden;
 }
 
 .contact-form label {

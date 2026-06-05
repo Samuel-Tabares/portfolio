@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // --- Contact form ---
+    // --- Contact form (Resend integration) ---
     function setupContactForm() {
         const form = document.getElementById('contact-form');
         const status = document.getElementById('form-status');
@@ -260,6 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
             ? window.translations[key][document.documentElement.lang || 'es']
             : null);
 
+        const startedAt = Date.now();
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const submitBtn = form.querySelector('button[type="submit"]');
@@ -268,18 +270,24 @@ document.addEventListener('DOMContentLoaded', () => {
             status.textContent = t('form-status-sending') || 'Sending…';
             submitBtn.disabled = true;
 
+            const payload = {
+                name: form.name.value.trim(),
+                email: form.email.value.trim(),
+                whatsapp: form.whatsapp ? form.whatsapp.value.trim() : '',
+                subject: `${form.project_type.value || 'general'} — ${form.budget.value || 'no budget'}`,
+                message: form.message.value.trim(),
+                website: form.website ? form.website.value : '',
+                startedAt,
+            };
+
             try {
-                const action = form.getAttribute('action') || '';
-                // Placeholder action: fall through to mailto fallback.
-                if (!action || action.includes('your_form_id')) {
-                    throw new Error('form-action-not-configured');
-                }
-                const res = await fetch(action, {
+                const res = await fetch(form.getAttribute('action') || '/api/contact', {
                     method: 'POST',
-                    body: new FormData(form),
-                    headers: { Accept: 'application/json' }
+                    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+                    body: JSON.stringify(payload),
                 });
-                if (!res.ok) throw new Error('bad-response');
+                const json = await res.json().catch(() => ({}));
+                if (!res.ok || !json.ok) throw new Error(json.error || 'bad-response');
 
                 form.reset();
                 status.className = 'form-status success';
