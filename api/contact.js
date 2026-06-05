@@ -6,6 +6,8 @@ const TO_EMAIL = "samitabaleon@gmail.com";
 const FROM_EMAIL = "Portfolio <onboarding@resend.dev>";
 
 const ALLOWED_ORIGINS = [
+    "https://samueltabares.com",
+    "https://www.samueltabares.com",
     "https://portfolio-kappa-blue-50.vercel.app",
     "http://localhost:3000",
     "http://localhost:5173",
