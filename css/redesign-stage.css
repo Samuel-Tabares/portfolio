@@ -1610,9 +1610,14 @@ footer p::before { content: none !important; display: none !important; }
 /* ============ GitHub widgets — smaller on laptop ============ */
 @media (min-width: 1024px) {
     .gh-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         gap: var(--space-5);
-        max-width: 1100px;
+        max-width: 900px;
+    }
+
+    /* Activity graph spans full width below the two card row */
+    .gh-grid > article:nth-child(3) {
+        grid-column: 1 / -1;
     }
 
     .gh-card {
@@ -1629,8 +1634,9 @@ footer p::before { content: none !important; display: none !important; }
     }
 
     .gh-activity-graph {
-        height: auto;
-        object-fit: unset;
+        max-height: 160px;
+        object-fit: cover;
+        object-position: top;
     }
 }
 
