@@ -664,12 +664,19 @@ header {
     border: 1px solid var(--dark-border) !important;
     border-radius: var(--border-radius-lg) !important;
     box-shadow: var(--shadow-card) !important;
-    padding-bottom: 0 !important;
     overflow: hidden;
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    scroll-snap-align: none !important;
     position: relative !important;
+    width: 100% !important;
+    /* 3-col grid: [left-panel] [image] [right-panel] */
+    display: grid !important;
+    grid-template-columns: 0fr minmax(200px, 640px) 0fr !important;
+    justify-content: center !important;
+    transition: grid-template-columns 0.65s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Expanded: side panels slide in */
+.project-experience-card.expanded {
+    grid-template-columns: 1fr minmax(220px, 420px) 1fr !important;
 }
 
 /* Kill terminal traffic-light header */
@@ -727,18 +734,23 @@ header {
     color: var(--cinematic-electric);
 }
 
-/* Collapsible details panel — horizontal split when expanded */
-.project-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex !important;
-    flex-direction: row !important;
+/* Side panels: hidden when column is 0, fade in on expand */
+.project-info,
+.experience-detail {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    max-height: 300px !important;
+    overflow-y: auto !important;
+    transition: opacity 0.2s ease !important;
 }
 
-.project-experience-card.expanded .project-details {
-    max-height: 1000px;
-    transition: max-height 0.85s ease;
+.project-experience-card.expanded .project-info,
+.project-experience-card.expanded .experience-detail {
+    max-height: none !important;
+    overflow-y: auto !important;
+    opacity: 1 !important;
+    transition: opacity 0.4s ease 0.35s !important;
 }
 
 /* TERMINAL HOVER */
@@ -769,9 +781,9 @@ header {
 .project-status.completed { background-color: rgba(197, 240, 0, 0.15) !important; color: var(--cinematic-electric) !important; }
 .project-status.ongoing { background-color: rgba(168, 85, 247, 0.18) !important; color: var(--cinematic-violet) !important; }
 
-/* Image thumbnail row */
+/* Center image column — fixed height anchors the grid row */
 .project-card {
-    height: 200px !important;
+    height: 300px !important;
     position: relative !important;
 }
 
@@ -786,9 +798,10 @@ header {
 .project-image {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
-    object-position: top !important;
+    object-fit: contain !important;
+    object-position: center !important;
     display: block !important;
+    background: var(--dark-bg) !important;
 }
 
 .project-info h3 {
@@ -863,22 +876,15 @@ header {
 
 .project-link::before, .project-link::after { content: none !important; display: none !important; }
 
-/* Horizontal split panels */
-.project-details {
-    border-top: 1px solid var(--dark-border) !important;
-}
-
+/* Panel borders (visible only when column has width) */
 .project-info {
-    flex: 1 1 50% !important;
     border-right: 1px solid var(--dark-border) !important;
-    min-width: 0 !important;
+    padding: var(--space-6) !important;
 }
 
 .experience-detail {
-    flex: 1 1 50% !important;
     background: rgba(0, 0, 0, 0.25) !important;
-    border-top: none !important;
-    min-width: 0 !important;
+    border-left: 1px solid var(--dark-border) !important;
 }
 
 .experience-detail h3 {
@@ -1604,14 +1610,9 @@ footer p::before { content: none !important; display: none !important; }
 /* ============ GitHub widgets — smaller on laptop ============ */
 @media (min-width: 1024px) {
     .gh-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: var(--space-5);
-        max-width: 900px;
-    }
-
-    /* Activity graph spans full width below the two card row */
-    .gh-grid > article:nth-child(3) {
-        grid-column: 1 / -1;
+        max-width: 1100px;
     }
 
     .gh-card {
