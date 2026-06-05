@@ -1634,9 +1634,8 @@ footer p::before { content: none !important; display: none !important; }
     }
 
     .gh-activity-graph {
-        max-height: 160px;
-        object-fit: cover;
-        object-position: top;
+        height: auto;
+        object-fit: unset;
     }
 }
 
