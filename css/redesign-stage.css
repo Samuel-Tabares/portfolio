@@ -734,23 +734,41 @@ header {
     color: var(--cinematic-electric);
 }
 
-/* Side panels: hidden when column is 0, fade in on expand */
-.project-info,
+/* Side panels: emerge from behind the photo */
+.project-info {
+    min-width: 0 !important;
+    overflow: hidden !important;
+    overflow-y: auto !important;
+    opacity: 0 !important;
+    /* starts pushed toward the photo (right), slides left as it emerges */
+    transform: translateX(72px) !important;
+    transition: opacity 0.15s ease, transform 0.15s ease !important;
+}
+
 .experience-detail {
     min-width: 0 !important;
     overflow: hidden !important;
-    opacity: 0 !important;
-    max-height: 300px !important;
     overflow-y: auto !important;
-    transition: opacity 0.2s ease !important;
+    opacity: 0 !important;
+    /* starts pushed toward the photo (left), slides right as it emerges */
+    transform: translateX(-72px) !important;
+    transition: opacity 0.15s ease, transform 0.15s ease !important;
 }
 
-.project-experience-card.expanded .project-info,
-.project-experience-card.expanded .experience-detail {
-    max-height: none !important;
-    overflow-y: auto !important;
+.project-experience-card.expanded .project-info {
     opacity: 1 !important;
-    transition: opacity 0.4s ease 0.35s !important;
+    transform: translateX(0) !important;
+    transition:
+        opacity  0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.3s,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.28s !important;
+}
+
+.project-experience-card.expanded .experience-detail {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+    transition:
+        opacity  0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.38s,
+        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.36s !important;
 }
 
 /* TERMINAL HOVER */
@@ -885,29 +903,34 @@ header {
 .experience-detail {
     background: rgba(0, 0, 0, 0.25) !important;
     border-left: 1px solid var(--dark-border) !important;
+    padding: var(--space-6) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
 }
 
+/* Project title in the brief card */
 .experience-detail h3 {
     font-family: var(--font-display) !important;
-    color: var(--accent-blue-soft) !important;
-    font-size: var(--text-xs) !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.15em !important;
-    font-weight: 600 !important;
+    color: var(--dark-text) !important;
+    font-size: var(--text-2xl) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    margin-bottom: var(--space-4) !important;
 }
 
 .experience-detail h3::before { content: none !important; display: none !important; }
-.experience-detail h3::after { background: linear-gradient(90deg, var(--accent-blue-soft), transparent) !important; height: 1px !important; }
+.experience-detail h3::after { display: none !important; }
 
-.experience-detail ul li {
+/* Project brief description */
+.experience-detail p {
     font-family: var(--font-display) !important;
     font-size: var(--text-base) !important;
-    color: var(--dark-text) !important;
+    color: var(--dark-subtext) !important;
+    line-height: 1.65 !important;
 }
-
-.experience-detail ul li::before { content: '' !important; color: var(--cinematic-electric) !important; font-weight: inherit !important; }
-
-.experience-detail ul li strong { color: var(--text-highlight) !important; }
 
 .tech-label {
     font-family: var(--font-display) !important;
