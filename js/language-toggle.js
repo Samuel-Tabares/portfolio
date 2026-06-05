@@ -911,7 +911,43 @@ const translations = {
         'es': 'Actividad en GitHub',
         'en': 'GitHub activity'
     },
-    
+    'gh-heatmap-title': {
+        'es': 'Mapa de contribuciones — año en curso',
+        'en': 'Contribution heatmap — year to date'
+    },
+    'gh-heatmap-meta': {
+        'es': 'Desde enero de 2026',
+        'en': 'Since January 2026'
+    },
+    'gh-summary-title': {
+        'es': 'Resumen de lenguajes',
+        'en': 'Language summary'
+    },
+    'gh-summary-meta': {
+        'es': 'Por repos · por commits',
+        'en': 'By repos · by commits'
+    },
+    'gh-activity-title': {
+        'es': 'Gráfico de actividad',
+        'en': 'Activity graph'
+    },
+    'gh-activity-meta': {
+        'es': 'Últimos 12 meses',
+        'en': 'Past 12 months'
+    },
+    'gh-loading': {
+        'es': 'Cargando…',
+        'en': 'Loading…'
+    },
+    'gh-heatmap-empty': {
+        'es': 'Sin contribuciones públicas todavía este año.',
+        'en': 'No public contributions yet this year.'
+    },
+    'gh-heatmap-error': {
+        'es': 'El servicio del mapa no está disponible.',
+        'en': 'Heatmap service unavailable.'
+    },
+
     // Footer
     'copyright': {
         'es': 'Todos los derechos reservados.',
