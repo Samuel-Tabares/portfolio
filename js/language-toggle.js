@@ -864,7 +864,16 @@ const translations = {
     },
     'form-name': { 'es': 'Nombre', 'en': 'Name' },
     'form-email': { 'es': 'Email', 'en': 'Email' },
-    'form-whatsapp': { 'es': 'WhatsApp (opcional)', 'en': 'WhatsApp (optional)' },
+    'form-whatsapp': { 'es': 'WhatsApp:', 'en': 'WhatsApp:' },
+    'composer-to':      { 'es': 'Para:', 'en': 'To:' },
+    'composer-from':    { 'es': 'De:', 'en': 'From:' },
+    'composer-subject': { 'es': 'Asunto:', 'en': 'Subject:' },
+    'form-ph-name':    { 'es': 'Tu nombre', 'en': 'Your name' },
+    'form-ph-email':   { 'es': 'tu@correo.com', 'en': 'you@email.com' },
+    'form-ph-message': {
+        'es': 'Hola Samuel, quiero contarte sobre mi proyecto…',
+        'en': 'Hi Samuel, I want to tell you about my project…'
+    },
     'form-project-type': { 'es': 'Tipo de proyecto', 'en': 'Project type' },
     'form-budget': { 'es': 'Presupuesto estimado (USD)', 'en': 'Estimated budget (USD)' },
     'form-budget-unsure': { 'es': 'Aún no lo tengo claro', 'en': 'Not sure yet' },

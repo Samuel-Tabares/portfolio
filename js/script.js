@@ -167,27 +167,79 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Mejora para dispositivos táctiles ---
+    // --- Project cards: click to expand/collapse (all devices) ---
     function setupTouchDevices() {
-        const isTouchDevice = 'ontouchstart' in window || 
-                             navigator.maxTouchPoints > 0 || 
-                             navigator.msMaxTouchPoints > 0;
-        
-        if (isTouchDevice) {
-            projectCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Toggle active state
-                    if (this.classList.contains('active')) {
-                        this.classList.remove('active');
-                    } else {
-                        // Desactivar otros cards
-                        projectCards.forEach(c => c.classList.remove('active'));
-                        // Activar este card
-                        this.classList.add('active');
-                    }
-                });
+        projectCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
             });
-        }
+        });
+    }
+
+    // --- Skill categories: measure collapsed/expanded dimensions ---
+    function setupSkillDimensions() {
+        document.querySelectorAll('.skill-category').forEach(card => {
+            const anchor = card.querySelector('.skill-anchor');
+            if (!anchor) return;
+
+            // Collapsed: anchor natural size
+            card.style.setProperty('--collapsed-w', anchor.offsetWidth + 'px');
+            card.style.setProperty('--collapsed-h', anchor.offsetHeight + 'px');
+
+            // Expanded: clone off-screen, strip all constraints, measure each
+            // panel individually so left and right get their own exact widths.
+            const clone = card.cloneNode(true);
+            clone.style.setProperty('position', 'fixed', 'important');
+            clone.style.setProperty('top', '-9999px', 'important');
+            clone.style.setProperty('left', '-9999px', 'important');
+            clone.style.setProperty('visibility', 'hidden', 'important');
+            clone.style.setProperty('pointer-events', 'none', 'important');
+            clone.style.setProperty('transition', 'none', 'important');
+            clone.style.setProperty('width', 'max-content', 'important');
+            clone.style.setProperty('height', 'auto', 'important');
+            clone.style.setProperty('overflow', 'visible', 'important');
+            clone.style.setProperty('grid-template-columns', 'max-content max-content max-content', 'important');
+            clone.style.setProperty('grid-template-rows', 'auto', 'important');
+
+            clone.style.setProperty('align-items', 'start', 'important');
+
+            ['.skill-left', '.skill-right'].forEach(sel => {
+                const panel = clone.querySelector(sel);
+                if (!panel) return;
+                panel.style.setProperty('overflow', 'visible', 'important');
+                panel.style.setProperty('min-width', 'max-content', 'important');
+                panel.style.setProperty('width', 'max-content', 'important');
+                panel.style.setProperty('height', 'auto', 'important');
+                panel.style.setProperty('opacity', '1', 'important');
+                panel.style.setProperty('transform', 'none', 'important');
+                const ul = panel.querySelector('ul');
+                if (ul) ul.style.setProperty('height', 'auto', 'important');
+            });
+
+            document.body.appendChild(clone);
+            const leftPanel  = clone.querySelector('.skill-left');
+            const rightPanel = clone.querySelector('.skill-right');
+            const leftW  = leftPanel  ? leftPanel.offsetWidth  : 0;
+            const rightW = rightPanel ? rightPanel.offsetWidth : 0;
+            const expandedH  = clone.offsetHeight;
+            document.body.removeChild(clone);
+
+            // Both panels get the same width = the wider of the two
+            const panelW = Math.max(leftW, rightW);
+            card.style.setProperty('--left-w',    panelW + 'px');
+            card.style.setProperty('--right-w',   panelW + 'px');
+            card.style.setProperty('--expanded-w', (panelW * 2 + anchor.offsetWidth) + 'px');
+            card.style.setProperty('--expanded-h', expandedH + 'px');
+        });
+    }
+
+    // --- Skill categories: click to expand/collapse ---
+    function setupSkillCards() {
+        document.querySelectorAll('.skill-category').forEach(card => {
+            card.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
     }
 
     // --- Optimización de imágenes ---
@@ -339,14 +391,23 @@ document.addEventListener('DOMContentLoaded', () => {
         update();
     }
 
-    // --- Keyboard support for project card expand on touch ---
+    // --- Keyboard support for project & skill cards ---
     function setupCardKeyboard() {
         projectCards.forEach(card => {
             if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    card.classList.toggle('active');
+                    card.classList.toggle('expanded');
+                }
+            });
+        });
+        document.querySelectorAll('.skill-category').forEach(card => {
+            if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.classList.toggle('expanded');
                 }
             });
         });
@@ -358,6 +419,8 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupThemeSwitch();
     setupTouchDevices();
+    setupSkillCards();
+    document.fonts.ready.then(() => setupSkillDimensions());
     optimizeProjectImages();
     updateFooterYear();
     setupResizeHandler();

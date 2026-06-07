@@ -36,6 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
         return { width: pageWidth, height: pageHeight };
     }
 
+    function triangleColor(isWhite, opacity) {
+        if (document.body.classList.contains('light-theme')) {
+            return `rgba(26,26,46,${opacity * 0.55})`;
+        }
+        return isWhite ? `rgba(255,255,255,${opacity})` : `rgba(0,0,0,${opacity})`;
+    }
+
     function createTriangle(inheritScrollState = false, fadeInDuration = 1000, yPosition = null) {
         const triangle = document.createElement('div');
         triangle.classList.add('triangle');
@@ -49,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         triangle.style.height = '0';
         triangle.style.borderLeft = `${size/2}px solid transparent`;
         triangle.style.borderRight = `${size/2}px solid transparent`;
-        triangle.style.borderBottom = `${size}px solid ${isWhite ? `rgba(255,255,255,${opacity})` : `rgba(0,0,0,${opacity})`}`;
+        triangle.style.borderBottom = `${size}px solid ${triangleColor(isWhite, opacity)}`;
 
         let posX;
         const rand = Math.random();
@@ -282,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     triangle.style.height = '0';
                     triangle.style.borderLeft = `${size/2}px solid transparent`;
                     triangle.style.borderRight = `${size/2}px solid transparent`;
-                    triangle.style.borderBottom = `${size}px solid ${isWhite ? `rgba(255,255,255,${opacity})` : `rgba(0,0,0,${opacity})`}`;
+                    triangle.style.borderBottom = `${size}px solid ${triangleColor(isWhite, opacity)}`;
                     triangle.style.left = `${posX}px`;
                     triangle.style.top = `${posY}px`;
 
