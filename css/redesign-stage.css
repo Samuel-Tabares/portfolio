@@ -544,11 +544,11 @@ header {
     white-space: nowrap !important;
 }
 
-/* Right panel li: text left edge, icon right edge (mirror of left panel) */
+/* Right panel li: text and icon grouped at the right edge */
 .skill-right ul li {
     display: flex !important;
     align-items: center !important;
-    justify-content: space-between !important;
+    justify-content: flex-end !important;
     gap: 0.5rem !important;
     font-size: var(--text-sm) !important;
     color: var(--dark-subtext) !important;
@@ -736,7 +736,7 @@ header {
     width: 100% !important;
     margin: 0 auto !important;
     display: grid !important;
-    grid-template-columns: 0px 1fr 0px !important;
+    grid-template-columns: 0px 340px 0px !important;
     grid-template-rows: var(--card-h, 255px) !important;
     cursor: pointer;
     transition:
@@ -748,8 +748,8 @@ header {
 /* Expanded: card grows wide, side panels push in from behind the image */
 .project-experience-card.expanded {
     max-width: 900px !important;
-    grid-template-columns: 1fr 340px 1fr !important;
-    grid-template-rows: calc(var(--card-h, 255px) + 175px) !important;
+    grid-template-columns: 280px 340px 280px !important;
+    grid-template-rows: calc(var(--card-h, 255px) + 220px) !important;
 }
 
 .project-experience-card::before { content: none !important; display: none !important; }
@@ -769,12 +769,10 @@ header {
     flex-direction: column !important;
 }
 
-/* Status badge anchored inside the center column */
+/* Status badge — hidden when collapsed, appears below KPIs on expand */
 .project-card .project-status {
-    position: absolute !important;
-    top: var(--space-3) !important;
-    left: var(--space-3) !important;
-    z-index: 3 !important;
+    position: static !important;
+    align-self: center !important;
     border-radius: 999px !important;
     font-family: var(--font-display) !important;
     font-size: var(--text-xs) !important;
@@ -783,6 +781,31 @@ header {
     letter-spacing: -0.01em !important;
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    /* hidden when collapsed */
+    max-height: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    transition:
+        max-height 0.3s ease,
+        opacity    0.25s ease,
+        padding    0.3s ease,
+        margin     0.3s ease !important;
+}
+
+.project-experience-card.expanded .project-card .project-status {
+    max-height: 44px !important;
+    opacity: 1 !important;
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+    margin-bottom: 1rem !important;
+    transition:
+        max-height 0.3s ease 0.45s,
+        opacity    0.25s ease 0.48s,
+        padding    0.3s ease 0.45s,
+        margin     0.3s ease 0.45s !important;
 }
 
 .project-card .project-status.completed { background-color: rgba(197, 240, 0, 0.15) !important; color: var(--cinematic-electric) !important; }
