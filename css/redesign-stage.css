@@ -737,7 +737,7 @@ header {
     margin: 0 auto !important;
     display: grid !important;
     grid-template-columns: 0px 1fr 0px !important;
-    grid-template-rows: 180px !important;
+    grid-template-rows: 255px !important;
     cursor: pointer;
     transition:
         max-width             0.6s cubic-bezier(0.4, 0, 0.2, 1),
@@ -748,8 +748,8 @@ header {
 /* Expanded: card grows wide, side panels push in from behind the image */
 .project-experience-card.expanded {
     max-width: 900px !important;
-    grid-template-columns: 1fr 260px 1fr !important;
-    grid-template-rows: 360px !important;
+    grid-template-columns: 1fr 340px 1fr !important;
+    grid-template-rows: 430px !important;
 }
 
 .project-experience-card::before { content: none !important; display: none !important; }
@@ -794,7 +794,7 @@ header {
     background: transparent !important;
     filter: none !important;
     width: 100% !important;
-    height: 180px !important;
+    aspect-ratio: 4 / 3 !important;
     overflow: hidden;
     flex-shrink: 0 !important;
 }
@@ -802,8 +802,8 @@ header {
 .project-image {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
-    object-position: center top !important;
+    object-fit: contain !important;
+    object-position: center !important;
     display: block !important;
     background: transparent !important;
 }
