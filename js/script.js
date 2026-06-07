@@ -176,6 +176,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- Skill categories: measure collapsed/expanded dimensions ---
+    function setupSkillDimensions() {
+        document.querySelectorAll('.skill-category').forEach(card => {
+            const anchor = card.querySelector('.skill-anchor');
+            if (!anchor) return;
+
+            // Collapsed: anchor natural size
+            card.style.setProperty('--collapsed-w', anchor.offsetWidth + 'px');
+            card.style.setProperty('--collapsed-h', anchor.offsetHeight + 'px');
+
+            // Expanded: clone off-screen, strip all constraints, measure each
+            // panel individually so left and right get their own exact widths.
+            const clone = card.cloneNode(true);
+            clone.style.setProperty('position', 'fixed', 'important');
+            clone.style.setProperty('top', '-9999px', 'important');
+            clone.style.setProperty('left', '-9999px', 'important');
+            clone.style.setProperty('visibility', 'hidden', 'important');
+            clone.style.setProperty('pointer-events', 'none', 'important');
+            clone.style.setProperty('transition', 'none', 'important');
+            clone.style.setProperty('width', 'max-content', 'important');
+            clone.style.setProperty('height', 'auto', 'important');
+            clone.style.setProperty('overflow', 'visible', 'important');
+            clone.style.setProperty('grid-template-columns', 'max-content max-content max-content', 'important');
+            clone.style.setProperty('grid-template-rows', 'auto', 'important');
+
+            clone.style.setProperty('align-items', 'start', 'important');
+
+            ['.skill-left', '.skill-right'].forEach(sel => {
+                const panel = clone.querySelector(sel);
+                if (!panel) return;
+                panel.style.setProperty('overflow', 'visible', 'important');
+                panel.style.setProperty('min-width', 'max-content', 'important');
+                panel.style.setProperty('width', 'max-content', 'important');
+                panel.style.setProperty('height', 'auto', 'important');
+                panel.style.setProperty('opacity', '1', 'important');
+                panel.style.setProperty('transform', 'none', 'important');
+                const ul = panel.querySelector('ul');
+                if (ul) ul.style.setProperty('height', 'auto', 'important');
+            });
+
+            document.body.appendChild(clone);
+            const leftPanel  = clone.querySelector('.skill-left');
+            const rightPanel = clone.querySelector('.skill-right');
+            const leftW  = leftPanel  ? leftPanel.offsetWidth  : 0;
+            const rightW = rightPanel ? rightPanel.offsetWidth : 0;
+            const expandedH  = clone.offsetHeight;
+            document.body.removeChild(clone);
+
+            // Both panels get the same width = the wider of the two
+            const panelW = Math.max(leftW, rightW);
+            card.style.setProperty('--left-w',    panelW + 'px');
+            card.style.setProperty('--right-w',   panelW + 'px');
+            card.style.setProperty('--expanded-w', (panelW * 2 + anchor.offsetWidth) + 'px');
+            card.style.setProperty('--expanded-h', expandedH + 'px');
+        });
+    }
+
     // --- Skill categories: click to expand/collapse ---
     function setupSkillCards() {
         document.querySelectorAll('.skill-category').forEach(card => {
@@ -363,6 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setupThemeSwitch();
     setupTouchDevices();
     setupSkillCards();
+    document.fonts.ready.then(() => setupSkillDimensions());
     optimizeProjectImages();
     updateFooterYear();
     setupResizeHandler();
