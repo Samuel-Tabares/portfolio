@@ -309,7 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!form) return;
 
         const t = (key) => (window.translations && window.translations[key]
-            ? window.translations[key][document.documentElement.lang || 'es']
+            ? window.translations[key][document.documentElement.lang || 'en']
             : null);
 
         const startedAt = Date.now();

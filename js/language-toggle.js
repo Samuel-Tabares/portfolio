@@ -164,7 +164,7 @@ function setupLanguageToggle() {
     const langToggle = document.getElementById('lang-toggle');
     if (!langToggle) return;
 
-    const currentLang = localStorage.getItem('language') || 'es';
+    const currentLang = localStorage.getItem('language') || 'en';
     document.documentElement.setAttribute('lang', currentLang);
     langToggle.classList.add(`${currentLang}-active`);
 
@@ -173,7 +173,7 @@ function setupLanguageToggle() {
     setupTypingAnimation();
 
     langToggle.addEventListener('click', () => {
-        const currentLang = document.documentElement.getAttribute('lang') || 'es';
+        const currentLang = document.documentElement.getAttribute('lang') || 'en';
         const newLang = currentLang === 'es' ? 'en' : 'es';
 
         langToggle.classList.remove(`${currentLang}-active`);
@@ -202,8 +202,8 @@ function translateDates() {
     };
     
     // Obtener el idioma actual
-    const currentLang = document.documentElement.getAttribute('lang') || 'es';
-    
+    const currentLang = document.documentElement.getAttribute('lang') || 'en';
+
     // Buscar todos los elementos con fechas (como p.date)
     const dateElements = document.querySelectorAll('.date');
     
