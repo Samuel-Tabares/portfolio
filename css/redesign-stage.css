@@ -732,11 +732,11 @@ header {
     overflow: hidden;
     position: relative !important;
     /* Collapsed: compact card — just the image, no dark side padding */
-    max-width: 340px !important;
+    max-width: 476px !important;
     width: 100% !important;
     margin: 0 auto !important;
     display: grid !important;
-    grid-template-columns: 0px 340px 0px !important;
+    grid-template-columns: 0px 476px 0px !important;
     grid-template-rows: var(--card-h, 255px) !important;
     cursor: pointer;
     transition:
@@ -747,8 +747,8 @@ header {
 
 /* Expanded: card grows wide, side panels push in from behind the image */
 .project-experience-card.expanded {
-    max-width: 900px !important;
-    grid-template-columns: 280px 340px 280px !important;
+    max-width: 1036px !important;
+    grid-template-columns: 280px 476px 280px !important;
     grid-template-rows: calc(var(--card-h, 255px) + 220px) !important;
 }
 
