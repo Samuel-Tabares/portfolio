@@ -817,6 +817,7 @@ header {
     background: transparent !important;
     filter: none !important;
     width: 100% !important;
+    height: var(--card-h, 317px) !important;
     aspect-ratio: var(--img-ar, 4 / 3) !important;
     overflow: hidden;
     flex-shrink: 0 !important;
