@@ -2,8 +2,8 @@
 const TypingEffect = {
   // Configuración
 texts: {
-  'es': "construyendo full-stack y backends a medida",
-  'en': "building full-stack apps and custom backends"
+  'es': "construyendo agentes de IA y backends a medida",
+  'en': "building AI agents and custom backends"
 },
   typingSpeed: 100,      // Velocidad de escritura (ms)
   deletingSpeed: 50,     // Velocidad de borrado (ms)
@@ -127,12 +127,12 @@ function setupTypingAnimation() {
 // so social previews and SEO snapshots match what the visitor sees.
 const metaCopy = {
     es: {
-        title: 'Samuel Tabares León | Desarrollador Full-Stack freelance',
-        description: 'Desarrollador full-stack freelance. Construyo aplicaciones web a medida con Python/Django, React e integración de IA. Disponible para proyectos a corto y largo plazo.'
+        title: 'Samuel Tabares León | Software Engineer & Builder · AI Agents',
+        description: 'Software engineer y builder. Construyo agentes de IA y backends a medida que automatizan problemas cotidianos. Python, Rust, sistemas multi-agente y automatización.'
     },
     en: {
-        title: 'Samuel Tabares León | Freelance Full-Stack Developer',
-        description: 'Freelance full-stack developer. I build custom web applications with Python/Django, React, and AI integration. Available for short and long-term projects.'
+        title: 'Samuel Tabares León | Software Engineer & Builder · AI Agents',
+        description: 'Software engineer and builder. I build custom AI agents and backends that automate everyday problems. Python, Rust, multi-agent systems and automation.'
     }
 };
 
@@ -302,12 +302,12 @@ const translations = {
         'en': 'Hi, I\'m Samuel Tabares León'
     },
       'job-title': {
-    'es': 'Estudiante de Ingeniería de Software',
-    'en': 'Software Engineering Student'
+    'es': 'Software Engineer & Builder',
+    'en': 'Software Engineer & Builder'
   },
   'hero-description': {
-    'es': 'Construyo <strong>aplicaciones web full-stack</strong> para profesionales y equipos pequeños que necesitan algo más que un template. Trabajo con <strong>Python/Django, React e integración de IA</strong> para llevar ideas de cliente a producto en producción: desde <strong>plataformas internas</strong> hasta <strong>MVPs listos para validar</strong>. Mi enfoque combina <strong>decisiones de arquitectura claras</strong> con <strong>velocidad de delivery</strong>, sin sacrificar mantenibilidad. Si tenés un proyecto concreto y un problema que vale la pena resolver, hablemos.',
-    'en': 'I build <strong>full-stack web applications</strong> for professionals and small teams that need more than a template. I work with <strong>Python/Django, React, and AI integration</strong> to take client ideas from concept to production: from <strong>internal platforms</strong> to <strong>MVPs ready to validate</strong>. My approach combines <strong>clear architecture decisions</strong> with <strong>delivery speed</strong>, without sacrificing maintainability. If you have a concrete project and a problem worth solving, let\'s talk.'
+    'es': 'Diseño y construyo <strong>agentes de IA, sistemas multi-agente y backends personalizados</strong> — soluciones hechas a medida, no plantillas. Mi foco hoy es la <strong>IA aplicada</strong>: agentes autónomos, automatización, RAG y LLMs, con una base sólida de ingeniería backend en <strong>Python y Rust</strong>. Si tenés un problema real que vale la pena resolver con tecnología nueva, hablemos.',
+    'en': 'I design and build <strong>AI agents, multi-agent systems and custom backends</strong> — tailored solutions, not templates. My focus today is <strong>applied AI</strong>: autonomous agents, automation, RAG and LLMs, on a solid backend foundation in <strong>Python and Rust</strong>. If you have a real problem worth solving with new tech, let\'s talk.'
   },
   'job-title-en-redundant': { 'es': '', 'en': '' },
     'download-cv': {
@@ -321,40 +321,40 @@ const translations = {
         'en': 'About Me'
     },
     'about-text-1': {
-  'es': 'Construyo <strong>backends y aplicaciones web a medida</strong> con <strong>Python/Django, React y APIs de IA</strong>. Mi sweet spot son los proyectos que necesitan <strong>arquitectura desde cero</strong> o <strong>integraciones complejas</strong> — no plantillas, ni código que se rompe en seis meses.',
-  'en': 'I build <strong>custom backends and web applications</strong> with <strong>Python/Django, React, and AI APIs</strong>. My sweet spot is projects that need <strong>architecture from scratch</strong> or <strong>complex integrations</strong> — not templates, not code that breaks in six months.'
+  'es': 'Soy software engineer y <strong>builder</strong>. Construyo <strong>agentes de IA y sistemas backend a medida</strong> que automatizan procesos manuales y resuelven problemas concretos. Mi sweet spot: soluciones 100% personalizadas — agentes autónomos self-hosted, sistemas multi-agente e integraciones complejas — no plantillas ni código que se rompe en seis meses.',
+  'en': 'I\'m a software engineer and <strong>builder</strong>. I create <strong>custom AI agents and backend systems</strong> that automate manual work and solve concrete problems. My sweet spot: 100% tailored solutions — self-hosted autonomous agents, multi-agent systems and complex integrations — not templates, not code that breaks in six months.'
 },
 'about-text-2': {
-  'es': 'He desarrollado un <strong>backend de gestión veterinaria con 8 módulos y 20+ endpoints</strong>, una <strong>arquitectura de microservicios</strong> que conecta Java, Python y Node.js, y una <strong>plataforma de importación</strong> con sistema de calificación. Cada uno con problema real, no demo.',
-  'en': 'I\'ve built a <strong>veterinary management backend with 8 modules and 20+ endpoints</strong>, a <strong>microservices architecture</strong> connecting Java, Python and Node.js, and an <strong>import platform</strong> with a product-rating system. Real problems, not demos.'
+  'es': 'Voy más allá del agente "básico" de n8n: trabajo con frameworks de agentes autónomos totalmente personalizables (como OpenClaw) y orquestación multi-agente. Y todo eso lo sostengo con ingeniería backend real — he construido desde un <strong>bot de pedidos en producción escrito en Rust</strong> hasta <strong>arquitecturas de microservicios</strong> y <strong>backends Django con 20+ endpoints</strong>. Cada proyecto, un problema real, no una demo.',
+  'en': 'I go beyond the "basic" n8n agent: I work with fully customizable autonomous agent frameworks (like OpenClaw) and multi-agent orchestration. And I back it all with real backend engineering — I\'ve built everything from a <strong>production WhatsApp ordering bot written in Rust</strong> to <strong>microservice architectures</strong> and <strong>Django backends with 20+ endpoints</strong>. Every project, a real problem, not a demo.'
 },
 'about-text-3': {
-  'es': 'Trabajo de forma <strong>directa y enfocada</strong>: pocas reuniones, mucho código, decisiones documentadas. Si necesitás algo <strong>construido bien la primera vez</strong> —no rehacerlo en tres meses—, esa es la idea.',
-  'en': 'I work in a <strong>direct, focused way</strong>: few meetings, lots of code, documented decisions. If you need something <strong>built right the first time</strong> — not rebuilt in three months — that\'s the idea.'
+  'es': 'Trabajo de forma <strong>directa y enfocada</strong>: pocas reuniones, mucho código, decisiones documentadas. Aprendo rápido y me adapto a lo que el problema necesite. Si querés algo <strong>construido bien la primera vez</strong>, esa es la idea.',
+  'en': 'I work <strong>directly and focused</strong>: few meetings, lots of code, documented decisions. I learn fast and adapt to whatever the problem needs. If you want something <strong>built right the first time</strong>, that\'s the idea.'
 },
     'personal-skills': {
         'es': 'Competencias Personales',
         'en': 'Personal Skills'
     },
     'skill-problem-solving': {
-        'es': 'Resolutivo',
-        'en': 'Problem Solver'
+        'es': 'Resolución de problemas',
+        'en': 'Problem-solving'
     },
     'skill-fast-learning': {
-        'es': 'Aprendizaje Rápido',
-        'en': 'Fast Learner'
+        'es': 'Aprendizaje rápido',
+        'en': 'Fast learner'
     },
     'skill-critical-thinking': {
-        'es': 'Pensamiento Crítico',
-        'en': 'Critical Thinker'
+        'es': 'Pensamiento crítico',
+        'en': 'Critical thinking'
     },
-    'skill-leadership': {
-        'es': 'Liderazgo',
-        'en': 'Leadership'
+    'skill-adaptive': {
+        'es': 'Alta adaptabilidad',
+        'en': 'Highly adaptive'
     },
-    'skill-helpful': {
-        'es': 'Servicial',
-        'en': 'Helpful'
+    'skill-product-thinking': {
+        'es': 'Visión de producto',
+        'en': 'Product thinking'
     },
     
     // Skills section
@@ -362,71 +362,62 @@ const translations = {
         'es': 'Habilidades Técnicas',
         'en': 'Technical Skills'
     },
+    'ai-agents-heading': {
+        'es': 'IA & Agentes',
+        'en': 'AI & Agents'
+    },
     'languages-heading': {
         'es': 'Lenguajes',
         'en': 'Languages'
     },
-    'frameworks-heading': {
-        'es': 'Frameworks/Librerías',
-        'en': 'Frameworks/Libraries'
+    'backend-heading': {
+        'es': 'Backend',
+        'en': 'Backend'
+    },
+    'frontend-heading': {
+        'es': 'Frontend',
+        'en': 'Frontend'
     },
     'databases-heading': {
         'es': 'Bases de Datos',
         'en': 'Databases'
     },
-    'tools-heading': {
-        'es': 'Herramientas y Plataformas',
-        'en': 'Tools and Platforms'
+    'devops-heading': {
+        'es': 'DevOps & Herramientas',
+        'en': 'DevOps & Tools'
     },
-    
-'ui-ux-heading': {
-    'es': 'Diseño UI/UX',
-    'en': 'UI/UX Design'
-},
-'devops-heading': {
-    'es': 'DevOps & Infraestructura',
-    'en': 'DevOps & Infrastructure'
-},
-'responsive-design': {
-    'es': 'Diseño Responsive',
-    'en': 'Responsive Design'
-},
-'web-accessibility': {
-    'es': 'Accesibilidad Web',
-    'en': 'Web Accessibility'
-},
-'wireframing': {
-    'es': 'Wireframing',
-    'en': 'Wireframing'
-},
-'user-experience': {
-    'es': 'Experiencia de Usuario (UX)',
-    'en': 'User Experience (UX)'
-},
-'vercel-deployment': {
-    'es': 'Despliegue en Vercel',
-    'en': 'Vercel Deployment'
-},
-'basic-docker': {
-    'es': 'Docker Básico',
-    'en': 'Basic Docker'
-},
-'basic-aws': {
-    'es': 'AWS/Azure Básico',
-    'en': 'Basic AWS/Azure'
-},
-'server-management': {
-    'es': 'Gestión de Servidores',
-    'en': 'Server Management'
-},
-'api-integration': {
-    'es': 'Integración de APIs',
-    'en': 'API Integration'
-},
-'automation': {
-    'es': 'Automatización',
-    'en': 'Automation'
-},
+    'skill-ai-agents': {
+        'es': 'Agentes de IA',
+        'en': 'AI agents'
+    },
+    'skill-multi-agent': {
+        'es': 'Sistemas multi-agente',
+        'en': 'Multi-agent systems'
+    },
+    'skill-llms': {
+        'es': 'LLMs (OpenAI / locales)',
+        'en': 'LLMs (OpenAI / local)'
+    },
+    'skill-rag': {
+        'es': 'RAG · Pinecone',
+        'en': 'RAG · Pinecone'
+    },
+    'skill-rest-apis': {
+        'es': 'REST APIs · JWT',
+        'en': 'REST APIs · JWT'
+    },
+    'skill-microservices-arch': {
+        'es': 'Microservicios · Hexagonal',
+        'en': 'Microservices · Hexagonal'
+    },
+    'skill-responsive-a11y': {
+        'es': 'Responsive · Accesibilidad',
+        'en': 'Responsive · Accessibility'
+    },
+    'skill-automation-n8n': {
+        'es': 'Automatización · n8n',
+        'en': 'Automation · n8n'
+    },
 
 
 //roadmap sections
@@ -452,53 +443,69 @@ const translations = {
     'en': 'My Professional Vision'
 },
 'vision-text': {
-    'es': 'Desarrollar soluciones innovadoras que integren IA y tecnologías full-stack para resolver problemas reales, hacer el mundo más funcional y generar impacto positivo. Me veo creando ecosistemas digitales que combinen excelencia técnica con alto valor para usuarios y empresas.',
-    'en': 'Developing innovative solutions that integrate AI and full-stack technologies to solve real problems, make the world more functional, and generate positive impact. I see myself creating digital ecosystems that combine technical excellence with high value for users and businesses.'
+    'es': 'Crear algo nuevo que resuelva los problemas que el avance tecnológico acelerado está trayendo. Me proyecto hacia donde la tecnología vaya marcando el rumbo — igual que me moví hacia los agentes de IA cuando emergieron. Quiero construir productos que combinen IA, automatización e ingeniería sólida para hacerle la vida más fácil a las personas y ofrecer lo que nadie más ofrece.',
+    'en': 'To build something new that solves the problems brought by accelerating technology. I move toward wherever tech is heading — just as I moved into AI agents when they emerged. I want to build products that combine AI, automation and solid engineering to make people\'s lives easier and offer what nobody else does.'
 },
 // Habilidades específicas mencionadas en el roadmap (que podrían necesitar traducción)
-'skill-microservices': {
-    'es': 'Arquitectura de Microservicios',
-    'en': 'Microservices Architecture'
+'skill-python-django': {
+    'es': 'Python / Django / Django REST',
+    'en': 'Python / Django / Django REST'
+},
+'skill-backend-arch': {
+    'es': 'Backend & arquitectura (microservicios, hexagonal)',
+    'en': 'Backend & architecture (microservices, hexagonal)'
 },
 'skill-ai-integration': {
-    'es': 'Integración APIs de IA (OpenAI)',
+    'es': 'Integración de APIs de IA (OpenAI)',
     'en': 'AI APIs integration (OpenAI)'
 },
-'skill-docker': {
-    'es': 'Docker/Docker Compose',
-    'en': 'Docker/Docker Compose'
+'skill-restful-pg-docker': {
+    'es': 'RESTful APIs · PostgreSQL · Docker',
+    'en': 'RESTful APIs · PostgreSQL · Docker'
 },
-'skill-design-patterns': {
-    'es': 'Patrones de Diseño en Software',
-    'en': 'Software Design Patterns'
+'skill-js-react-ts': {
+    'es': 'JavaScript / React · TypeScript',
+    'en': 'JavaScript / React · TypeScript'
 },
-'skill-ai-applications': {
-    'es': 'Aplicaciones Prácticas de IA',
-    'en': 'Practical AI Applications'
+'skill-autonomous-agents': {
+    'es': 'Agentes de IA autónomos & multi-agente',
+    'en': 'Autonomous & multi-agent AI'
 },
-'skill-advanced-react': {
-    'es': 'React Avanzado',
-    'en': 'Advanced React'
+'skill-rust-backend': {
+    'es': 'Rust (axum, tokio) para backend & sistemas',
+    'en': 'Rust (axum, tokio) for backend & systems'
 },
-'skill-ios': {
-    'es': 'Desarrollo iOS/Apple',
-    'en': 'iOS/Apple Development'
+'skill-rag-llm-vector': {
+    'es': 'RAG, LLMs locales & vector databases (Pinecone)',
+    'en': 'RAG, local LLMs & vector databases (Pinecone)'
 },
-'skill-ai-specialization': {
-    'es': 'Specialización en IA Aplicada',
-    'en': 'Applied AI Specialization'
+'skill-openclaw': {
+    'es': 'OpenClaw / frameworks de agentes self-hosted',
+    'en': 'OpenClaw / self-hosted agent frameworks'
 },
-'skill-cloud': {
-    'es': 'Cloud Computing (AWS/Azure)',
-    'en': 'Cloud Computing (AWS/Azure)'
+'skill-applied-ml': {
+    'es': 'Machine Learning aplicado',
+    'en': 'Applied Machine Learning'
 },
-'skill-web3': {
-    'es': 'Web3 y Tecnologías Emergentes',
-    'en': 'Web3 and Emerging Technologies'
+'skill-ruby-learning': {
+    'es': 'Ruby (en aprendizaje)',
+    'en': 'Ruby (learning)'
 },
-'skill-entrepreneurship': {
-    'es': 'Emprendimiento Tecnológico',
-    'en': 'Tech Entrepreneurship'
+'skill-ai-saas': {
+    'es': 'Productos de IA como servicio (Agents-as-a-Service / SaaS)',
+    'en': 'AI products as a service (Agents-as-a-Service / SaaS)'
+},
+'skill-ai-web3': {
+    'es': 'Integración IA × Web3 / blockchain',
+    'en': 'AI × Web3 / blockchain integration'
+},
+'skill-ml-finetuning': {
+    'es': 'Profundización en ML & fine-tuning',
+    'en': 'Deeper ML & fine-tuning'
+},
+'skill-advanced-cloud': {
+    'es': 'Cloud avanzado',
+    'en': 'Advanced cloud'
 },
 
 'status-ongoing': {
@@ -556,6 +563,76 @@ const translations = {
 'private-project': {
     'es': 'Proyecto Privado <i class="fas fa-lock"></i>',
     'en': 'Private Project <i class="fas fa-lock"></i>'
+},
+'status-in-progress': {
+    'es': 'En construcción',
+    'en': 'In progress'
+},
+'status-production': {
+    'es': 'En producción',
+    'en': 'In production'
+},
+'in-construction-badge': {
+    'es': 'En construcción <i class="fas fa-hammer"></i>',
+    'en': 'In progress <i class="fas fa-hammer"></i>'
+},
+'production-badge': {
+    'es': 'En producción <i class="fas fa-circle-check"></i>',
+    'en': 'In production <i class="fas fa-circle-check"></i>'
+},
+
+// AI SaaS project
+'ai-saas-title': {
+    'es': 'SaaS de IA Personal Multi-Modelo',
+    'en': 'Multi-Model Personal AI SaaS'
+},
+'ai-saas-desc': {
+    'es': 'Asistente de IA personal donde hablás con distintos modelos en un solo lugar, con memoria persistente e integración a tus apps (correo, calendario, documentos). Genera PDFs y correos, ajusta tu calendario y recopila información por vos. Un SaaS que centraliza tu IA, resolviendo el problema de tener modelos dispersos sin memoria entre ellos.',
+    'en': 'A personal AI assistant where you talk to multiple models in one place, with persistent memory and integration to your apps (email, calendar, documents). It generates PDFs and emails, adjusts your calendar and gathers information for you. A SaaS that centralizes your AI, solving the problem of scattered models with no memory between them.'
+},
+
+// Multi-Agent system
+'multi-agent-title': {
+    'es': 'Sistema Multi-Agente',
+    'en': 'Multi-Agent System'
+},
+'multi-agent-desc': {
+    'es': 'Sistema de agentes de IA especializados que se comunican entre sí, cada uno dedicado a una función concreta. Construido para una vertical real (oficios/tradies en Australia). Demuestra orquestación multi-agente: agentes que colaboran, se pasan tareas y resuelven en conjunto.',
+    'en': 'A system of specialized AI agents that communicate with each other, each dedicated to a specific function. Built for a real vertical (tradies in Australia). Demonstrates multi-agent orchestration: agents that collaborate, hand off tasks and solve together.'
+},
+
+// Trabix
+'trabix-title': {
+    'es': 'Trabix — Bot de pedidos en Rust',
+    'en': 'Trabix — Ordering bot in Rust'
+},
+'trabix-desc': {
+    'es': 'Bot de pedidos por WhatsApp para un negocio real, escrito en <strong>Rust</strong>. Sistema completo, no demo: máquina de estados de conversación, persistencia en PostgreSQL, flujo de pedidos y checkout, handoff a asesor, timers con recuperación de timeouts, y un simulador local que corre el mismo runtime de producción. Dockerizado y desplegado en Railway.',
+    'en': 'WhatsApp ordering bot for a real business, written in <strong>Rust</strong>. A full system, not a demo: conversation state machine, PostgreSQL persistence, order & checkout flow, advisor handoff, timers with timeout recovery, and a local simulator running the same production runtime. Dockerized and deployed on Railway.'
+},
+'metric-commits': {
+    'es': 'Commits',
+    'en': 'Commits'
+},
+'metric-releases': {
+    'es': 'Releases',
+    'en': 'Releases'
+},
+'metric-agents': {
+    'es': 'Agentes',
+    'en': 'Agents'
+},
+'metric-models': {
+    'es': 'Modelos IA',
+    'en': 'AI Models'
+},
+'lead-dev-role': {
+    'es': 'Rol: Builder & Lead Dev <i class="fas fa-hammer"></i>',
+    'en': 'Role: Builder & Lead Dev <i class="fas fa-hammer"></i>'
+},
+'ai-builder-role': {
+    'es': 'Rol: AI Builder <i class="fas fa-robot"></i>',
+    'en': 'Role: AI Builder <i class="fas fa-robot"></i>'
 },
 
 // Menú lateral
@@ -859,8 +936,8 @@ const translations = {
         'en': 'Let\'s work together'
     },
     'contact-description': {
-        'es': 'Disponible para <strong>proyectos freelance</strong>: MVPs, backends a medida, integraciones de IA y migraciones técnicas. Respondo en menos de 24h con un primer estimado claro — alcance, tiempos y precio. Sin discovery calls eternas: si encaja, encaja.',
-        'en': 'Available for <strong>freelance projects</strong>: MVPs, custom backends, AI integrations and technical migrations. I reply within 24h with a clear first estimate — scope, timeline, price. No endless discovery calls: if it fits, it fits.'
+        'es': 'Disponible para <strong>proyectos freelance</strong>: agentes de IA, automatización, backends a medida e integraciones. Contame tu proyecto y te respondo en menos de 24h con un primer estimado claro de alcance y tiempos. Si encaja, encaja.',
+        'en': 'Available for <strong>freelance projects</strong>: AI agents, automation, custom backends and integrations. Tell me about your project and I\'ll reply within 24h with a clear first estimate of scope and timeline. If it fits, it fits.'
     },
     'form-name': { 'es': 'Nombre', 'en': 'Name' },
     'form-email': { 'es': 'Email', 'en': 'Email' },
@@ -880,10 +957,10 @@ const translations = {
     'form-message': { 'es': 'Contame el proyecto', 'en': 'Tell me about the project' },
     'form-submit': { 'es': 'Enviar', 'en': 'Send' },
     'form-select-placeholder': { 'es': 'Seleccioná una opción', 'en': 'Select an option' },
-    'form-opt-mvp': { 'es': 'MVP desde cero', 'en': 'MVP from scratch' },
+    'form-opt-ai-agent': { 'es': 'Agente de IA / automatización', 'en': 'AI agent / automation' },
     'form-opt-backend': { 'es': 'Backend / API a medida', 'en': 'Custom backend / API' },
     'form-opt-ai': { 'es': 'Integración de IA', 'en': 'AI integration' },
-    'form-opt-migration': { 'es': 'Migración / refactor', 'en': 'Migration / refactor' },
+    'form-opt-mvp': { 'es': 'MVP desde cero', 'en': 'MVP from scratch' },
     'form-opt-other': { 'es': 'Otro', 'en': 'Other' },
     'form-fallback-text': { 'es': 'o escribime directo a', 'en': 'or email me directly at' },
     'form-status-sending': { 'es': 'Enviando…', 'en': 'Sending…' },

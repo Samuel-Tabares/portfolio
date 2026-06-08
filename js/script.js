@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: form.name.value.trim(),
                 email: form.email.value.trim(),
                 whatsapp: form.whatsapp ? form.whatsapp.value.trim() : '',
-                subject: `${form.project_type.value || 'general'} — ${form.budget.value || 'no budget'}`,
+                subject: form.project_type.value || 'general',
                 message: form.message.value.trim(),
                 website: form.website ? form.website.value : '',
                 startedAt,
