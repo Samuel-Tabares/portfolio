@@ -581,8 +581,10 @@ const translations = {
     'en': 'Internal portal for the real Trabix granizados business — admin and embajador roles, FIFO production batches, commissions, wholesale sales, consignments and PDF invoicing. Next.js · Supabase · Upstash Redis. Live on Vercel.'
 },
 'metric-version': { 'es': 'Versión', 'en': 'Version' },
-'metric-roles': { 'es': 'Roles', 'en': 'Roles' },
-'metric-invoicing': { 'es': 'Facturas', 'en': 'Invoicing' },
+'metric-latency': { 'es': 'Post-acción', 'en': 'Post-action' },
+'metric-api-groups': { 'es': 'API Groups', 'en': 'API Groups' },
+'high-school': { 'es': 'BACHILLERATO', 'en': 'HIGH SCHOOL' },
+'high-school-institution': { 'es': 'COLEGIO FRANCISCANO SAN LUIS REY', 'en': 'COLEGIO FRANCISCANO SAN LUIS REY' },
 'in-construction-badge': {
     'es': 'En construcción <i class="fas fa-hammer"></i>',
     'en': 'In progress <i class="fas fa-hammer"></i>'
