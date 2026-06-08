@@ -572,6 +572,17 @@ const translations = {
     'es': 'En producción',
     'en': 'In production'
 },
+'accountability-title': {
+    'es': 'Portal de Gestión Trabix',
+    'en': 'Trabix Management Portal'
+},
+'accountability-desc': {
+    'es': 'Portal interno para el negocio real de granizados Trabix — roles admin y embajador, batches de producción con FIFO, comisiones, ventas al por mayor, consignaciones y facturación PDF. Next.js · Supabase · Upstash Redis. En producción en Vercel.',
+    'en': 'Internal portal for the real Trabix granizados business — admin and embajador roles, FIFO production batches, commissions, wholesale sales, consignments and PDF invoicing. Next.js · Supabase · Upstash Redis. Live on Vercel.'
+},
+'metric-version': { 'es': 'Versión', 'en': 'Version' },
+'metric-roles': { 'es': 'Roles', 'en': 'Roles' },
+'metric-invoicing': { 'es': 'Facturas', 'en': 'Invoicing' },
 'in-construction-badge': {
     'es': 'En construcción <i class="fas fa-hammer"></i>',
     'en': 'In progress <i class="fas fa-hammer"></i>'
