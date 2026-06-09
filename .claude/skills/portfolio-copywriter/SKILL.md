@@ -92,3 +92,25 @@ When copy goes into `index.html`, remind the user of the bilingual attribute pat
 ```
 
 The `language-toggle.js` script reads `data-es` and `data-en` and swaps on toggle.
+
+## Project card layout (redesign-stage.css)
+
+The expanded card is a 3-column CSS grid. Current dimensions:
+
+| Property | Value |
+|---|---|
+| Left panel (`project-info`) | 364px |
+| Center panel (image + KPIs) | 476px |
+| Right panel (`experience-detail`) | 364px |
+| `max-width` expanded | 1204px |
+| `grid-template-rows` expanded | `calc(var(--card-h, 317px) + 170px)` |
+
+Collapsed state: `grid-template-columns: 0px 476px 0px`, `grid-template-rows: var(--card-h, 255px)`.
+
+**Critical:** the card has `justify-content: center` so the grid tracks overflow symmetrically on smaller viewports — the image always stays centered. Do NOT remove this.
+
+**Height:** use the fixed calc `calc(var(--card-h, 317px) + 170px)` for the expanded row, NOT `auto`. This keeps the `grid-template-rows` transition smooth. The side panels have `overflow-y: auto` so they scroll if their content is taller.
+
+When adding a new project card, use `style="--card-h: 317px"` on the `.project-experience-card`.
+
+**`experience-detail` panel:** only include `<p data-translate="...">` — the `<h3>` is hidden via CSS (`display: none`) so do not rely on it for the project name. The title already appears in the image overlay.

@@ -743,92 +743,22 @@ const translations = {
     },    
 
 
-// Proyecto Sistema de Perfumería
-'perfumeria-title': {
-    'es': 'Sistema de Perfumería - Arquitectura de Microservicios',
-    'en': 'Perfumery System - Microservices Architecture'
-},
-'perfumeria-desc': {
-    'es': 'Sistema integral para la gestión de una perfumería implementado como arquitectura completa de microservicios con API Gateway centralizado e interfaces de usuario individuales. Demuestra integración entre Java, Python y Node.js con gestión completa de proveedores, clientes y productos.',
-    'en': 'Comprehensive system for perfumery management implemented as a complete microservices architecture with centralized API Gateway and individual user interfaces. Demonstrates integration between Java, Python, and Node.js with complete management of suppliers, clients, and products.'
-},
-'perfumeria-exp-title': {
-    'es': 'DESARROLLO DE ARQUITECTURA DE MICROSERVICIOS',
-    'en': 'MICROSERVICES ARCHITECTURE DEVELOPMENT'
-},
-'perfumeria-exp-1': {
-    'es': '<strong>Diseñado</strong> una arquitectura completa de microservicios con API Gateway centralizado para gestión unificada de 4 servicios independientes',
-    'en': '<strong>Designed</strong> a complete microservices architecture with centralized API Gateway for unified management of 4 independent services'
-},
-'perfumeria-exp-2': {
-    'es': '<strong>Implementado</strong> microservicios usando múltiples tecnologías: Java/Spring Boot para proveedores, Python/FastAPI para clientes, y Node.js/Express para productos',
-    'en': '<strong>Implemented</strong> microservices using multiple technologies: Java/Spring Boot for suppliers, Python/FastAPI for clients, and Node.js/Express for products'
-},
-'perfumeria-exp-3': {
-    'es': '<strong>Desarrollado</strong> interfaces de usuario individuales para cada microservicio con gestión CRUD completa y navegación intuitiva',
-    'en': '<strong>Developed</strong> individual user interfaces for each microservice with complete CRUD management and intuitive navigation'
-},
-'perfumeria-exp-4': {
-    'es': '<strong>Creado</strong> scripts de automatización para inicio/parada del sistema completo con detección automática de servicios en ejecución',
-    'en': '<strong>Created</strong> automation scripts for complete system startup/shutdown with automatic detection of running services'
-},
-'perfumeria-exp-5': {
-    'es': '<strong>Configurado</strong> containerización con Docker, migraciones de BD automáticas (Alembic, JPA, Sequelize) y documentación API con Swagger',
-    'en': '<strong>Configured</strong> Docker containerization, automatic DB migrations (Alembic, JPA, Sequelize), and API documentation with Swagger'
-},
 
-// Métricas específicas del proyecto
-'metric-microservices': {
-    'es': 'Microservicios',
-    'en': 'Microservices'
-},
-'metric-technologies': {
-    'es': 'Tecnologías',
-    'en': 'Technologies'
-},
-
-// Rol específico
-'architect-role': {
-    'es': 'Rol: Arquitecto Full-Stack <i class="fas fa-sitemap"></i>',
-    'en': 'Role: Full-Stack Architect <i class="fas fa-sitemap"></i>'
-},
-
-
-    'importa-title': {
-        'es': 'Importa Colombia',
-        'en': 'Importa Colombia'
+    'daluzed-title': {
+        'es': 'Daluzed — Gestión de Inventario',
+        'en': 'Daluzed — Inventory Management'
     },
-    'importa-desc': {
-        'es': 'Aplicación web para mostrar y evaluar productos importados de China a Colombia, con sistema de likes/dislikes y reseñas con calificaciones de estrellas.',
-        'en': 'Web application to showcase and evaluate products imported from China to Colombia, with likes/dislikes system and star-rating reviews.'
+    'daluzed-desc': {
+        'es': 'Sistema full-stack en producción para una empresa real de repostería. Gestión completa de inventario con 21 proveedores, recepciones contra orden de compra, traslados entre bodegas, producción FEFO y despacho FIFO. Alertas de stock en tiempo real vía WebSocket (Django Channels ASGI). RBAC con 4 roles y factories de permisos custom, JWT cross-domain Railway → Vercel con cookie HttpOnly, auditoría de 8 operaciones críticas, exportación PDF/XLSX y Swagger auto-generado. 125 tests automatizados con CI/CD (cobertura ≥ 70%). Docker para desarrollo local.',
+        'en': 'Full-stack system in production for a real family bakery. Complete inventory management: 21-supplier catalog, purchase-order-based receiving, warehouse transfers, FEFO production and FIFO dispatch. Real-time stock alerts via WebSocket (Django Channels ASGI). 4-role RBAC with custom permission factories, cross-domain JWT (Railway → Vercel) with HttpOnly cookie, 8-operation audit log, PDF/XLSX export, and auto-generated Swagger docs. 125 automated tests with CI/CD (coverage ≥ 70%). Docker for local development.'
     },
-    'importa-tech': {
-        'es': '<strong>Tecnologías:</strong> React, Django REST Framework, Bootstrap 5, Python.',
-        'en': '<strong>Technologies:</strong> React, Django REST Framework, Bootstrap 5, Python.'
+    'metric-tests': {
+        'es': 'Tests',
+        'en': 'Tests'
     },
-    'importa-exp-title': {
-        'es': 'DESARROLLO FULLSTACK IMPORTA COLOMBIA',
-        'en': 'FULLSTACK DEVELOPMENT IMPORTA COLOMBIA'
-    },
-    'importa-exp-1': {
-        'es': '<strong>Desarrollé</strong> un backend API REST con Django, implementando modelos para productos, reseñas y sistema de likes',
-        'en': '<strong>Developed</strong> a REST API backend with Django, implementing models for products, reviews, and likes system'
-    },
-    'importa-exp-2': {
-        'es': '<strong>Diseñé</strong> la interfaz frontend con React y Bootstrap 5, con enfoque en experiencia de usuario',
-        'en': '<strong>Designed</strong> the frontend interface with React and Bootstrap 5, focusing on user experience'
-    },
-    'importa-exp-3': {
-        'es': '<strong>Implementé</strong> autenticación básica para usuarios anónimos mediante IP para reseñas y valoraciones',
-        'en': '<strong>Implemented</strong> basic authentication for anonymous users via IP for reviews and ratings'
-    },
-    'importa-exp-4': {
-        'es': '<strong>Integré</strong> sistema de calificaciones con estrellas y funcionalidad para likes/dislikes',
-        'en': '<strong>Integrated</strong> star rating system and functionality for likes/dislikes'
-    },
-    'importa-exp-5': {
-        'es': '<strong>Optimicé</strong> la carga y visualización de datos con peticiones asíncronas y gestión de estados',
-        'en': '<strong>Optimized</strong> data loading and visualization with asynchronous requests and state management'
+    'metric-roles': {
+        'es': 'Roles',
+        'en': 'Roles'
     },
     'view-demo': {
         'es': 'Ver Demo <i class="fas fa-external-link-alt"></i>',
@@ -882,7 +812,11 @@ const translations = {
     'es': 'Rol: Backend Lead <i class="fas fa-server"></i>',
     'en': 'Role: Backend Lead <i class="fas fa-server"></i>'
 },
-    
+'backend-qa-role': {
+    'es': 'Rol: Backend Lead & QA <i class="fas fa-server"></i>',
+    'en': 'Role: Backend Lead & QA <i class="fas fa-server"></i>'
+},
+
     // Education section
     'education-heading': {
         'es': 'Educación',

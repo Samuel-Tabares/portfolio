@@ -736,6 +736,7 @@ header {
     width: 100% !important;
     margin: 0 auto !important;
     display: grid !important;
+    justify-content: center !important;
     grid-template-columns: 0px 476px 0px !important;
     grid-template-rows: var(--card-h, 255px) !important;
     cursor: pointer;
@@ -747,9 +748,9 @@ header {
 
 /* Expanded: card grows wide, side panels push in from behind the image */
 .project-experience-card.expanded {
-    max-width: 1036px !important;
-    grid-template-columns: 280px 476px 280px !important;
-    grid-template-rows: calc(var(--card-h, 255px) + 220px) !important;
+    max-width: 1204px !important;
+    grid-template-columns: 364px 476px 364px !important;
+    grid-template-rows: calc(var(--card-h, 317px) + 170px) !important;
 }
 
 .project-experience-card::before { content: none !important; display: none !important; }
@@ -977,16 +978,9 @@ header {
         transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.34s !important;
 }
 
-/* Project title in the brief card */
+/* Project title hidden — description only in expanded panel */
 .experience-detail h3 {
-    font-family: var(--font-display) !important;
-    color: var(--dark-text) !important;
-    font-size: var(--text-2xl) !important;
-    font-weight: 700 !important;
-    letter-spacing: -0.02em !important;
-    text-transform: none !important;
-    letter-spacing: normal !important;
-    margin-bottom: var(--space-4) !important;
+    display: none !important;
 }
 
 .experience-detail h3::before { content: none !important; display: none !important; }
