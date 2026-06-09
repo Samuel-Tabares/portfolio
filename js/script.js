@@ -391,6 +391,20 @@ document.addEventListener('DOMContentLoaded', () => {
         update();
     }
 
+    // --- Mobile skill items: mirror icon to the right for centered layout ---
+    function setupMobileSkillIcons() {
+        if (window.innerWidth > 450) return;
+        document.querySelectorAll('.skill-left ul li, .skill-right ul li').forEach(li => {
+            if (li.dataset.mobileIconDone) return;
+            const icon = li.querySelector('i');
+            if (!icon) return;
+            const clone = icon.cloneNode(true);
+            clone.setAttribute('aria-hidden', 'true');
+            li.appendChild(clone);
+            li.dataset.mobileIconDone = 'true';
+        });
+    }
+
     // --- Keyboard support for project & skill cards ---
     function setupCardKeyboard() {
         projectCards.forEach(card => {
@@ -428,4 +442,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupRevealOnScroll();
     setupScrollProgress();
     setupCardKeyboard();
+    setupMobileSkillIcons();
 });

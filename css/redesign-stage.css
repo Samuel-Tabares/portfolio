@@ -2037,3 +2037,236 @@ body.light-theme .gh-card:hover {
 body.light-theme::before {
     opacity: 0.14 !important;
 }
+
+/* ================================================================
+   MOBILE — ≤ 450px  (iPhone Pro Max y menores)
+   Skills y Projects expanden vertical (arriba/abajo) en vez de
+   horizontal (izquierda/derecha).
+   ================================================================ */
+
+@media (max-width: 450px) {
+
+  /* ---- Sección Skills: grid full-width ---- */
+  #skills .skills-grid {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  /* ---- Skill category: flex-column, ancho completo (collapsed + expanded) ---- */
+  .skill-category,
+  .skill-category.expanded {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    grid-template-columns: unset !important;
+    grid-template-rows: unset !important;
+    /* Mata la animación de grid-cols/width del desktop */
+    transition:
+      border-color 0.25s ease,
+      box-shadow   0.25s ease !important;
+  }
+
+  .skill-anchor {
+    order: 2 !important;
+    width: 100% !important;
+    padding: var(--space-3) var(--space-5) !important;
+  }
+
+  /* Panel superior (era .skill-left en desktop) */
+  .skill-left {
+    order: 1 !important;
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: none !important;          /* sin borde cuando colapsado */
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: translateY(-10px) !important;
+    padding: 0 var(--space-4) !important;
+    overflow: hidden !important;
+    transition:
+      max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity    0.3s ease,
+      transform  0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      padding    0.3s ease,
+      border     0.1s ease !important;
+  }
+
+  /* Panel inferior (era .skill-right en desktop) */
+  .skill-right {
+    order: 3 !important;
+    width: 100% !important;
+    border-left: none !important;
+    border-top: none !important;             /* sin borde cuando colapsado */
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: translateY(10px) !important;
+    padding: 0 var(--space-4) !important;
+    overflow: hidden !important;
+    transition:
+      max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity    0.3s ease,
+      transform  0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      padding    0.3s ease,
+      border     0.1s ease !important;
+  }
+
+  /* Expandido: panel superior */
+  .skill-category.expanded .skill-left {
+    max-height: 180px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    padding: var(--space-3) var(--space-4) !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+    transition:
+      max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+      opacity    0.35s ease 0.05s,
+      transform  0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+      padding    0.3s ease 0.05s !important;
+  }
+
+  /* Expandido: panel inferior */
+  .skill-category.expanded .skill-right {
+    max-height: 180px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    padding: var(--space-3) var(--space-4) !important;
+    border-top: 1px solid var(--dark-border) !important;
+    transition:
+      max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.12s,
+      opacity    0.35s ease 0.12s,
+      transform  0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.12s,
+      padding    0.3s ease 0.12s !important;
+  }
+
+  /* Items: columna, 1 por fila, centrados con icono a ambos lados */
+  .skill-left ul,
+  .skill-right ul {
+    height: auto !important;
+    gap: var(--space-2) !important;
+  }
+
+  .skill-left ul li,
+  .skill-right ul li {
+    justify-content: center !important;
+    white-space: normal !important;
+    width: 100% !important;
+    gap: 0.45rem !important;
+  }
+
+  /* Icono del panel derecho: orden natural (icono primero), el JS añade el clon al final */
+  .skill-right ul li i {
+    order: 0 !important;
+  }
+
+  /* ---- Hero typing effect: anclar subtítulo abajo, h1 sube sin mover la página ---- */
+  #hero .hero-titles {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-end !important;
+    min-height: 250px !important;
+  }
+
+  /* ---- Projects: flex-column, ancho completo (collapsed + expanded) ---- */
+  .project-experience-card,
+  .project-experience-card.expanded {
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    grid-template-columns: unset !important;
+    grid-template-rows: unset !important;
+    transition:
+      border-color 0.25s ease,
+      box-shadow   0.25s ease !important;
+  }
+
+  /* Panel superior: tech stack + links */
+  .project-info {
+    order: 1 !important;
+    border-right: none !important;
+    border-bottom: none !important;          /* sin borde cuando colapsado */
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: translateY(-14px) !important;
+    padding: 0 var(--space-5) !important;
+    overflow: hidden !important;
+    transition:
+      max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity    0.3s ease,
+      transform  0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      padding    0.3s ease !important;
+  }
+
+  /* Imagen: al centro */
+  .project-card {
+    order: 2 !important;
+  }
+
+  /* Panel inferior: descripción */
+  .experience-detail {
+    order: 3 !important;
+    border-left: none !important;
+    border-top: none !important;             /* sin borde cuando colapsado */
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: translateY(14px) !important;
+    padding: 0 var(--space-5) !important;
+    overflow: hidden !important;
+    transition:
+      max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity    0.3s ease,
+      transform  0.45s cubic-bezier(0.4, 0, 0.2, 1),
+      padding    0.3s ease !important;
+  }
+
+  /* Expandido: panel superior */
+  .project-experience-card.expanded .project-info {
+    max-height: 300px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    padding: var(--space-4) var(--space-5) !important;
+    border-bottom: 1px solid var(--dark-border) !important;
+    overflow-y: auto !important;
+    transition:
+      max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+      opacity    0.4s ease 0.05s,
+      transform  0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.05s,
+      padding    0.3s ease 0.05s !important;
+  }
+
+  /* Expandido: panel inferior */
+  .project-experience-card.expanded .experience-detail {
+    max-height: 420px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    padding: var(--space-4) var(--space-5) !important;
+    border-top: 1px solid var(--dark-border) !important;
+    overflow-y: auto !important;
+    transition:
+      max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+      opacity    0.4s ease 0.15s,
+      transform  0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+      padding    0.3s ease 0.15s !important;
+  }
+
+  /* Título del proyecto: mostrar en mobile (oculto en desktop) */
+  .experience-detail h3 {
+    display: block !important;
+    font-family: var(--font-display) !important;
+    font-size: var(--text-base) !important;
+    font-weight: 700 !important;
+    color: var(--dark-text) !important;
+    margin-bottom: var(--space-2) !important;
+  }
+
+  /* Imagen: matar aspect-ratio que compite con --card-h en ancho < 476px */
+  .project-image-container {
+    aspect-ratio: unset !important;
+    width: 100% !important;
+  }
+
+  /* Tech badges: wrap en pantallas angostas */
+  .tech-badges {
+    flex-wrap: wrap !important;
+  }
+}
