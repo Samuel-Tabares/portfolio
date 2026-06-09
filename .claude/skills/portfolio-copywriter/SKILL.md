@@ -99,11 +99,11 @@ The expanded card is a 3-column CSS grid. Current dimensions:
 
 | Property | Value |
 |---|---|
-| Left panel (`project-info`) | 364px |
+| Left panel (`project-info`) | 1fr |
 | Center panel (image + KPIs) | 476px |
-| Right panel (`experience-detail`) | 364px |
+| Right panel (`experience-detail`) | 1fr |
 | `max-width` expanded | 1204px |
-| `grid-template-rows` expanded | `calc(var(--card-h, 317px) + 170px)` |
+| `grid-template-rows` expanded | `calc(var(--card-h, 317px) + 150px)` |
 
 Collapsed state: `grid-template-columns: 0px 476px 0px`, `grid-template-rows: var(--card-h, 255px)`.
 
