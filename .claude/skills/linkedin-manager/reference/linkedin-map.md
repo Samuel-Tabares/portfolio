@@ -29,6 +29,7 @@
 ## CURRENT APPROVED COPY (v2 — 2026-06-07)
 
 > When regenerating, keep consistent with this unless the SSOT changed. Update this file when copy changes.
+> Last updated: 2026-06-08 — Daluzed added, Next.js/NestJS/Redis added to stack and skills.
 
 ### Headline
 **EN:** `Software Engineer & Builder · I build custom AI agents & backends that automate everyday problems · Python · Rust · LLMs`
@@ -44,7 +45,7 @@ What I've built:
 • A production WhatsApp ordering bot written in Rust — full conversation state machine, PostgreSQL, checkout flow, deployed on Railway.
 • A multi-agent system where specialized AI agents communicate with each other, each handling a different task.
 • A multi-model AI SaaS: a personal assistant that talks to multiple models, remembers context, and integrates with users' own tools.
-• Backend systems with 20+ endpoints, microservice architectures connecting Python, Java and Node.js.
+• Full-stack production systems: inventory management with Django, React and WebSocket — RBAC, 125 automated tests, CI/CD. And backend architectures connecting Python, Java and Node.js.
 
 How I work: directly and focused — few meetings, lots of code, documented decisions. I learn fast and adapt to whatever the problem needs. I'm driven by one idea: solving real, everyday problems with new technology, and offering what nobody else does.
 
@@ -63,7 +64,7 @@ Lo que he construido:
 • Un bot de pedidos por WhatsApp en producción escrito en Rust — máquina de estados de conversación, PostgreSQL, flujo de checkout, desplegado en Railway.
 • Un sistema multi-agente donde agentes de IA especializados se comunican entre sí, cada uno con una función distinta.
 • Un SaaS de IA multi-modelo: un asistente personal que habla con varios modelos, recuerda contexto e integra las herramientas del usuario.
-• Backends con 20+ endpoints y arquitecturas de microservicios que conectan Python, Java y Node.js.
+• Sistemas full-stack en producción: gestión de inventario con Django, React y WebSocket — RBAC, 125 tests automatizados, CI/CD. Y arquitecturas backend que conectan Python, Java y Node.js.
 
 Cómo trabajo: de forma directa y enfocada — pocas reuniones, mucho código, decisiones documentadas. Aprendo rápido y me adapto a lo que el problema necesite. Me mueve una idea: resolver problemas cotidianos reales con tecnología nueva, y ofrecer lo que nadie más ofrece.
 
@@ -87,8 +88,9 @@ Selected work:
 • Multi-agent system with specialized agents communicating with each other (in progress).
 • Multi-model AI SaaS with memory and tool integrations (in progress).
 • Custom Django/DRF backends, microservice architectures, AI API integrations.
+• Daluzed — full-stack inventory system in production for a real business: FEFO/FIFO logic, WebSocket stock alerts, RBAC with 4 roles, 125 automated tests with CI/CD. Django · React · PostgreSQL.
 
-Stack: Python, Rust, TypeScript · Django, FastAPI · LLMs, RAG, autonomous agents · PostgreSQL, Docker, Railway.
+Stack: Python, Rust, TypeScript · Django, NestJS, FastAPI · Next.js · LLMs, RAG, autonomous agents · PostgreSQL, Redis, Docker, Railway.
 ```
 **Desc ES:**
 ```
@@ -99,15 +101,16 @@ Trabajo seleccionado:
 • Sistema multi-agente con agentes especializados que se comunican entre sí (en construcción).
 • SaaS de IA multi-modelo con memoria e integraciones (en construcción).
 • Backends Django/DRF a medida, arquitecturas de microservicios, integración de APIs de IA.
+• Daluzed — sistema de inventario full-stack en producción para empresa real: lógica FEFO/FIFO, alertas de stock por WebSocket, RBAC con 4 roles, 125 tests automatizados con CI/CD. Django · React · PostgreSQL.
 
-Stack: Python, Rust, TypeScript · Django, FastAPI · LLMs, RAG, agentes autónomos · PostgreSQL, Docker, Railway.
+Stack: Python, Rust, TypeScript · Django, NestJS, FastAPI · Next.js · LLMs, RAG, agentes autónomos · PostgreSQL, Redis, Docker, Railway.
 ```
 
 ### Skills
 **Pinned (3):** Artificial Intelligence (AI) · Python · Rust
 **Full order:**
 ```
-Artificial Intelligence (AI) · Python · Rust · AI Agents · Large Language Models (LLM) · Backend Development · Django · Automation · React.js · TypeScript · REST APIs · PostgreSQL · Docker · FastAPI · Microservices · Software Architecture · Git · JavaScript · Web3 (interest)
+Artificial Intelligence (AI) · Python · Rust · AI Agents · Large Language Models (LLM) · Backend Development · Django · Automation · React.js · TypeScript · REST APIs · PostgreSQL · Docker · FastAPI · Microservices · Software Architecture · Git · JavaScript · Next.js · NestJS · Redis · Web3 (interest)
 ```
 **Removed/demoted:** Trading, Cryptocurrencies (from top), TOEFL (→ certifications).
 
