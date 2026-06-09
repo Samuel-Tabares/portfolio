@@ -70,6 +70,11 @@ assets/             — CV PDF
 | `/deploy-to-vercel` | Deploy or configure Vercel settings |
 | `/vercel-optimize` | Performance tuning — Core Web Vitals, bundle size, loading |
 
+### CV
+| Skill | When to use |
+|---|---|
+| `/cv-manager` | Update, regenerate, or edit the ES + EN CV/résumé — edits HTML sources and re-renders PDFs |
+
 ### Meta
 | Skill | When to use |
 |---|---|
