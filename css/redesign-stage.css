@@ -750,7 +750,7 @@ header {
 .project-experience-card.expanded {
     max-width: 1204px !important;
     grid-template-columns: 364px 476px 364px !important;
-    grid-template-rows: calc(var(--card-h, 317px) + 170px) !important;
+    grid-template-rows: calc(var(--card-h, 317px) + 150px) !important;
 }
 
 .project-experience-card::before { content: none !important; display: none !important; }

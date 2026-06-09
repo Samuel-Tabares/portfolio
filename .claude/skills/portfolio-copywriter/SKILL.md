@@ -109,7 +109,7 @@ Collapsed state: `grid-template-columns: 0px 476px 0px`, `grid-template-rows: va
 
 **Critical:** the card has `justify-content: center` so the grid tracks overflow symmetrically on smaller viewports — the image always stays centered. Do NOT remove this.
 
-**Height:** use the fixed calc `calc(var(--card-h, 317px) + 170px)` for the expanded row, NOT `auto`. This keeps the `grid-template-rows` transition smooth. The side panels have `overflow-y: auto` so they scroll if their content is taller.
+**Height:** use the fixed calc `calc(var(--card-h, 317px) + 150px)` for the expanded row, NOT `auto`. This keeps the `grid-template-rows` transition smooth. The side panels have `overflow-y: auto` so they scroll if their content is taller.
 
 When adding a new project card, use `style="--card-h: 317px"` on the `.project-experience-card`.
 
