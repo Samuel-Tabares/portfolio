@@ -314,6 +314,10 @@ const translations = {
         'es': 'Descargar CV',
         'en': 'Download CV'
     },
+    'cv-href': {
+        'es': 'assets/CV_Samuel_Tabares_ES.pdf',
+        'en': 'assets/CV_Samuel_Tabares_EN.pdf'
+    },
     
     // About section
     'about-heading': {
