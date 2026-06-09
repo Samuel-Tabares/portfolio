@@ -749,7 +749,7 @@ header {
 /* Expanded: card grows wide, side panels push in from behind the image */
 .project-experience-card.expanded {
     max-width: 1204px !important;
-    grid-template-columns: 364px 476px 364px !important;
+    grid-template-columns: 1fr 476px 1fr !important;
     grid-template-rows: calc(var(--card-h, 317px) + 150px) !important;
 }
 
