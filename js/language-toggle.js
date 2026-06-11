@@ -399,8 +399,8 @@ const translations = {
         'en': 'Multi-agent systems'
     },
     'skill-llms': {
-        'es': 'LLMs (OpenAI / locales)',
-        'en': 'LLMs (OpenAI / local)'
+        'es': 'LLMs (OpenAI · Claude / locales)',
+        'en': 'LLMs (OpenAI · Claude / local)'
     },
     'skill-rag': {
         'es': 'RAG · Pinecone',
@@ -494,6 +494,14 @@ const translations = {
 'skill-ruby-learning': {
     'es': 'Ruby (en aprendizaje)',
     'en': 'Ruby (learning)'
+},
+'skill-langchain-langgraph': {
+    'es': 'LangGraph / LangChain (en práctica)',
+    'en': 'LangGraph / LangChain (in practice)'
+},
+'skill-claude-api': {
+    'es': 'Claude API / Anthropic SDK (en práctica)',
+    'en': 'Claude API / Anthropic SDK (in practice)'
 },
 'skill-ai-saas': {
     'es': 'Productos de IA como servicio (Agents-as-a-Service / SaaS)',
