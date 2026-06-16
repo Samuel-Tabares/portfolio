@@ -3,7 +3,7 @@
 ## Stack
 
 - Vanilla HTML5 / CSS3 / JavaScript (no framework)
-- Deployed on Vercel: `https://portfolio-kappa-blue-50.vercel.app/`
+- Deployed on Vercel: `https://samueltabares.com/`
 - No build step — edits to files are live on push
 
 ## Purpose
@@ -13,17 +13,30 @@ Personal developer portfolio for Samuel Tabares León, software engineering stud
 ## Architecture
 
 ```
-index.html          — single-page app, all sections inline
-terms.html          — terms/privacy page
-css/styles.css      — all styles, dark theme, CSS variables
+index.html          — single-page app, all sections inline (928 lines)
+terms.html          — terms/privacy page (276 lines)
+robots.txt          — crawler directives
+site.webmanifest    — PWA manifest
+api/
+  contact.js        — Vercel serverless function for contact form
+css/
+  styles.css        — all styles, dark theme, CSS variables (2730 lines)
+  redesign-cinematic.css   — design exploration draft (unused)
+  redesign-editorial.css   — design exploration draft (unused)
+  redesign-stage.css       — design exploration draft (unused)
+  redesign-terminal.css    — design exploration draft (unused)
 js/
-  script.js         — scroll behavior, section logic
-  triangles.js      — background triangle canvas animation
-  language-toggle.js — ES/EN bilingual toggle
-  security.js       — security hardening
-  email-protection.js — obfuscated email rendering
-images/             — profile photo, project screenshots, OG image
-assets/             — CV PDF
+  script.js         — scroll behavior, section logic (445 lines)
+  triangles.js      — background triangle canvas animation (438 lines)
+  language-toggle.js — ES/EN bilingual toggle (1051 lines)
+  security.js       — security hardening (24 lines)
+  email-protection.js — obfuscated email rendering (15 lines)
+  github-activity.js — GitHub activity feed integration (185 lines)
+  wheel-nav.js      — wheel/radial navigation (351 lines)
+images/             — profile photo, project screenshots, OG image (13 files)
+assets/
+  CV_Samuel_Tabares_ES.pdf — Spanish CV
+  CV_Samuel_Tabares_EN.pdf — English CV
 ```
 
 ## Design
