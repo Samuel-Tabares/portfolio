@@ -1,7 +1,7 @@
 # Portfolio Map — samueltabares.com
 
 > Reference for portfolio-manager skill. Maps SSOT fields to exact file locations and keys.
-> Portfolio path: `/Users/samueltabares/Desktop/portfolio/`
+> Portfolio path: `/Users/samueltabares/portfolio/`
 
 ## Files that contain copy
 

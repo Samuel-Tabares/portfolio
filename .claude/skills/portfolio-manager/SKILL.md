@@ -11,7 +11,7 @@ You never apply changes without showing the full diff and getting an explicit ye
 
 ## Prerequisites (check once per session)
 
-1. **Confirm portfolio path exists:** `/Users/samueltabares/Desktop/portfolio/`
+1. **Confirm portfolio path exists:** `/Users/samueltabares/portfolio/`
 2. **Read the SSOT:** `~/.claude/skills-library/_shared/ssot.md` — Samuel's professional identity, tech stack, project list. This is the source of truth for all copy decisions.
 3. **Read `reference/portfolio-map.md`** — the complete map of which SSOT fields touch which files and translation keys.
 4. **Read `reference/copywriter.md`** — voice, tone, banned phrases, output format, and section-specific copy guidelines. Use these whenever writing copy as part of an orchestration flow.
@@ -89,7 +89,7 @@ Bad KPIs: vague labels ("PDF", "2 Roles", "Live") — avoid unless there's no be
 
 ### Image workflow (always follow this)
 
-1. Check if a screenshot exists: `ls /Users/samueltabares/Desktop/portfolio/images/` — look for a filename matching the project.
+1. Check if a screenshot exists: `ls /Users/samueltabares/portfolio/images/` — look for a filename matching the project.
 2. If found: use it. Get dimensions with `sips -g pixelWidth -g pixelHeight <path>` and set `--img-ar: W/H` to the exact pixel dimensions.
 3. If NOT found: **do not use `og-image.jpg` as placeholder** — it is the site's own OG image and looks wrong in project cards. Instead, tell the user: "This card needs a screenshot. Please add it as `images/proyecto-<slug>.png` (optimize with squoosh) and let me know the filename and dimensions."
 
@@ -228,7 +228,7 @@ For copy generation, follow `reference/copywriter.md` — voice, structure, and 
 
 - `~/.claude/skills-library/_shared/ssot.md` — professional identity, brand voice, tech stack, projects
 - `reference/portfolio-map.md` — complete section map, bilingual system, card template, translation keys
-- Portfolio: `/Users/samueltabares/Desktop/portfolio/`
+- Portfolio: `/Users/samueltabares/portfolio/`
   - `index.html` — all sections, ES default text
   - `js/language-toggle.js` — all translation keys, metaCopy, TypingEffect.texts
 
